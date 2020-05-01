@@ -1,0 +1,21 @@
+html, body {
+    height: 100%;
+}
+
+.flex-container {
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.header {
+    color: gray;
+    width: auto;
+    margin: 20px 0;
+}
+
+.button-container {
+    margin: 20px 0;
+}
