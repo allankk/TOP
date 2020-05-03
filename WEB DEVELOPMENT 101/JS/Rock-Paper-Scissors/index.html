@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <!-- Style Sheets-->
@@ -11,23 +12,32 @@
     <title>Rock-Paper-Scissors</title>
 
 </head>
+
 <body>
     <div class="flex-container">
         <div class="header">
             <h1>Play a game of rock-paper-scissors with the computer for 5 rounds.</h1>
         </div>
 
-        <div class="button-container">
+        <div class="button-container" id="button-container">
             <input type=button id="btn.ROCK" value="ROCK">
             <input type=button id="btn.PAPER" value="PAPER">
-            <input type=button id="btn.SCISSORS" value="SCISSORS">            
+            <input type=button id="btn.SCISSORS" value="SCISSORS">
+        </div>
+
+        <div class="button-container" id="play-again">
+            <input type=button id="btn.PLAYAGAIN" value="PLAY AGAIN">
         </div>
 
         <div class="SCORES">
-            <p id="playerScore">PLAYER WINS: 0</p>
-            <p id="opponentScore">OPPONENT WINS: 0</p>
-            <p id="drawScore">DRAWS: </p>
-            <br>
+            <div class="scoretext">
+                <p id="playerScore">PLAYER WINS: 0</p>
+                <p id="opponentScore">OPPONENT WINS: 0</p>
+                <p id="drawScore">DRAWS: </p>
+            </div>
+        </div>
+
+        <div class="SCORES">
             <p id="lastRound"></p>
         </div>
 
@@ -35,4 +45,5 @@
 
     <script src=scripts/play.js></script>
 </body>
+
 </html>

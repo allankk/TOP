@@ -44,6 +44,9 @@ function checkIfGameIsOver(){
         } else {
             element.innerHTML = "THE GAME ENDED IN A DRAW WITH BOTH PLAYERS HAVING " + playerScore + " POINTS.";
         } 
+
+        /// Hide the div containing play buttons
+        hidePlayButtons();        
     }
 }
 
@@ -93,10 +96,55 @@ function loadEventHandlers(){
     let btnRock = document.getElementById("btn.ROCK");
     let btnScissors = document.getElementById("btn.SCISSORS");
     let btnPaper = document.getElementById("btn.PAPER");
+    let btnPlayAgain = document.getElementById("btn.PLAYAGAIN");
 
     btnRock.addEventListener("click", playRound.bind(null, ROCK));
     btnScissors.addEventListener("click", playRound.bind(null, SCISSORS));
     btnPaper.addEventListener("click", playRound.bind(null, PAPER));
+    btnPlayAgain.addEventListener("click", restartGame.bind());
+}
+
+/// Hide the play buttons when the game has ended.
+function hidePlayButtons(){
+    let x = document.getElementById("button-container");
+    let startAgain = document.getElementById("play-again");
+    x.style.display = "none";
+    startAgain.style.display = "flex";
+}
+
+/// Show the play buttons
+function showPlayButtons(){
+    let x = document.getElementById("button-container");
+    let startAgain = document.getElementById("play-again");
+    startAgain.style.display = "none";
+    x.style.display = "flex";
+}
+
+// restarts the game.
+function restartGame() {
+    playerScore = 0;
+    opponentScore = 0;
+    drawScore = 0;
+    roundsPlayed = 0;
+
+    let roundInfo = document.getElementById("lastRound");
+    roundInfo.innerHTML = "";
+
+    updateScores();
+    showPlayButtons();
 }
 
 loadEventHandlers();
+
+/*
+// Play a number of automatic games;
+function autoGame() {
+    let howManyGames = 100; 
+    let i;
+
+    for (i = 0; i < howManyGames; i++ ){
+        playRound(null, computerPlay());
+    }
+}
+autoGame();
+*/
