@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="styles/reset.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="styles/main.css" rel="stylesheet" type="text/css" media="all" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch-A-Sketch</title>
+</head>
+<body>
+    <div class="container">
+        <div id="resetContainer">
+            <input type="button" value="Reset the grid" id="resetBtn">
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="selectModeContainer">
+            <input type="button" value="Graymode" id="grayMode">
+            <input type="button" value="Colors" id="colorMode">
+            <input type="button" value="Incremental" id="incrementalMode">
+            <input type="button" value="Erase" id="eraseMode">              
+        </div>
+    </div>
+
+    <div class="container" id="squareArea"></div>
+
+    <div class="container">
+        <div id="buttonContainer">
+            <input id="makeNewGrid" placeholder="squares on one line">
+            <input type="button" value="Make new grid" id="newGridBtn">
+        </div>
+    </div>
+</body>
+
+<script src="scripts/etch-a-sketch.js"></script>
+
+</html>
