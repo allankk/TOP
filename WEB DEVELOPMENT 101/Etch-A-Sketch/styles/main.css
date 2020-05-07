@@ -1,0 +1,128 @@
+html, body {
+    background-color: #ececec;
+    display: flex;
+    flex-flow: column nowrap;
+    height: 95%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.container {
+    background-color: #fdfdfd;
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    justify-content: center;
+    border-radius: 3px;
+    padding: 3px;
+}
+
+#squareArea {
+    height: 600px;
+    width: 600px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+
+}
+.square {
+    background-color: #ffffff;
+    
+}
+
+#selectModeContainer input {
+    width: 140px;
+    height: 40px;
+    font-size: 14px;
+    background-color: #ececec;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid #ececec;
+}
+
+#selectModeContainer input:hover {
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+#resetContainer {
+    color: #808080;
+    width: 250px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+#resetBtn {
+    font-size: 14px;
+    background-color: #ececec;
+    height: 40px;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    border: 1px solid #ececec;
+
+}
+
+#resetBtn:hover {
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+#buttonContainer {
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    border-radius: 5px;
+    align-items: center;
+}
+
+#selectModeContainer {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#makeNewGrid {
+    width: 150px;
+    height: 30px;
+    background-color: #f3f3f3;
+    text-align: center;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+#makeNewGrid::placeholder {
+    color: #808080;
+}
+
+#newGridBtn {
+    width: 250px;
+    height: 40px;
+    font-size: 14px;
+    background-color: #ececec;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid #ececec;
+}
+
+#newGridBtn:hover {
+    cursor: pointer;
+    background-color: #fdfdfd;
+}
+
+.break {
+    flex-basis: 100%;
+    height: 0;
+}
+
