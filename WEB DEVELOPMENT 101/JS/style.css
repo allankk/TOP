@@ -6,3 +6,10 @@ html, body {
     text-align: center;
     flex-direction: column;
 }
+
+.test {
+    display: flex;
+    flex-direction: column;
+    height: 40%;
+    justify-content: space-around;
+}

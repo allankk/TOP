@@ -1,4 +1,6 @@
 
+/* REQUIRES A DIV ELEMENT IN BODY WITH A CLASS OF ',test' */
+
 function createParagraph(color) {
     const div = document.createElement('div');
     div.style.color = color;
@@ -40,6 +42,44 @@ function createNewDiv(borderColor, backgroundColor) {
     container.insertBefore(addedDiv, addBefore);
 }
 
+// BUTTONS AND INPUTS
+/*
+// Method 2 of manipulating DOM Eventhandler
+const btn = document.querySelector("#btn");
+btn.onclick = () => alert("Hello World");
+
+// Method 3 of manipulating DOM Eventhandlers
+const btn2 = document.querySelector('#btn2');
+btn2.addEventListener('click', () => {
+    alert("Hello World");
+});
+*/
+
+/*
+// EventListener btn
+// Gets the mouseEvent target (so the button). Can use to adjust the buttons function after click
+const btn = document.querySelector('#btn');
+btn.addEventListener('click', function(e) {
+    console.log(e.target);
+});
+
+// EventListener btn2
+const btn2 = document.querySelector('#btn2')
+btn2.addEventListener('click', function(e) {
+    e.target.style.background = 'blue';
+});
+*/
+
+// ATTACH LISTENERS TO GROUP OF NODES
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+        alert(button.id);
+    });
+});
+
+createNewDiv("black", "pink");
 createH3("blue");
 createParagraph("red");
-createNewDiv("black", "pink");
+
