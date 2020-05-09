@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Stylesheest -->
+    <link rel="stylesheet" href="styles/reset.css" type="text/css" media="all">
+    <link rel="stylesheet" href="styles/main.css" type="text/css" media="all">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro clock</title>
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <div class="slidecontainer">
+                <div class="menutext">Amount of sessions</div>
+                <input type="range" min="1" max="20" value="10" class="slider" id="sessionAmount">
+            </div>
+            <div class="slidecontainer">
+                <div class="menutext">Session length</div>
+                <input type="range" min="5" max="60" value="25" class="slider" id="sessionLength">
+            </div>
+            <div class="slidecontainer">
+                <div class="menutext">Break length</div>
+                <input type="range" min="1" max="30" value="5" class="slider" id="breakLength">
+            </div>
+
+        </div>
+        <div id="verticalBar"></div>
+        <div class="clockArea">
+            <div class=session-container>
+                <div class="menutext">SESSIONS LEFT</div>
+                <div class="session-number"><span id="session-number">10</div>
+            </div>
+            <div class=session-container>
+                <div class="menutext">SESSION TIME</div>
+                <div class="session-time"><span id="sessionmm">25</span>:<span id="sessionss">00</span></div>
+            </div>
+            <div class="session-container">
+                <div class="menutext">BREAK TIME</div>
+                <div class="breakTime"><span id="breakmm">05</span>:<span id="breakss">00</span></div>
+            </div>
+            <div class="session-container">
+                <div class="button-container">
+                    <button type="submit" id="resume" value="resume"><img src="images/play.svg" width="40" height="40"></button>
+                    <button type="submit" id="pause" value="pause"><img src="images/pause.svg" width="40" height="40"></button>
+                    <button type="submit" id="stop" value="stop"><img src="images/square.svg" width="40" height="40"></button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+</body>
+<script src=scripts/pomodoro.js></script>
+</html>
