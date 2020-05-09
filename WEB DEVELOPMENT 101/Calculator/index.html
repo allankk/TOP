@@ -14,33 +14,37 @@
     <div class="calculator-container">
         <div class="screen">
             <div class="input-form">
-                <input id="textInput" placeholder="000">
-
+                <input id="lastOperation" disabled>
+                <div class="center-border"></div>
+                <input id="textInput" placeholder="0" disabled>
             </div>
         </div>
 
         <div class="button-container">
             <div class="number-button-container">
-                <div class="number" id="9"><span>9</span></div>
-                <div class="number" id="8"><span>8</span></div>
-                <div class="number" id="7"><span>7</span></div>
-                <div class="number" id="6"><span>6</span></div>
-                <div class="number" id="5"><span>5</span></div>
-                <div class="number" id="4"><span>4</span></div>
-                <div class="number" id="3"><span>3</span></div>
-                <div class="number" id="2"><span>2</span></div>
-                <div class="number" id="1"><span>1</span></div>
-                <div class="number" id="0"><span>0</span></div>
-                <div class="number" id="dot"><span>.</span></div>
+                <div data-key="9" class="number" id="9"><span>9</span></div>
+                <div data-key="8" class="number" id="8"><span>8</span></div>
+                <div data-key="7" class="number" id="7"><span>7</span></div>
+                <div data-key="6" class="number" id="6"><span>6</span></div>
+                <div data-key="5" class="number" id="5"><span>5</span></div>
+                <div data-key="4" class="number" id="4"><span>4</span></div>
+                <div data-key="3" class="number" id="3"><span>3</span></div>
+                <div data-key="2" class="number" id="2"><span>2</span></div>
+                <div data-key="1" class="number" id="1"><span>1</span></div>
+                <div data-key="0" class="number" id="0"><span>0</span></div>
+                <div data-key="." id="dot"><span>.</span></div>
+                <div id="plusminus"><span>+/-</span></div>
             </div>
             <div class="center-border"></div>
             <div class="action-button-container">
-                <div class="action" id="divide"><span>÷</span></div>
-                <div class="action" id="multiply"><span>×</span></div>
-                <div class="action" id="subtract"><span>-</span></div>
-                <div class="action" id="add"><span>+</span></div>
-                <div class="action" id="delete"><span>⌫</span></div>
-                <div class="action" id="equals"><span>=</span></div>
+                <div data-key="/" class="action" id="divide"><span>÷</span></div>
+                <div data-key="*" class="action" id="multiply"><span>×</span></div>
+                <div data-key="-" class="action" id="subtract"><span>-</span></div>
+                <div data-key="+" class="action" id="add"><span>+</span></div>
+                <div data-key="Backspace" class="action" id="delete"><span>⌫</span></div>
+                <div data-key="Escape" class="action" id="reset"><span>CA</span></div>
+                <div data-key="empty" class="action" id="empty"></div>
+                <div data-key="Enter" class="action" id="equals"><span>=</span></div>
             </div>
 
         </div>
