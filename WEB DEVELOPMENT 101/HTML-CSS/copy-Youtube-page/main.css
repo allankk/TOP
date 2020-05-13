@@ -1,9 +1,10 @@
 html, body {
     width: 100%;
     height: 100%;
-    background-color: #fff;
+    background-color: #f9f9f9;
     margin: 0;
     padding: 0;
+    font-family: Roboto, Arial, sans-serif;
 }
 
 /* MENU/TOP-NAV-BAR */
@@ -20,6 +21,10 @@ header {
     flex: 1;
     top: 0;
     z-index: 9999;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 .header-left {
@@ -53,7 +58,6 @@ header {
 }
 
 header input {
-    background-color: #fff;
     height: 35px;
     width: 50%;
     font-size: 16px;
@@ -65,10 +69,10 @@ header input {
 }
 
 header button {
-    background-color: #fff;
     outline: none;
     border: none;
     margin: 0 4px;
+    background-color: white;
 }
 
 header button:hover {
@@ -144,26 +148,29 @@ header #search-button {
 }
 
 .secondary-content {
-    background-color: red;
-    width: 300px;
-    min-width: 100px;
+    width: 395px;
+    min-width: 300px;
     margin: 0 10px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .video-title {
     height: 30px;
-    font-size: 20px;
+    font-size: 19px;
     background-color: #f9f9f9;
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
     align-content: center;
-    margin: 5px 0;
+    margin: 10px 0;
 }
 
 .video-data {
-    height: 50px;
-    font-size: 14px;
+    height: 45px;
+    font-size: 13px;
     color: gray;
     background-color: #f9f9f9;
     display: flex;
@@ -177,7 +184,7 @@ header #search-button {
     width: 50%;
     flex-flow: row nowrap;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .basic-info p {
@@ -220,6 +227,10 @@ header #search-button {
     align-items: center;
 }
 
+.author-name {
+    font-weight: bold;
+}
+
 .author-text {
     height: 100%;
     width: 100%;
@@ -230,11 +241,26 @@ header #search-button {
 
 .description {
     margin-top: 10px;
+    overflow: hidden;
+    line-height: 20px;
+    font-size: 13px;
 }
 
 .more {
     color: gray;
     margin-top: 10px;
+    width: 100px;
+}
+
+.more button {
+    color: gray;
+    font-weight: bold;
+    text-shadow: none;
+}
+
+.more button:hover {
+    cursor: pointer;
+    color: #000;
 }
 
 .comment-header {
@@ -264,4 +290,186 @@ header #search-button {
     align-items: center;
 }
 
+.subscriber-amount {
+    font-size: 13px;
+    line-height: 20px;
+}
 
+
+/* COMMENTS */
+
+.comment-personal {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.profile-pic {
+    width: 80px;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.comment-insert {
+    outline: none;
+    width: 100%;
+}
+
+.comment-insert input {
+    outline: none;
+    border: none;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid rgb(206, 206, 206);
+    width: 100%;
+    height: 20px;
+    font-size: 14px;
+    padding: 4px 5px;
+    transition-duration: 0.09s;
+}
+
+.comment-insert input:focus {
+    border-bottom: 2px solid gray;
+}
+
+.comments {
+    height: 100px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 13px;
+}
+
+.comment-data {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.user-time {
+    display: flex;
+    flex-flow: row nowrap;
+    height: 25px;
+}
+
+.profile-name {
+    font-weight: bold;
+}
+
+.comment-time {
+    color: gray;
+    margin: 0 5px;
+}
+
+.comment-icons {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.comment-icons button {
+    margin-left: 2px;
+}
+
+.comment-icons button:hover {
+    color: black;
+}
+
+.reply {
+    margin: 0 5px;
+    color: gray;
+    font-weight: bold;
+}
+
+.reply:hover {
+    color: black;
+}
+
+/* SECONDARY (THUMBNAIL) CONTENT */
+
+.secondary-header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;   
+    height: 50px;
+    width: 100%;
+}
+
+.up-next {
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.autoplay {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: gray;
+}
+
+.slider {
+    -webkit-appearance: none;
+    margin: 0 5px;
+    width: 18%;
+    height: 15px;
+    border-radius: 10px;  
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; 
+    background: rgb(0, 0, 255);
+    cursor: pointer;
+    box-shadow: 0 0 2px 1px rgb(0, 0, 255);
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgb(0, 0, 255);
+    box-shadow: 0 0 2px 1px rgb(0, 0, 255);
+    cursor: pointer;
+  }
+
+  .thumbnail {
+      height: 100px;
+      margin: 5px 0;
+  }
+
+  .thumbnail button {
+      outline: none;
+      border: none;
+      background-color: #f9f9f9;
+  }
+
+  hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid gray;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 0;
+    width: 80%;
+}
