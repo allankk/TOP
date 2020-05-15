@@ -1,0 +1,236 @@
+html, body {
+    background-color: rgb(236, 238, 241);
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(20, 78, 167);
+}
+
+/* NAVIGATION BAR UPPER */
+
+.nav-wrapper {
+    background-color: rgb(236, 238, 241);
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.nav-wrapper button {
+    width: 115px;
+    height: 38px;
+    background-color: rgb(20, 78, 167);
+    display: flex;
+    flex-flow: row nowrap;
+    margin-right: 25px;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.nav-wrapper button img {
+    height: 17px;
+    width: 17px;
+    margin-right: 7px;
+}
+
+.nav-wrapper .header-text {
+    margin-right: 10px;
+    line-height: 18px;
+    text-align: center;
+    color: gray;
+}
+
+.nav-wrapper .header-text a {
+    color: rgb(20, 78, 167);
+}
+
+
+/* HEADER - LOGOS ETC */
+
+header {
+    background-color: rgb(236, 238, 241);
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 25px;
+    line-height: 40px;
+}
+
+header img:hover {
+    cursor: pointer;
+}
+
+/* MAIN CONTENT AND ITS HEADER */
+
+.main-content {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.main-content .sign-up-container {
+    background-color: #fff;
+    width: 400px;
+    color: rgb(110, 110, 110);
+    border: 1px solid gray;
+}
+
+.main-content header {
+    width: 99%;
+    background-color: inherit;
+    line-height: 15px;
+    padding-bottom: 20px;
+}
+
+.main-content h1 {
+    font-weight: 600;
+    font-size: 24px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.main-content header a {
+    line-height: 20px;
+}
+
+/* MAIN CONTENT - FORM */
+
+.main-content form {
+    width: 90%;
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 0 auto;
+    line-height: 40px;
+    font-size: 16px;
+}
+
+.main-content form fieldset {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.main-content form input {
+    width: 96%;
+    height: 35px;
+    outline: none;
+    border-radius: 3px;
+    border: 1px solid gray;
+    font-size: 18px;
+    padding-left: 10px;
+}
+
+.main-content form input:focus {
+    border: 1px solid rgb(0, 102, 255);
+    box-shadow: 0 0 15px -10px rgb(0, 102, 255);
+}
+
+.main-content form fieldset span {
+    height: 30px;
+    line-height: 25px;
+}
+
+#form-email-info {
+    font-size: 12px;
+    line-height: 40px;
+    padding-bottom: 30px;
+}
+
+
+.main-content .password-container input {
+    width: 84%;
+    padding-right: 12%;
+}
+
+
+.main-content .password-container img {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    float: right;
+    bottom: 35px;
+    right: 8px;
+}
+
+.sign-up-action {
+    text-align: center;
+}
+
+.sign-up-action button {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgb(20, 78, 167);
+    box-shadow: 0 1px 1px 1px rgb(20, 78, 167);
+    border-radius: 4px;
+    font-size: 18px;
+    border: none;
+}
+
+.sign-up-action button:hover {
+    cursor: pointer;
+    background-color: rgb(20, 80, 170);
+}
+
+/* MAIN CONTENT (FORM) FOOTER */
+
+.main-content form footer {
+    width: 300px;
+    line-height: 20px;
+    text-align: center;
+    margin: 40px auto;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.main-content form footer a {
+    color: rgb(20, 78, 167)
+}
+
+.main-content form footer a:hover {
+    text-decoration: none;
+    border-bottom: none;
+}
+
+.main-content .captcha {
+    line-height: 50px;
+    font-size: 12px;
+    text-align: center;
+    background-color: rgb(236, 238, 241);
+    color: gray;
+}
+
+
+/* PAGE FOOTER */
+.main-content footer {
+    line-height: 20px;
+    text-align: center;
+    text-align: center;
+    margin: 40px auto;
+    font-size: 14px;
+}
+
+.main-content footer a {
+    margin: 0 5px;
+    color: rgb(110, 110, 110);
+}
+
+.main-content footer a:hover {
+    border-bottom: 1px solid rgb(110, 110, 110);
+}
