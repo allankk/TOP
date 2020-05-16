@@ -5,7 +5,7 @@ html, body {
 
 .main-content {
     margin: 0 auto;
-    width: 1440px;
+    max-width: 1440px;
     height: 1000px;
     display: grid;
     grid-template-rows: repeat(6, 1fr);
@@ -23,6 +23,7 @@ html, body {
 .primary {
     background: #fff url(../images/your_verse_hero.jpg) 50% 100% no-repeat;
     background-size: 100% auto;
+    max-width: 1440px;
 }
 
 .promo {

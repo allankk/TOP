@@ -1,0 +1,270 @@
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+/* NAV-BAR */
+
+nav {
+	width: 980px;
+	height: 37px;
+	margin: 0 auto;
+	position: relative;
+	top: 75px;
+	background: linear-gradient( to bottom, rgb(119, 124, 120) 5%, rgb(105, 105, 105) 11%, rgb(100, 100, 100) 50%, rgb(82, 82, 82) 51%, rgb(100, 105, 101) 100% );
+	border-radius: 6px;
+	box-shadow: 0 0 1px 1px gray;
+}
+
+nav .search {
+	padding: 10px;
+}
+
+nav .search .search-box {
+	width: 100px;
+	background-color: rgba(255, 255, 255, 0.0976562);
+	transition-duration: 0.3s;
+	margin: auto 0;
+	border-radius: 5px;
+	border: 1px solid rgb(201, 201, 201);
+	box-shadow: -1px -1px 1px 1px black;
+}
+
+nav .search input{
+	width: 100px;
+	background-color: rgba(255, 255, 255, 0.0976562);
+	transition-duration: 0.3s;
+	border-radius: 8px;
+	height: 16px;
+	border: 0px none white;
+	box-shadow:rgba(0, 0, 0, 0.4) 0px -1px 0px 0px, rgba(255, 255, 255, 0.2) 0px 1px 0px 0px;
+	color: white;
+	padding-left: 25px;
+	text-shadow: 1px 1px 2px gray;
+}
+
+nav .search img {
+	width: 12px;
+	height: 12px;
+	position: absolute;
+	top: 12px;
+	padding-left: 5px;
+}
+
+nav .search input:focus {
+	flex: 3;
+	width: 150px;
+}
+
+nav ul {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: center;
+	float: left;
+	background-color: transparent;
+	
+	/* border-right: 1px solid rgb(84, 84, 84); */
+}
+
+nav li {
+	display: table-cell;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	flex-shrink: 1;
+	border-left: 0.5px solid rgba(71,71,71,.74);
+}
+
+nav li .logo {
+	border-left: none;
+}
+
+nav li button{
+	background-color: transparent;
+	background-repeat: no-repeat;
+	border: none;
+	outline: none;
+	width: 50px;
+	height: 30px;
+	margin: 0 auto;
+	color: white;
+	width: 100%;
+	height: 100%;
+	text-shadow: 1px 1px 2px black;
+}
+
+nav li button:hover {
+	background: linear-gradient(to right, rgba(0,0,0,.25), rgba(0,0,0,.3) 3%, rgba(0,0,0,.4) 12%);
+	cursor: pointer;
+}
+
+nav img {
+	height: 22px;
+	width: 18px;
+	color: red;
+	fill: red;
+}
+
+
+
+/* MAIN CONTENT */
+
+.main-content {
+	display: grid;
+	grid-template-rows: 4fr 1fr;
+	grid-gap: 5px;
+	max-width: 1440px;
+	min-width: 1000px;
+	margin: 0 auto;
+}
+
+.primary {
+	background: red url(../images/your_verse_hero.jpg) 50% 100% no-repeat;
+}
+
+.primary:hover {
+	cursor: pointer;
+}
+
+.header-text {
+	margin: 0 auto;
+	position: relative;
+	top: 200px;
+	width: 980px;
+}
+
+.header-text #play {
+	height: 32px;
+	width: 100%;
+	object-fit: cover;
+	object-position: top;
+}
+
+.header-text #play:hover {
+	cursor: pointer;
+	object-position: bottom;
+}
+
+.header-text #title2-img {
+	position:relative;
+	bottom: 15px;
+}
+
+.header1 {
+	color: white;
+	font-size: 48px;
+	text-align: center;
+	line-height: 80px;
+}
+
+.header2 {
+	color: white;
+	font-size: 32px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.header3 {
+	color: white;
+	font-size: 28px;
+	text-align: center;
+}
+
+.header3:hover {
+	text-decoration: underline;
+}
+
+.secondary {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-gap: 5px;
+}
+
+.secondary button {
+	background-color: #fff;
+	outline: none;
+	border: none;
+	padding: 0;
+}
+
+.secondary button:hover {
+	cursor: pointer;
+}
+
+.secondary img {
+	width: 100%;
+	height: 100%;
+}
+
+/* FOOTER */
+
+footer {
+	margin: 20px auto;
+	font-size: 12px;
+	max-width: 1440px;
+	min-width: 1000px;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+	align-items: center;
+}
+
+footer .first-column {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: flex-start;
+	line-height: 20px;
+}
+
+footer .menu {
+	align-self: flex-start;
+}
+
+footer a {
+	color: #4f9bff;
+	text-decoration: none;
+}
+
+footer a:hover {
+	text-decoration: underline;
+}
+
+footer button {
+	outline: none;
+	border: none;
+	padding: 0;
+	background-color: #fff;
+}
+
+.menu img {
+	height: 15px;
+	width: 15px;
+	margin-left: 5px;
+}
+
+.menu a {
+	padding: 0 5px;
+	border-right: 1px solid gray;
+}
+
+.copyright a {
+	
+	padding-right: 3px;
+	border-right: 1px solid gray;
+}
+
+/* MOBILE AND SMALLER SCREEN OPTIMIZATION */
+
+@media screen and (max-width: 1400px) {
+	.main-content {
+		max-width: 90%;
+	}
+
+	footer {
+		max-width: 90%;
+	}
+}
