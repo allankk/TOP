@@ -1,0 +1,255 @@
+html, body {
+    background-color: #fff;
+}
+
+/* NAVIGATION BAR - TOP */
+
+
+header {
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+}
+
+header .logo {
+    display: none;
+    line-height: 80px;
+    font-size: 24px;
+    background: linear-gradient(to bottom right,#c09,#f42 85%);
+    color: white;
+    font-weight: bold;
+    transition-duration: 0.5s;
+
+}
+
+
+header .top-header {
+    height: 30px;
+    width: 100%;
+    background-color: rgb(34, 34, 34);
+    color: rgb(182, 182, 182);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header ul {
+    display: flex;
+    list-style: none;
+    flex-flow: row nowrap;
+    margin: 0 10px;
+}
+
+header .bottom-header a {
+    color: gray;
+    text-transform: uppercase;
+    margin: 0 10px;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+header .bottom-header a:hover {
+    color: black;
+}
+
+header .top-header a {
+    color: rgb(189, 189, 189);
+    text-decoration: none;
+    padding: 0 10px;
+    font-size: 14px;
+}
+
+header .top-header a:hover {
+    color: white;
+}
+
+header .bottom-header {
+    height: 50px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+header .bottom-header button {
+    background-color: transparent;
+    display: flex;
+    padding: 0 20px;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    outline: none;
+    border-left: 1px solid gray;
+    height: 100%;
+}
+
+header .bottom-header button:hover {
+    cursor: pointer;
+}
+
+header .bottom-header img {
+    height: 20px;
+    width: 18px;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    vertical-align: middle;
+}
+
+.bh-icons {
+    display: flex;
+    flex-flow: row nowrap;
+    outline: none;
+}
+
+.bh-icons .menu-icon {
+    display: none;
+    border: none;
+}
+
+.bh-icons .search-icon {
+    margin: auto 0;
+    margin-right: 10px;
+}
+
+.bh-icons .menu-icon img {
+    background-color: transparent;
+    height: 30px;
+    width: 30px;
+}
+
+
+/* NAVIGATION - MEDIA QUERIES */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    header {
+        grid-template-columns: 106px 1fr;
+    }
+
+    header .logo {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        grid-template-columns: 106px 1fr;
+        height: 50px;
+    }
+
+    header .logo {
+        display: block;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    header .top-header {
+        display: none;
+    }
+
+    header .bottom-header {
+        justify-content: flex-end;
+    }
+
+    header .bottom-header ul {
+        display: none;
+    }
+
+    .bh-icons .menu-icon {
+        display: block;
+        border: none;
+    }
+}
+
+@media (max-width: 815px)  {
+    #terms {
+        display: none;
+    }
+}
+
+@media (max-width: 785px)  {
+    header .bottom-header a {
+        margin: 0 5px;
+    }
+}
+
+/* TOP STORIES */
+
+.top-stories {
+    height: 500px;
+    grid-template-areas:
+    "story1 story1 story2"
+    "story1 story1 story3";
+    display: grid;
+    grid-gap: 5px;
+    margin: 20px 7px;
+    box-sizing: border-box;
+}
+
+.story1 {
+    background-color: blue;
+    grid-area: story1;
+}
+
+.story2 {
+    background-color: yellow;
+    grid-area: story2;
+}
+
+.story3 {
+    background-color: cyan;
+    grid-area: story3;
+}
+
+
+/* TOP STORIES - MEDIA QUERY */
+
+@media (max-width: 768px) {
+    .top-stories {
+        display: flex;
+        flex-flow: column nowrap;
+    }
+
+    .story {
+        height: 300px;
+        margin: 10px 0;
+    }
+}
+
+
+/* LATEST NEWS */
+
+.latest-news ul {
+    display: flex;
+    flex-flow: row wrap;
+    list-style: none;
+    flex: 0 1 auto;
+    margin: 0 10px;
+    background-color: yellow;
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+		  box-sizing: border-box;
+}
+
+.latest-news li {
+    flex-basis: 25%;
+    max-width: 25%;
+    height: 150px;
+    background-color: blue;
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+		  box-sizing: border-box;
+    border: 2px solid white;
+}
+
+/* LATEST NEWS - MEDIA QUERY */
+
+@media (max-width: 1024px) {
+    .latest-news li {
+        flex-basis: 33%;
+        max-width: 33%;
+        height: 150px;
+    }
+}
