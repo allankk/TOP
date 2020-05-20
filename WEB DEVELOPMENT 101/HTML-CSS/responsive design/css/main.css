@@ -529,7 +529,7 @@ a:hover {
 
 .latest-funding .items-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-gap: 5px;
     margin: 0 10px;
     -webkit-box-sizing: border-box;
@@ -538,13 +538,110 @@ a:hover {
 }
 
 .latest-funding .funding-item {
-    background-color: blue;
-    height: 200px;
+    background-color: #fffaf8;
+    max-height: 300px;
+    display: block;
 }
+
+.latest-funding .funding-item h3 {
+    background-color: #f42;
+    height: 40px;
+    padding: 10px 10px 10px 84px;
+    font-size: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    color: white;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+		  box-sizing: border-box;
+}
+
+.latest-funding .funding-item h4 {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.2em;
+}
+
+.latest-funding .funding-item h5 {
+    color: gray;
+    line-height: 1.2em;
+    font-size: 14px;
+}
+
+.latest-funding .funding-top {
+    position: relative;
+    display: block;
+    height: 90px;
+}
+
+.latest-funding .funding-econ {
+    background-color: rgba(255,68,34,.08);
+    padding: 10px 10px 10px 84px;
+    height: 60px;
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+		  box-sizing: border-box;
+}
+
+.latest-funding img {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    left: 15px;
+    top: 15px;
+}
+
+.latest-funding .category {
+    padding: 16px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.latest-funding .category a {
+    padding-top: 10px;
+    line-height: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    color: rgb(66, 66, 66);
+    font-size: 16px;
+}
+
+.latest-funding .category img {
+    position: static;
+    height: 18px;
+    width: 18px;
+    padding-right: 10px;
+}
+
+.latest-funding .funding-article {
+    padding: 15px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    border-top: 1px solid #f42;
+}
+
+.latest-funding .funding-article a {
+    line-height: 1.5em;
+    font-size: 14px;
+    color: rgb(66, 66, 66)
+}
+
+.latest-funding .funding-article a span {
+    color: gray;
+}
+
 
 /* LATEST FUNDING - MEDIA QUERIES */
 
-@media (max-width: 1024px) {
+@media only screen and (max-width: 1024px) {
 
     .latest-funding {
         margin: 50px auto;
@@ -566,7 +663,7 @@ a:hover {
     }
 
     .latest-funding .items-container {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .latest-funding #last {
@@ -575,7 +672,6 @@ a:hover {
 }
 
 @media (max-width: 768px) {
-
     .latest-funding ul {
         margin-top: 5px;
     }
@@ -594,7 +690,6 @@ a:hover {
     .latest-funding .funding-item {
         margin-bottom: 10px;
     }
-
 }
 
 
@@ -603,7 +698,6 @@ a:hover {
 .pages-list {
     max-width: 1200px;
     margin: 50px auto;
-    background-color: yellow;
     justify-content: space-between;
     -webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
@@ -625,12 +719,135 @@ a:hover {
 }
 
 .pages-list .page {
-    background-color: blue;
-    margin: 0 10px;
-    height: 300px;
+    margin: 20px 10px;
+    max-height: 600px;
     flex-basis: 33%;
     max-width: 30%;    
     padding: 5px 5px;
+}
+
+.page .background-grad {
+    position: absolute;
+    background: linear-gradient(180deg, rgba(0,0,0,0.2471471207865169) 0%, rgba(0,0,0,1) 85%);
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.page header {
+    position: relative;
+}
+
+.page img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: 1;
+}
+
+.page .header-text {
+    padding: 10px;
+    color: white;
+    width: 100%;
+    height: 200px;
+    z-index: 3;
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+    align-items: flex-start;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+}
+
+.page .header-text h5 {
+    color: white;
+    line-height: 1.5em;
+    font-size: 14px;
+}
+
+.page .header-text a {
+    color: white;
+    line-height: 1em;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.page .header-text .header-bottom a {
+    color: gray;
+    line-height: 1.5em;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.page .header-text a:hover {
+    color: #fff;
+}
+
+.page .header-text span {
+    color: gray;
+    font-size: 16px;
+}
+
+.page .bottom-header {
+    height: 96px;
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: rgba(255,68,34,.08);
+}
+
+.page .bottom-header img {
+    height: 96px;
+    width: 96px;
+    object-fit: cover;
+    position: static;
+}
+
+.page .bottom-header .bh-text {
+    padding: 10px 10px 0 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+}
+
+.page .bottom-header h5 {
+    color: #f42;
+    font-size: 16px;
+}
+
+.page .bottom-header a {
+    color: #f42;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.page .article-links {
+    list-style: none;
+}
+
+.page .article-links li {
+    font-size: 14px;
+    padding: 6px 0 6px 14px;
+    border-bottom: 1px solid rgb(211, 211, 211) solid;
+}
+
+.page .article-links li::before {
+    content: "\2022";
+    display: inline-block;
+    font-weight: bold;
+    color: #f42;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.page .article-links a {
+    color: rgb(116, 116, 116);
+}
+
+.page .article-links a {
+    color: rgb(43, 43, 43);
 }
 
 /* PAGES-LIST MEDIA QUERIES */
@@ -655,6 +872,15 @@ a:hover {
         max-width: 100%;
         margin: 0 10px;
     }
+
+    .pages-list .page {
+        margin-top: 20px;
+    }
+
+    .page .bottom-header a {
+        font-size: 16px;
+    }
+
 }
 
 
@@ -681,19 +907,42 @@ a:hover {
 }
 
 .latest-deals .deal-item {
-    background-color: blue;
     flex-basis: 25%;
     max-width: 25%;
     border: 2px solid white;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
          box-sizing: border-box;
-    height: 300px;
+    margin-bottom: 20px;
 }
 
 .latest-deals header a {
      margin-right: 20px;
 }
+
+.latest-deals img {
+    width: 100%;
+    object-fit: fill;
+}
+
+.latest-deals h4 {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1em;
+    padding: 5px 0;
+}
+
+.latest-deals .old-price {
+    text-decoration: line-through;
+    color: rgb(110, 110, 110);
+    font-size: 14px;
+}
+
+.latest-deals .new-price {
+    color: rgb(49, 49, 49);
+    font-size: 18px;
+}
+
 
 /* LATEST DEALS - QUERIES */
 
@@ -718,7 +967,33 @@ a:hover {
     .latest-deals .deal-item {
         max-width: 100%;
         width: 100%;
-        height: 150px;
+        height: 60px;
+        position: relative;
+        padding-left: 100px;
+        margin: 30px 0;
+    }
+
+    .latest-deals img {
+        position: absolute;
+        width: 75px;
+        height: 75px;
+        object-fit: cover;
+        left: 10px;
+    }
+
+    .latest-deals h4 {
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 1em;
+        padding: 5px 0;
+    }
+    
+    .latest-deals .old-price {
+        font-size: 12px;
+    }
+    
+    .latest-deals .new-price {
+        font-size: 16px;
     }
 }
 
