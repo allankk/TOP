@@ -1005,7 +1005,7 @@ footer {
 }
 
 footer .top-footer {
-    background-color: gray;
+    background-color: #131313;
     height: 66%    
 }
 
@@ -1019,16 +1019,45 @@ footer .top-footer .f-buttons {
     top: 5px;
 }
 
+footer .top-footer .f-buttons button {
+    background-color: rgb(70, 70, 70);
+    border: 1px solid rgb(70, 70, 70);
+    color: #fff;
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 40px;
+    margin: 0 10px;
+    border-radius: 50%;
+}
+
+footer i {
+    font-size: 18px;
+}
+
+footer .top-footer button:hover {
+    background-color: #131313;
+    cursor: pointer;
+    border: 2px solid rgb(70,70,70);
+}
 
 footer .top-footer .f-links {
     height: 25%;
+    color: gray;
+    font-size: 12px;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
     align-items: flex-start;
 }
 
+footer .top-footer a {
+    color: gray;
+}
 
+footer .top-footer a:hover {
+    color: #fff;
+}
 
 footer .top-footer .f-links li {
     display: inline;
@@ -1036,12 +1065,21 @@ footer .top-footer .f-links li {
 }
 
 footer .bottom-footer {
-    background-color: rgb(53, 53, 53);;
+    background-color: #000;
+    color: gray;
     height: 34%;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
+}
+
+footer .bottom-footer a {
+    color: #fff;
+}
+
+footer .bottom-footer a:hover {
+    cursor: pointer;
 }
 
 footer .bottom-footer .bf-text {
