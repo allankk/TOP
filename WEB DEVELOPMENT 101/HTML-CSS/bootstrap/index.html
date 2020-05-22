@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Newsweek - News, Analysis, Politics, Business, Technology</title>
+</head>
+<body>
+
+    <header class="nav navbar topbar d-flex flex-xs flex-row justify-content-between align-items-center flex-nowrap">
+        <div class="weather-date d-flex flex-column flex-nowrap order-2 order-lg-1">
+            <div class="weather">
+                <img src="images/weather.png" alt="">
+                12° <span class="d-none d-md-inline-block">  Tallinn, EE</span>
+            </div>
+            <span class="d-none d-lg-block">Fri, May 22, 2020</span>
+        </div>
+
+        <div class="navbar-brand text-center logo order-1 order-lg-2">
+            <svg class="img-fluid" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 395.6 60" style="enable-background:new 0 0 395.6 60;" xml:space="preserve"><g>
+                <path class="st0" d="M58.7,10.8h-5.6v48.3H42.8l-25.1-33v22.1h5.6v10.8H0V48.3h5.6V10.8H0V0h17.6L41,30.7V10.8h-5.6V0h23.2	L58.7,10.8L58.7,10.8z M95.8,38c0,0.9,0,1.8-0.1,2.7H70.3c-0.7,8.2,2.4,10.6,7.1,10.6c3.9,0,6.9-2.6,6.9-6.6h11	c-0.3,7.2-4,15.4-18.5,15.4c-14.5,0-21.3-10.5-21.3-22.1c0-10.5,7-21.6,21-21.6C89.9,16.3,95.8,25.6,95.8,38 M159,27.3h-3.7	l-9.4,31.8h-12.5l-5.9-17.4l-5.3,17.4h-12.8L98.8,27.4h-3.7V16.6h22.1v10.7h-5.6l5.8,16.9l7.6-27.6h6.8l9.3,27.6l5-16.9h-5.6V16.6	H159L159,27.3L159,27.3z M174.5,27.8c0,1.5,1.2,2.5,5.4,3.9l6,2c5.5,1.8,12.1,5.9,12.1,13.4c0,8.8-6.6,13-14.7,13	c-6.5,0-11.5-3.2-12.9-4.6V59h-10.8V44.4h10.6c0.3,4.8,4.6,7.3,8.5,7.3c3.2,0,4.7-1.4,4.7-3c0-2-1.2-3.1-6.5-4.8l-5.3-1.8	c-5.4-1.7-11.4-5.7-11.4-12.8c0-8.7,7.7-13.1,14.3-13.1c6.8,0,10.1,1.9,11.8,3.8l0.1-3.3H197v13.3h-11.2c-0.2-3.6-3.7-5.2-7.2-5.2	C175.8,24.8,174.5,26.1,174.5,27.8 M262.8,27.3h-3.7l-9.4,31.8h-12.5l-5.9-17.4L226,59.1h-12.8l-10.6-31.7h-3.7V16.6h22.1v10.7	h-5.6l5.8,16.9l7.6-27.6h6.8l9.3,27.7l5-16.9h-5.6V16.6h18.5V27.3z M302,37.9c0,0.9,0,1.8-0.1,2.7h-25.4	c-0.7,8.2,2.4,10.6,7.1,10.6c3.9,0,6.9-2.6,6.9-6.6h11c-0.3,7.2-4,15.4-18.5,15.4c-14.5,0-21.3-10.5-21.3-22.1	c0-10.5,7-21.6,21-21.6C296.1,16.2,302,25.5,302,37.9 M343.9,37.8c0,0.9,0,1.8-0.1,2.7h-25.4c-0.7,8.2,2.4,10.6,7.1,10.6	c3.9,0,6.9-2.6,6.9-6.6h11c-0.3,7.2-4,15.4-18.5,15.4c-14.5,0-21.3-10.5-21.3-22.1c0-10.5,7-21.6,21-21.6	C338,16.1,343.9,25.4,343.9,37.8 M389.9,59h-12.8l-13.3-17.3l-4.3,3.2v3.4h3.8V59h-19.6V48.3h3.7V10.6h-5.6V0h17.8v33.9l8.9-6.5	h-5.6V16.6h23.9v10.8h-3.7l-9.3,7l10.7,13.9h5.6L389.9,59L389.9,59z M395.6,56.6c0,0.5-0.1,0.9-0.4,1.2c-0.2,0.4-0.5,0.7-0.9,0.9	c-0.4,0.2-0.8,0.4-1.3,0.4c-0.5,0-0.9-0.1-1.2-0.4c-0.4-0.2-0.7-0.5-0.9-0.9c-0.2-0.4-0.4-0.8-0.4-1.2c0-0.5,0.1-0.9,0.4-1.2	c0.2-0.4,0.5-0.7,0.9-0.9c0.4-0.2,0.8-0.4,1.2-0.4c0.5,0,0.9,0.1,1.3,0.4c0.4,0.2,0.7,0.5,0.9,0.9	C395.5,55.8,395.6,56.2,395.6,56.6 M394.6,58c0.4-0.4,0.6-0.9,0.6-1.4c0-0.6-0.2-1-0.6-1.4s-0.9-0.6-1.4-0.6s-1,0.2-1.4,0.6	c-0.4,0.4-0.6,0.9-0.6,1.4c0,0.6,0.2,1,0.6,1.4c0.4,0.4,0.9,0.6,1.4,0.6S394.2,58.4,394.6,58 M393.6,56.8c0.1,0.1,0.2,0.1,0.2,0.1	c0.1,0.1,0.2,0.2,0.2,0.3c0,0,0.2,0.3,0.4,0.8h-0.8c-0.3-0.5-0.4-0.8-0.5-0.9c-0.1-0.1-0.2-0.2-0.3-0.2c0,0-0.1,0-0.1,0v1.1h-0.6	v-2.6h1.2c0.4,0,0.6,0.1,0.7,0.2c0.2,0.2,0.2,0.3,0.2,0.6c0,0.2-0.1,0.4-0.2,0.5C393.9,56.6,393.8,56.7,393.6,56.8 M393.5,56.3	c0.1-0.1,0.1-0.2,0.1-0.3s-0.1-0.2-0.1-0.3c-0.1-0.1-0.2-0.1-0.4-0.1h-0.3v0.7h0.3C393.3,56.4,393.4,56.4,393.5,56.3 M318.4,33.5	h13.9c0-6-3.9-8.4-6.8-8.4C322.1,25.2,318.6,27.9,318.4,33.5 M276.5,33.6h13.9c0-6-3.9-8.4-6.8-8.4C280.3,25.2,276.8,28,276.5,33.6 M70.3,33.7h13.9c0-6-3.9-8.4-6.8-8.4C74.1,25.3,70.6,28.1,70.3,33.7"></path>
+                </g></svg>
+        </div>
+
+        <div class="header-right d-flex flex-row justify-content-end align-items-end align-self-end order-3 order-sm-3">
+            <button class="login">LOGIN</button>
+            <button class="subscribe">SUBSCRIBE ></button>
+            <button type="button" class="navbar-toggle collapsed d-block d-lg-none hamburger-menu" data-toggle="collapse"><img src="images/hamburger_menu.svg" alt="">
+            </button>
+        
+        </div>
+
+    </header>
+
+    <nav class="d-none d-lg-block navbar navbar-expand navbar-light bottom-nav">
+        <div class="d-flex flex-row justify-content-between collapse navbar-collapse" id="navBar">
+            <ul class="navbar-nav">
+                <li class="nav-item hover-red">
+                    <a class="nav-link" href="">U.S.</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">World</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Business</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Tech & Science</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Culture</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Newsgeek</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Sports</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Health</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">The Debate</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Vantage</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="nav-last" href="">Weather</a>
+                </li>
+                <li class="nav-item">
+                    <input type="text" placeholder="search">
+                    <img src="images/icon-search.svg" alt="">
+                </li>
+                
+            </ul>
+        </div>
+
+    </nav>
+
+    <main class="container-fluid">
+
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="row">
+                <div class="col-md-5 featured-stories">
+                    <h2>FEATURED STORIES</h2>
+                    <article>
+                        <div class=header-image>
+                            <img src="images/top-article-1.jpg" alt="">
+                            <div class="category">U.S.</div>
+                        </div>
+                        <h3>On China, Voters Trust Joe Biden More Than Donald Trump, Fox News Poll</h3>
+                        <p>The survey found that Biden had a 6 point lead over the president on the issue of handling U.S.-China relations.</p>
+                    </article>
+                    <article>
+                        <div class=header-image>
+                            <img src="images/top-article-2.jpg" alt="">
+                            <div class="category">U.S.</div>
+                        </div>
+                        <h3>Fauci Does First TV Interview for Two Weeks after Broadcast Absence</h3>
+                        <p>Dr. Anthony Fauci said he thinks people will "probably be seeing a little bit more of me and my colleagues."</p>
+                    </article>
+                    <article>
+                        <div class=header-image>
+                            <img src="images/top-article-3.jpg" alt="">
+                            <div class="category">U.S.</div>
+                        </div>
+                        <h3>Russia Uses Open Skies Treaty to Identify Bombing Targets, U.S. Tells NATO</h3>
+                        <p>In a classified State Department memo obtained by Newsweek, Secretary of State Mike Pompeo suggested Russia may been capturing images of infrastructure for the purposes of targeting it with "conventionally-armed, precision-guided weapons."</p>
+                    </article>
+                    <article>
+                        <div class=header-image>
+                            <img src="images/top-article-4.jpg" alt="">
+                            <div class="category">HEALTH</div>
+                        </div>
+                        <h3>Sunlight Seems to Inactivate the Coronavirus: Study</h3>
+                        <p>Natural sunlight may be an effective of certain materials, said the authors of the study.</p>
+                    </article>
+                    <article>
+                        <div class=header-image>
+                            <img src="images/top-article-5.jpg" alt="">
+                            <div class="category">ESSAYS</div>
+                        </div>
+                        <h3>'I Vowed I'd Never Marry, Here's Why I Finally Said "I Do"'</h3>
+                        <p>I loved Jeff dearly, but I didn't want to become a "wife", or give credence to a wedding culture that often sees women waiting on a ring, dressing up in virginal white, and being given away by their fathers.</p>
+                    </article>
+                </div>
+
+                <div class="col-md-7 d-flex flex-column order-first order-md-last">
+                    <div class="top-story">
+                        <h2>TOP STORY</h2>
+                        <article>
+                            <div class="header-image">
+                                <img src="images/top-story-1.jpg" alt="">
+                                <div class="category">HEALTH</div>
+                            </div>
+                            <h3>To Contain the Pandemic in the U.K, 'We Have to Do Things Differently'</h3>
+                            <p>King's College Professor Sir Robert Lechler on the "very tough balancing acts" needed to recover from the pandemic, the likelihood of a second wave, and the impact of Trump's "inconsistency</p>
+                        </article>
+                    </div>
+
+                    <div class="heroes order-4 order-md-2">
+                        <h2>HEROES OF THE PANDEMIC</h2>
+                        <div class="row">
+                            <div class="col-sm">
+                                <article>
+                                <div class="header-image">
+                                    <img src="images/hero-1.jpg" alt="">
+                                    <div class="category">PANDEMIC HEROES</div>
+                                </div>
+                                <h2>The Doctors and Nurses Crossing the Border Daily to Help Asylum Seekers</h2>
+                                </article>
+                            </div>
+                            <div class="col-sm">
+                                <article>
+                                    <div class="header-image">
+                                        <img src="images/hero-2.jpg" alt="">
+                                        <div class="category">PANDEMIC HEROES</div>
+                                    </div>
+                                    <h2>The Charity Helping Vulnerable Holocaust Survivors During the Pandemic</h2>
+                                    </article>
+                            </div>
+                            <div class="col-sm">
+                                <article>
+                                    <div class="header-image">
+                                        <img src="images/hero-3.jpg" alt="">
+                                        <div class="category">PANDEMIC HEROES</div>
+                                    </div>
+                                    <h2>Women Launch Campaign Urging People to Donate Their Stimulus Checks</h2>
+                                    </article>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="culture order-3 order-md-3">
+                        <h2>CULTURE & TRAVEL</h2>
+                        <div class="row">
+                            <div class="col-sm">
+                                <article>
+                                <div class="header-image">
+                                    <img src="images/culture-1.jpg" alt="">
+                                    <div class="category">BEACHES</div>
+                                </div>
+                                <h2>What Beaches Are Open for Memorial Day? What to Know Before You Go</h2>
+                                </article>
+                            </div>
+                            <div class="col-sm">
+                                <article>
+                                    <div class="header-image">
+                                        <img src="images/culture-2.jpg" alt="">
+                                        <div class="category">TRAVEL</div>
+                                    </div>
+                                    <h2>How Coronavirus—and Lack of Tourism—Impact East Africa's Gorillas</h2>
+                                    </article>
+                            </div>
+                            <div class="col-sm">
+                                <article>
+                                    <div class="header-image">
+                                        <img src="images/culture-3.jpg" alt="">
+                                        <div class="category">BOOKS</div>
+                                    </div>
+                                    <h2>The 20 Must-Read Fiction and Nonfiction Books of the Summer</h2>
+                                    </article>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="more-stories order-2 order-md-last">
+                        <h2>MORE STORIES</h2>
+                        <article>
+                            <img src="images/more-1.jpg" alt="">
+                            <h4>Westgate Suspect Allegedly 'Incel,' Tried to Kill Couples, Prosecutor Says</h4>
+                            <p>Armando Hernandez Jr. had allegedly been contemplating a shooting at Westgate for "at least three to four years," according to prosecutors.</p>
+                        </article>
+                        <article>
+                            <img src="images/more-2.jpg" alt="">
+                            <h4>Trump Pushes White House Hosting In-person G-7 Summit</h4>
+                            <p>President Donald Trump is pushing for the G-7 summit of world leaders to be held in person at the White House.</p>
+                        </article>
+                        <article>
+                            <img src="images/more-3.jpg" alt="">
+                            <h4>Snapchat Down As App Suffers Global Problems, Users Can't See Pictures</h4>
+                            <p>"My Snapchat's aren't coming through and it comes up at the top with a grey error when I refresh," one frustrated user wrote to a verified support account on Twitter today.</p>
+                        </article>
+                        <article>
+                            <img src="images/more-4.jpg" alt="">
+                            <h4>Trump Approves Michigan Gov. Whitmer's Request for Emergency Declaration</h4>
+                            <p>The president's move authorizes FEMA and the Department of Homeland Security to coordinate disaster relief efforts.</p>
+                        </article>
+                        <article>
+                            <img src="images/more-5.jpg" alt="">
+                            <h4>Man Who Filmed Ahmaud Arbery's Death Arrested on Related Charges</h4>
+                            <p>William Bryan had previously said he was trying to be a "good Samaritan" by recording the slaying and has been in "complete shock" since witnessing Arbery's alleged murder.</p>
+                        </article>
+                        <article>
+                            <img src="images/more-6.jpg" alt="">
+                            <h4>Pangolins Probably Weren't Intermediary Host of Coronavirus, Study Suggests</h4>
+                            <p>Scientists have looked at the genetic make-up of a coronavirus found in pangolins to see if the scaly animals were the intermediary host of the COVID-19 coronavirus.</p>
+                        </article>
+                        <article>
+                            <img src="images/more-7.jpg" alt="">
+                            <h4>U.S. Reports More Than 250 Cases of Coronavirus-Linked Inflammatory Disease</h4>
+                            <p>Governor Andrew Cuomo said 157 cases of the pediatric illness were under investigation in New York on Thursday.</p>
+                        </article>
+                        <article>
+                            <img src="images/more-8.jpg" alt="">
+                            <h4>1,000 Unaccompanied Migrant Kids Deported To Mexico, Central America</h4>
+                            <p>Returned children face the threat of potential violence and stigmatization over fears they may be infected with coronavirus, UNICEF has warned.</p>
+                        </article>
+                        <article>
+                            <img src="images/more-9.jpg" alt="">
+                            <h4>Poll: Americans Say South Korea, Germany Handled COVID-19 Better Than U.S.</h4>
+                            <p>Though 66 percent of Americans positively rated the COVID-19 responses in South Korea and Germany, only 47 percent of Americans said the U.S. had handled the pandemic well.</p>
+                        </article>
+                        <article>
+                            <img src="images/more-10.jpg" alt="">
+                            <h4>Michigan Announces New Guidelines to Reopen State Weeks After Protests</h4>
+                            <p>The new executive order allows gatherings of no more than 10 people, effective immediately.</p>
+                        </article>
+                        <article>
+                            <img src="images/more-11.jpg" alt="">
+                            <h4>Almost 25% of Americans Not Interested in Taking a Coronavirus Vaccine</h4>
+                            <p>More than 40 percent of people who weren't interested in a vaccine said they believed the inoculation was riskier than the virus.</p>
+                        </article>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 d-flex flex-column align-items-center">
+            <div class="debate">
+                <h2>THE DEBATE</h2>
+                <div class="d-flex debater-1">
+                    <img src="images/debater-1.png" alt="">
+                    <div class="debate-header">
+                        <h4>Capitalism Creates Social Justice</h4>
+                        <span>BY <a href="">DINESH D'SOUZA</a></span>
+                    </div>
+
+                </div>
+                <div class="deco">VS
+
+                </div>
+                <div class="d-flex justify-content-between debater-2">
+
+                    <div class="debate-header">
+                        <h4>The Time Is Ripe for More Socialism</h4>
+                        <span>BY <a href="">NATHAN ROBINSON</a></span>
+                    </div>
+                    <img src="images/debater-2.png" alt="">
+
+                </div>
+            </div>
+
+            <section class="opinion">
+                <h2>OPINION</h2>
+                <div class="d-flex">
+                    <img src="images/opinion-1.png" alt="">
+                    <div class="opinion-header">
+                        <h4>It's Time All Palestinians Under Israeli Control Had the Vote</h4>
+                        <span>BY YAEL BERDA AND ITAMAR MANN</span>
+                    </div>
+                </div>         
+                <div class="d-flex">
+                    <img src="images/opinion-2.png" alt="">
+                    <div class="opinion-header">
+                        <h4>As Utility Bills Rise, States Should Scrap Costly, Crony Energy Schemes</h4>
+                        <span>BY STEPHEN MOORE</span>
+                    </div>
+                </div> 
+                <div class="d-flex">
+                    <img src="images/opinion-3.png" alt="">
+                    <div class="opinion-header">
+                        <h4>Trump Should Address the Nation About Winning the China Challenge</h4>
+                        <span>BY REBECCAH HEINRICHS</span>
+                    </div>
+                </div> 
+                <div class="d-flex">
+                    <img src="images/opinion-4.png" alt="">
+                    <div class="opinion-header">
+                        <h4>All Eyes Should Be on Hong Kong</h4>
+                        <span>BY KYLE BASS</span>
+                    </div>
+                </div> 
+                <div class="d-flex align-content-center justify-content-start">
+                    <img src="images/opinion-5.png" alt="">
+                    <div class="opinion-header">
+                        <h4>It's Time for Congress to End Big Tech's Sweetheart Deal</h4>
+                        <span>BY RACHEL BOVARD</span>
+                    </div>
+                </div> 
+                <div class="d-flex">
+                    <img src="images/opinion-6.png" alt="">
+                    <div class="opinion-header">
+                        <h4>Keep up the Pressure on Iran and Hezbollah</h4>
+                        <span>BY AMBASSADOR NATHAN A. SALES</span>
+                    </div>
+                </div> 
+            </section>
+
+            <section class="email-form">
+                <div class="form-group">
+                    <div class="d-inline-flex align-items-center">
+                        <img src="images/logo-n1.svg" alt="">
+                        <h3>START YOUR DAY WITH OUR TOP 5 ARTICLES</h3>
+
+                    </div>
+                    <input type="email" class="form-control" id="exampleEmail" placeholder="Email address">
+                    <button type="submit" class="btn btn-primary btn-block">FREE SIGN UP ></button>
+                </div>
+
+            </section>
+
+
+
+
+
+
+        </div>
+    </div>
+
+    </main>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

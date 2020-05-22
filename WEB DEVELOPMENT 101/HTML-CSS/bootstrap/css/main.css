@@ -1,0 +1,412 @@
+.container-fluid {
+    max-width: 1310px;
+    margin-top: 100px;
+}
+
+h2 {
+    color: gray;
+    font-size: 16px;
+}
+
+h3 {
+    font-size: 22px;
+    line-height: 22px;
+    margin-top: 5px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.2em;
+}
+
+
+img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+article {
+    position: relative;
+}
+
+.category {
+    position: absolute;
+    bottom: 0;
+    background-color: rgb(255, 255, 255, 0.9);
+    color: red;
+    padding: 8px 15px 9px;
+    font-weight: bold;
+}
+
+/* 
+############################################
+    NAVBAR
+############################################
+*/
+
+.navbar {
+    background-color: #f72210;
+    height: 94px;
+    max-height: 94px;
+    max-width: 1330px;
+    margin: 0 auto;
+}
+
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2000;
+}
+
+.navbar ul {
+    min-width: 100%;
+    max-width: 1330px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar li {
+    flex-grow: 1!important;
+    line-height: 1em;
+    text-align: center;
+}
+
+@media (max-width: 992px) {
+    .navbar .logo {
+        max-width: 150px;
+    }
+
+    .navbar {
+        height: 70px;
+    }
+}
+
+.navbar svg {
+    fill: white;
+    height: 60px;
+    width: 396px;
+}
+
+.navbar .weather img {
+    width: 25px;
+    height: 25px;
+}
+
+.navbar .weather {
+    color: #fff;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.navbar span {
+    color: white;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.navbar .login {
+    background-color: transparent;
+    color: #fff;
+    font-weight: bold;
+    padding: 5px;
+    border: none;
+    margin: 0 10px;
+}
+
+.navbar .subscribe {
+    background-color: #fff;
+    color: #f72210;
+    font-weight: bold;
+    padding: 5px;
+    border: none;
+    margin: 0 10px;
+}
+
+.header-right {
+    margin-bottom: 10px;
+}
+
+.header-right .hamburger-menu img {
+    width: 30px;
+    height: 30px;
+}
+
+.header-right .hamburger-menu {
+    background-color: transparent;
+    border: none;
+}
+
+.navbar img {
+    height: 20px;
+    width: 20px;
+    align-self: center;
+}
+
+.bottom-nav {
+    background-color: #fff;
+    height: 50px;
+    margin-top: 94px;
+    border-bottom: 1px solid rgb(167, 167, 167);
+}
+
+
+.navbar-light .navbar-nav .nav-link {
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 0;
+    border-right: 1px solid rgb(167, 167, 167);
+}
+
+#nav-last {
+    border: none;
+}
+
+
+.bottom-nav input {
+    border: none;
+    outline: none;
+    width: 75px;
+}
+
+.hover-red:hover {
+    color: #f72210;
+}
+
+/* TOP */
+
+
+
+.header-image {
+    position: relative;
+    height: auto;
+}
+
+/* MIDDLE */
+
+.heroes .category {
+    position: absolute;
+    bottom: 0;
+    background-color: #C2D4D7;
+    color: #000;
+    padding: 0 6px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.culture .category {
+    position: absolute;
+    bottom: 0;
+    background-color: #C2D4D7;
+    color: #000;
+    padding: 0 6px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.heroes {
+    margin-top: 20px;
+}
+
+.culture {
+    margin-top: 20px;
+}
+
+.more-stories h2 {
+    margin-top: 20px;
+}
+
+.more-stories article {
+    border-top: 1px solid gray;
+    padding: 14px 0;
+}
+
+.more-stories h4 {
+    font-size: 18px;
+    padding-left: 105px;
+}
+
+.more-stories p {
+    font-size: 16px;
+    padding-left: 105px;
+}
+
+.more-stories img {
+    width: 95px;
+    height: 95px;
+    float: left;
+}
+
+
+/* 
+###################################################
+                RIGHT-CONTAINER
+###################################################
+*/
+
+.debate {
+    width: 100%;
+}
+
+.debate img {
+    width: 63px;
+    height: 63px;
+    margin-right: 10px;
+    margin-left: 10px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.debate h4 {
+    font-size: 16px;
+    margin: 0;
+}
+
+.debate span {
+    font-size: 13px;
+    color: gray;
+}
+
+.debate span a {
+    font-weight: bold;
+    color: #000;
+}
+
+.debate-header {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.debater-1 {
+    border-top: 4px solid red;
+    padding: 5px 0;
+}
+
+.debater-2 {
+    border-bottom: 4px solid blue;
+    padding: 5px 0;
+}
+
+.deco {
+    position: relative;
+    z-index: 1;
+    width: 32px;
+    height: 32px;
+    background-color: #000;
+    color: #d6d6d6;
+    border-radius: 50%;
+    font: bold 14px/32px "Roboto Condensed",sans-serif;
+    text-align: center;
+    margin: 6px auto;
+}
+
+.opinion {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.opinion img {
+    height: 63px;
+    width: 63px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.opinion h4 {
+    font-size: 16px;
+    margin: 0;
+}
+
+.opinion span {
+    font-size: 13px;
+    color: #000;
+}
+
+.opinion-header {
+    margin: 10px 0;
+    padding-left: 10px;
+}
+
+.email-form {
+    background-color: #f4f5f6;
+    border: 1px solid #e5e5e5;
+    max-width: 300px;
+    padding: 20px;
+    align-self: center;
+    margin-top: 20px;
+}
+
+.email-form .btn {
+    background-color: red;
+    border: none;
+    margin-top: 10px;
+}
+
+.email-form img {
+    height: 30px;
+    width: 30px;
+    background-color: red;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.email-form h3 {
+    font-size: 18px;
+    padding-left: 10px;
+}
+
+.email-form input:active {
+    box-shadow: 0 0 0 0 0.05rem rgba(255,0,0,.7);
+    border-color: red;
+}
+
+.email-form input:focus {
+    box-shadow: 0 0 0 0.05rem rgba(255,0,0,.7);
+    border-color: red;
+}
+
+
+/* TESTING */
+
+.blue {
+    background-color: blue;
+}
+
+.red {
+    background-color: red;
+}
+
+.cyan {
+    background-color: cyan;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.green {
+    background-color: green;
+}
+
+
+/* 
+###########################
+    RESPONSIVE TEXT-SIZES
+###########################
+*/
+
+@media (max-width: 768px) {
+    p {
+      font-size: 0.9em;
+    }
+    h3 {
+        font-size: 1.1rem;
+    }
+  }
