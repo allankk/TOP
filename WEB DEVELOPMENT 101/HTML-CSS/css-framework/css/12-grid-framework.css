@@ -1,0 +1,712 @@
+/* 
+###############################
+        CSS RESET
+###############################
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:active {
+    color: #000;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+/* 
+#################################
+        FONTS
+#################################
+*/
+
+@font-face {
+    font-family: Norse;
+    src: url('../fonts/Norse.otf');
+    src: url('../fonts/Norse-Bold.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.font-norse {
+    font-family: Norse, Arial, serif;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+/* 
+################################
+        GRIDS & NAVBAR
+################################
+*/
+
+.container {
+    margin: 0 auto;
+}
+
+.mw-1440 {
+    max-width: 1440px;
+}
+
+.navbar {
+    padding: 5px 20px;
+}
+
+.nav-item .dropdown::after {
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+}
+
+.nav-border {
+    content: "";
+    border-left: 1px solid #4a4a4a;
+    height: 20px;
+}
+
+/* 
+#############################
+        BUTTONS
+#############################
+*/
+
+.btn-primary {
+    box-shadow: 0 0.05em 0.25em 0 rgba(0,0,0,0.5);
+    border-radius: 0.2em;
+    display: inline-block;
+    padding: 1rem 3.5rem;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    font-size: 18px;
+}
+
+button:hover {
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+
+/* 
+#############################
+        GRID
+#############################
+*/
+
+.row {
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    align-items: center;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.col-1 {
+    flex-basis: calc(100% / 12);
+}
+
+.col-2 {
+    flex-basis: calc((100% / 12) * 2);
+}
+
+.col-3 {
+    flex-basis: calc((100% / 12) * 3);
+}
+
+.col-4 {
+    flex-basis: calc((100% / 12) * 4);
+}
+
+.col-5 {
+    flex-basis: calc((100% / 12) * 5);
+}
+
+.col-6 {
+    flex-basis: calc((100% / 12) * 6);
+}
+
+.col-7 {
+    flex-basis: calc((100% / 12) * 7);
+}
+
+.col-8 {
+    flex-basis: calc((100% / 12) * 8);
+}
+
+.col-9 {
+    flex-basis: calc((100% / 12) * 9);
+}
+
+.col-10 {
+    flex-basis: calc((100% / 12) * 10);
+}
+
+.col-11 {
+    flex-basis: calc((100% / 12) * 11);
+}
+
+.col-12 {
+    flex-basis: calc((100% / 12) * 12);
+}
+
+/* 
+############################
+        NAVBAR
+############################
+*/
+
+
+.navbar ul {
+    list-style: none;
+}
+
+.navbar ul li {
+    display: inline-block
+}
+
+
+/* 
+#############################
+        ALIGNMENT
+#############################
+*/
+
+.pos-relative {
+    position: relative;
+}
+
+.pos-absolute {
+    position: absolute;
+}
+
+.border-box {
+    box-sizing: border-box;
+}
+
+.d-none {
+    display: none;
+}
+
+.d-block {
+    display: block;
+}
+
+
+.d-inline-block {
+    display: inline-block;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-nowrap {
+    flex-wrap: nowrap;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-justify-center {
+    justify-content: center;
+}
+
+.flex-justify-start {
+    justify-content: start;
+}
+
+.flex-justify-end {
+    justify-content: flex-end;
+}
+
+.flex-justify-between {
+    justify-content: space-between;
+}
+
+.flex-justify-around {
+    justify-content: space-around;
+}
+
+.flex-align-center {
+    align-items: center;
+}
+
+.flex-align-start {
+    align-items: start;
+}
+
+.flex-align-between {
+    align-items: space-between
+}
+
+.flex-align-around {
+    align-items: space-around
+}
+
+/* 
+#############################
+        TEXT
+#############################
+*/
+
+.text-center {
+    text-align: center;
+}
+
+.text-start {
+    text-align: start;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.h-100 {
+    height: 100%;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.font-normal {
+    font-weight: normal;
+}
+
+.m-auto {
+    margin: 0 auto;
+}
+
+.m-1-auto {
+    margin: 10px auto;
+}
+
+.m-2-auto {
+    margin: 20px auto;
+}
+
+.m-3-auto {
+    margin: 30px auto;
+}
+
+.m-4-auto {
+    margin: 40px auto;
+}
+
+.m-5-auto {
+    margin: 50px auto;
+}
+
+.mb-1 {
+    margin-bottom: 10px;
+}
+
+.mb-2 {
+    margin-bottom: 20px;
+}
+
+.mb-3 {
+    margin-bottom: 30px;
+}
+
+.mb-4 {
+    margin-bottom: 40px;
+}
+
+.mb-5 {
+    margin-bottom: 50px;
+}
+
+.mt-1 {
+    margin-top: 10px;
+}
+
+.mt-2 {
+    margin-top: 10px;
+}
+
+.mt-3 {
+    margin-top: 10px;
+}
+
+.mt-4 {
+    margin-top: 10px;
+}
+
+.mt-5 {
+    margin-top: 10px;
+}
+
+.mbt-1 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.mbt-2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.mbt-3 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.mbt-4 {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.mbt-5 {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.p-1 {
+    padding: 10px;
+}
+
+.p-2 {
+    padding: 20px;
+}
+
+.p-3 {
+    padding: 30px;
+}
+
+.p-4 {
+    padding: 40px;
+}
+
+
+/* 
+##############################
+        COLORS
+##############################
+*/
+
+.bg-light {
+    background-color: #eee;
+}
+
+.bg-gradient-light {
+    background-image: linear-gradient(to bottom, #fff, #eee);
+}
+
+.bg-white {
+    background-color: #fff;
+}
+
+.bg-dark {
+    background-color: #4a4a4a;
+}
+
+.bg-blue {
+    background-color: #6abfc3;   
+}
+
+.bg-brown {
+    background-color: #ce973e;
+}
+
+.fill-brown {
+    fill: #ce973e;
+}
+
+.color-brown {
+    color: #ce973e;
+}
+
+.color-dark {
+    color: #4a4a4a;
+}
+
+.color-white {
+    color: #fff;
+}
+
+.color-gray {
+    color: rgba(74,74,74,0.7);
+}
+
+
+/* 
+########################
+    MEDIA QUERIES 1024px
+########################
+*/
+
+@media (min-width: 1024px) {
+
+    .d-lg-block {
+        display: block;
+    }
+
+    .d-lg-flex {
+        display: flex;
+    }
+
+    .d-lg-none {
+        display: none;
+    }
+
+    .d-lg-inline-block {
+        display: inline-block;
+    }
+
+    .col-lg-1 {
+        flex-basis: calc(100% / 12);
+    }
+    
+    .col-lg-2 {
+        flex-basis: calc((100% / 12) * 2);
+    }
+    
+    .col-lg-3 {
+        flex-basis: calc((100% / 12) * 3);
+    }
+    
+    .col-lg-4 {
+        flex-basis: calc((100% / 12) * 4);
+    }
+    
+    .col-lg-5 {
+        flex-basis: calc((100% / 12) * 5);
+    }
+    
+    .col-lg-6 {
+        flex-basis: calc((100% / 12) * 6);
+    }
+    
+    .col-lg-7 {
+        flex-basis: calc((100% / 12) * 7);
+    }
+    
+    .col-lg-8 {
+        flex-basis: calc((100% / 12) * 8);
+    }
+    
+    .col-lg-9 {
+        flex-basis: calc((100% / 12) * 9);
+    }
+    
+    .col-lg-10 {
+        flex-basis: calc((100% / 12) * 10);
+    }
+    
+    .col-lg-11 {
+        flex-basis: calc((100% / 12) * 11);
+    }
+    
+    .col-lg-12 {
+        flex-basis: calc((100% / 12) * 12);
+    }
+
+    .flex-lg-justify-center {
+        justify-content: center;
+    }
+    
+    .flex-lg-justify-start {
+        justify-content: start;
+    }
+
+    .flex-lg-justify-end {
+        justify-content: end;
+    }
+    
+    .flex-lg-justify-between {
+        justify-content: space-between;
+    }
+    
+    .flex-lg-justify-around {
+        justify-content: space-around;
+    }
+    
+    .flex-lg-align-center {
+        align-items: center;
+    }
+    
+    .flex-lg-align-start {
+        align-items: start;
+    }
+    
+    .flex-lg-align-between {
+        align-items: space-between
+    }
+    
+    .flex-lg-align-around {
+        align-items: space-around
+    }
+    
+}
+
+/* 
+########################
+    MEDIA QUERIES 768px
+########################
+*/
+
+@media (min-width: 768px) {
+
+    .d-md-block {
+        display: block;
+    }
+
+    .d-md-flex {
+        display: flex;
+    }
+
+    .d-md-none {
+        display: none;
+    }
+
+    .d-md-inline-block {
+        display: inline-block;
+    }
+
+    .col-md-1 {
+        flex-basis: calc(100% / 12);
+    }
+    
+    .col-md-2 {
+        flex-basis: calc((100% / 12) * 2);
+    }
+    
+    .col-md-3 {
+        flex-basis: calc((100% / 12) * 3);
+    }
+    
+    .col-md-4 {
+        flex-basis: calc((100% / 12) * 4);
+    }
+    
+    .col-md-5 {
+        flex-basis: calc((100% / 12) * 5);
+    }
+    
+    .col-md-6 {
+        flex-basis: calc((100% / 12) * 6);
+    }
+    
+    .col-md-7 {
+        flex-basis: calc((100% / 12) * 7);
+    }
+    
+    .col-md-8 {
+        flex-basis: calc((100% / 12) * 8);
+    }
+    
+    .col-md-9 {
+        flex-basis: calc((100% / 12) * 9);
+    }
+    
+    .col-md-10 {
+        flex-basis: calc((100% / 12) * 10);
+    }
+    
+    .col-md-11 {
+        flex-basis: calc((100% / 12) * 11);
+    }
+    
+    .col-md-12 {
+        flex-basis: calc((100% / 12) * 12);
+    }
+
+    .flex-md-justify-center {
+        justify-content: center;
+    }
+    
+    .flex-md-justify-start {
+        justify-content: start;
+    }
+
+    .flex-md-justify-end {
+        justify-content: end;
+    }
+    
+    .flex-md-justify-between {
+        justify-content: space-between;
+    }
+    
+    .flex-md-justify-around {
+        justify-content: space-around;
+    }
+    
+    .flex-md-align-center {
+        align-items: center;
+    }
+    
+    .flex-md-align-start {
+        align-items: start;
+    }
+    
+    .flex-md-align-between {
+        align-items: space-between
+    }
+    
+    .flex-md-align-around {
+        align-items: space-around
+    }
+    
+}
+
+@media (min-width: 1200px) {
+    .flex-xl-row {
+        flex-direction: row;
+    }
+    
+    .flex-xl-wrap {
+        flex-wrap: wrap;
+    }
+
+    .flex-xl-justify-center {
+        justify-content: center;
+    }
+
+}
+
+

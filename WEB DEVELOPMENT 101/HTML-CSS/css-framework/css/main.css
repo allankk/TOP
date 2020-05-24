@@ -1,0 +1,253 @@
+
+h1, h2, h3, h4, h5 {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+/* 
+HEADER
+*/
+
+.logo {
+    width: 200px;
+}
+
+.logo img {
+    height: 60px;
+}
+
+.logo-text {
+    font-size: 24px;
+    padding-left: 10px;
+    letter-spacing: 0.02em;
+}
+
+.hamburger-menu img {
+    height: 30px;
+    width: 30px;
+}
+
+.nav-item {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4a4a4a;
+}
+
+/* NAVBAR MEDIA QUERIES */
+
+@media (min-width: 768px) {
+    .logo {
+        flex: 0;
+        min-width: 250px;
+    }
+
+    .navbar {
+        height: 80px;
+    }
+
+    .menu-list {
+        max-width: 600px;
+        flex: 1;
+    }
+
+    .menu-list ul {
+        width: 100%;
+    }
+
+    .nav-item a {
+        color: rgba(74,74,74,0.7);
+        transition-duration: 0.2s;
+        font-size: 18px;
+    }
+    
+    .nav-item a:hover {
+        color: #000;
+    }
+    
+}
+
+@media (min-width: 1024px) {
+
+    .logo {
+        flex: 0;
+    }
+
+    .logo img {
+        height: 70px;
+    }
+
+    .logo-text {
+        font-size: 30px;
+    }
+
+}
+
+/* 
+###############################
+        MAIN HEADER
+###############################
+*/
+
+main h1 {
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: 0.4px;
+}
+
+main h2 {
+    font-weight: bold;
+    font-size: 24px;
+    color: #4a4a4a;
+}
+
+main h3 {
+    font-weight: bold;
+    font-size: 18px;
+    color: #4a4a4a;
+}
+
+main h4 {
+    font-size: 18px;
+    color: rgba(74,74,74,0.7);
+    line-height: 1.5em;
+}
+
+.main-header {
+    margin: 30px 0;
+}
+
+/* 
+#############################
+        HOW IT WORKS AND THUMBS
+#############################
+*/
+
+.how-it-works {
+    max-width: 600px;
+}
+
+.thumbs img {
+    height: 150px;
+}
+
+@media (max-width: 768px) {
+    .thumbs img {
+        height: 100px;
+    }
+}
+
+
+/* 
+##############################
+        TUTORIALS
+##############################
+*/
+
+.tut-container {
+    margin: 0 auto;
+    max-width: 1024px;
+}
+
+.tut-item {
+    box-sizing: border-box;
+    margin: 20px auto;
+    padding: 15px 70px;
+}
+
+.tut-item img {
+    height: 80px;
+}
+
+@media (min-width: 768px) {
+    .tut-item {
+        margin: 15px 15px;
+        padding: 50px 50px;
+    }
+
+    .tut-item img {
+        height: 150px;
+    }
+}
+
+/* 
+#################################
+        SUCCESS STORIES
+#################################
+*/
+
+.success-stories .success-item {
+    max-width: 500px;
+    position: relative;
+    margin-left: 80px;
+}
+
+.success-stories img {
+    position: absolute;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    left: -70px;
+    top: 10px;
+}
+
+.success-stories a {
+    color: rgba(74,74,74,0.7);
+}
+
+/* 
+##################################
+        FOOTER
+##################################
+*/
+
+.f-logo img {
+    height: 60px;
+}
+
+.f-logo {
+    font-size: 20px;
+}
+
+footer {
+    padding: 80px 20px;
+}
+
+footer i {
+    font-size: 25px;
+}
+
+footer i:hover {
+    color: #000;
+    cursor: pointer;
+}
+
+footer .icons {
+    min-width: 150px;
+    flex: 0.3;
+}
+
+@media (min-width: 1024px) {
+    .f-logo img {
+        height: 70px;
+    }
+
+    .f-logo {
+        font-size: 24px;
+    }
+}
+
+.menu ul {
+    list-style: none;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.menu a {
+    color:  rgba(74,74,74,0.7);
+    line-height: 1.5em;
+}
+
+.menu a:hover {
+    color: #000;
+}
