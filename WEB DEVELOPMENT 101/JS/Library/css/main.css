@@ -1,8 +1,13 @@
 
 html {
-    height: 100%;
-    /* filter: blur(8px); */
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
 }
+
+
 
 html::before {   /* Added */
     content: '';
@@ -13,24 +18,30 @@ html::before {   /* Added */
     right: 0;
     background-image: url(../images/background-photo.jpg);
     transition: 0.5s;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: cover;
-    width: 100%;
-    height: 100%;
+    min-width: 100%;
+    min-height:  100%;
     filter: blur(8px);
     z-index: -1;
+
   }
 
 main {
-    margin: 90px auto;
+    margin: 90px auto 0 auto;
     max-width: 1440px;
+    display: flex;
+    flex-flow: column nowrap;
+    box-sizing: border-box;
+    max-height: 100%;
 }
 
-.new-book {
+.button-container {
     text-align: center;
+    margin: 30px 0;
 }
 
-.new-book button {
+.button-container button {
     width: 500px;
     height: 50px;
     font-size: 18px;
@@ -61,7 +72,7 @@ button:active {
 
 form {
     max-width: 800px;
-    margin: 30px auto;
+    margin: 0 auto;
     text-align: center;
     box-sizing: border-box;
 }
@@ -112,5 +123,49 @@ input {
     margin-top: 20px;
     width: 100%;
 
+}
+
+/* DISPLAY BOOKS */
+
+.display-books {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 500px;
+}
+
+.book-item {
+    position: relative;
+    text-align: center;
+    background-color: rgba(222, 222, 222, 0.79);
+    width: 100%;
+    height: 160px; 
+    margin: 10px 0;
+    padding: 5px;
+    box-sizing: border-box;   
+}
+
+.book-item h2 {
+    font-size: 18px;
+    line-height: 1.5em;
+    margin: 0;
+    color: rgb(78, 78, 78);
+}
+
+.book-item span {
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: bold;
+}
+
+.delete-book-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    font-weight: bold;
 }
 
