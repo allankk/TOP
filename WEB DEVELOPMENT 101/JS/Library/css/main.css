@@ -169,3 +169,20 @@ input {
     font-weight: bold;
 }
 
+.toggle-read-btn {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 125px;
+    height: 25px;
+    background-color: white;
+    font-size: 12px;
+}
+
+.is-read {
+    background-color: green;
+}
+
+.is-not-read {
+    background-color: red;
+}
