@@ -180,9 +180,9 @@ input {
 }
 
 .is-read {
-    background-color: green;
+    background-color: rgba(160, 255, 160, 0.6);
 }
 
 .is-not-read {
-    background-color: red;
+    background-color: rgba(255, 160, 160, 0.6);
 }

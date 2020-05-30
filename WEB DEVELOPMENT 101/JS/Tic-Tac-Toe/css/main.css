@@ -14,6 +14,21 @@ main {
     align-items: center;
 }
 
+/* 
+####################
+    HEADER
+####################
+*/
+
+header {
+    font-size: 24px;
+}
+
+#start-game {
+    padding: 5px;
+    margin-top: 10px;
+}
+
 /*
 #####################
     GAME-BOARD
@@ -46,7 +61,12 @@ main {
     z-index: 100;
 }
 
+.square:active {
+    box-shadow: 0 0 2px 2px gray;
+}
+
 .square.disabled:hover {
     cursor: default;
     box-shadow: none;
 }
+
