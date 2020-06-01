@@ -3,6 +3,7 @@ html, body {
     height: 100%;
     background-color: rgb(241, 241, 241);
     padding-top: 50px;
+    box-sizing: border-box;
 }
 
 main {
@@ -12,6 +13,14 @@ main {
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+}
+
+.display-none {
+    display: none !important;
+}
+
+.display-flex {
+    display: flex !important;
 }
 
 /* 
@@ -27,7 +36,61 @@ header {
 #start-game {
     padding: 5px;
     margin-top: 10px;
+    user-select: none;
 }
+
+/* 
+####################
+    INPUT
+####################
+*/
+
+.player-info {
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    justify-content: center;
+    user-select: none;
+}
+
+.player-input {
+    position: relative;
+}
+
+.info span {
+    position: absolute;
+    font-size: 18px;
+    top: 11px;
+    left: -20px;
+}
+
+.player-info input {
+    margin: 5px 0;
+    padding: 6px;
+    border: 1px solid gray;
+}
+
+.player-info input:focus {
+    border: 1px solid black;
+    outline: none;
+}
+
+/* 
+####################
+    GAME-INFO
+####################
+*/
+
+.game-info {
+    height: 80px;
+    display: none;
+    flex-direction: column;
+    margin-top: 10px;
+    justify-content: center;
+    user-select: none;
+}
+
 
 /*
 #####################
@@ -53,6 +116,7 @@ header {
     justify-content: center;
     align-items: center;
     font-size: 50px;
+    user-select: none;
 }
 
 .square:hover {
