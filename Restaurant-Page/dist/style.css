@@ -1,0 +1,70 @@
+body {
+    background-image: url(./images/background.jpg);
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+@font-face {
+    font-family: 'reislustnormal';
+    src: url('fonts/reislust-97d7-webfont.woff2') format('woff2'),
+         url('fonts/reislust-97d7-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+#navbar {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
+    transition-duration: 2s;
+}
+
+.logo {
+    font-family: 'reislustnormal', sans-serif;
+    font-size: 70px;
+    color: #FFB266;
+    line-height: 0.5;
+    height: 50px;
+    padding-top: 10px;
+    user-select: none;
+    transition-duration: 0.1s;
+}
+
+.logo:hover {
+    font-size: 73px;
+    cursor: pointer;
+}
+
+.navbar button {
+    width: 100px;
+    font-size: 25px;
+    margin: 0 10px 0 10px;
+    background: none;
+    outline: none;
+    border: none;
+    color: white;
+    transition-duration: 0.1s;
+}
+
+.navbar button:hover {
+    color: #FFB266;
+    font-size: 26px;
+}
+
+.navbar .links i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 30px;
+    margin-right: 15px;
+    width: 40px;
+    transition-duration: 0.1s;
+}
+
+.navbar .links i:hover {
+    color: #FFB266;
+    cursor: pointer;
+    font-size: 32px;
+}
