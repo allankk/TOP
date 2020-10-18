@@ -9,6 +9,7 @@ body {
     font-family: 'Lato', sans-serif !important;
     font-size: 16px;
     color: #ffffff;
+    
 }
 
 @font-face {
@@ -21,6 +22,13 @@ body {
 }
 
 
+
+
+/* 
+
+NAVIGATION BAR
+
+*/
 .bg-navbar {
     background-color: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(6px);
@@ -35,9 +43,13 @@ body {
     color: white;
 }
 
+/* .navbar-nav {
+    min-width: 240px;
+} */
 
 #navbarNav {
-    justify-content: space-around;
+    justify-content: center;
+    margin-right: 240px;
 }
 
 #logo {
@@ -66,16 +78,19 @@ body {
     background: none;
     outline: none;
     border: none;
+    user-select: none;
     color: white;
 }
 
 .nav-link {
     color: #ffffff;
     text-align: center;
+    font-size: 25px;
 }
 
 .nav-link:hover {
     color: #FFB266;
+    
 }
 
 .nav-link:focus {
@@ -150,6 +165,7 @@ body {
     }
 
 
+
 }
 
 
@@ -169,6 +185,9 @@ body {
         align-items: center;
     }
 
+    #navbarNav {
+        margin-right: 0px !important;
+    }    
 }
 
 @media only screen and (max-width: 375px) {
@@ -194,4 +213,151 @@ body {
         margin-top: 15px;
         color: white;
     }
+}
+
+
+/* 
+
+MAIN CONTENT
+
+*/
+
+.main {
+    height: calc(100vh - 110px);
+    /* position: relative; */
+    max-width: 80%;
+    margin: auto;
+}
+
+
+.main .main-content {
+    /* background-color: rgba(255, 255, 255, 0.05); */
+    background-color: rgba(0, 0, 0, 0.35);
+    border-radius: 4px;
+    backdrop-filter: blur(6px);
+    font-family: 'reislustnormal', sans-serif;
+    font-size: 50px;
+    color: #FFB266;
+    padding: 10px 20px;
+    width: auto;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.main .address {
+    font-family: 'Lato', sans-serif;
+    font-size: 25px;
+}
+
+.main .time {
+    font-family: 'Lato', sans-serif;
+    font-size: 25px;
+}
+
+@media only screen and (max-width: 375px) {
+    .main .address {
+        font-size: 10px;
+    }
+
+    .main .time {
+        font-size: 10px;
+
+    }
+
+    .main .main-content {
+        font-size: 30px;
+        margin: 5px 0;
+    }
+}
+
+/* MENU CONTENT */
+
+.menu-header {
+    font-family: 'reislustnormal', sans-serif;
+    font-size: 60px;
+    color: #FFB266;
+    user-select: none;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;   
+    min-width: 80%;
+}
+
+.menu-item {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.menu-price {
+    text-align: center;
+}
+
+@media only screen and (max-width: 475px) {
+    .menu-header {
+        font-size: 40px;
+    }
+
+
+    .main {
+        padding-top: 40px;
+        max-width: 95% !important;
+    }
+
+    .menu-item {
+        padding: 2px 0;
+        font-size: 16px;
+        text-align: left;
+    }
+
+    .menu {
+        width: 100% !important;
+    }
+}
+
+
+
+/* ABOUT CONTENT */
+
+.image-container {
+    flex-direction: row;
+}
+
+.about-header {
+    font-family: 'reislustnormal', sans-serif;
+    font-size: 60px;
+    color: #FFB266;
+    user-select: none;
+}
+
+.about-text {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    text-align: left;
+    color: #ffffff;
+    padding: 10px;
+    line-height: 2;
+}
+
+.about-image {
+    padding: 10px 4px;
+    width: 33%;
+    height: 300px;
+    object-fit: cover;
+}
+
+@media only screen and (max-width: 475px) {
+    .image-container {
+        flex-direction: column;
+    }
+
+    .about-image {
+        padding: 4px 0;
+        width: 100%;
+        height: 150px;
+    }
+
 }
