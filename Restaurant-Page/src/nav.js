@@ -4,7 +4,7 @@ const navigation = () => {
 
     const nav = document.createElement('nav');
 
-    nav.setAttribute('class', 'navbar navbar-expand-md');
+    nav.setAttribute('class', 'navbar navbar-expand-md navbar-fixed-top');
     nav.setAttribute('id', 'navbar');
 
     // create the logo

@@ -39,7 +39,7 @@ NAVIGATION BAR
 #navbar {
     background-color: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(6px);
-    height: 80px;
+    min-height: 80px;
     color: white;
 }
 
@@ -139,10 +139,8 @@ NAVIGATION BAR
 }
 
 #navbar .show {
-    background-color: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(8px);
-    margin-top: 50px;
-    color: white;
+    margin-top: 10px;
+    padding-bottom: 10px;
 }
 
 @media screen and (min-width: 769px) {
@@ -154,16 +152,11 @@ NAVIGATION BAR
         font-size: 62px;
     }
 
-    /* .collapse {
-        display:none !important
-    } */
-
     #navbar .show {
         background-color: transparent;
         backdrop-filter: none;
         margin-top: 0;
     }
-
 
 
 }
@@ -208,8 +201,6 @@ NAVIGATION BAR
     }
 
     #navbar .show {
-        background-color: transparent;
-        backdrop-filter: none;
         margin-top: 15px;
         color: white;
     }
