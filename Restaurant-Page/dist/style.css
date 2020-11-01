@@ -32,7 +32,8 @@ NAVIGATION BAR
 .bg-navbar {
     background-color: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(6px);
-    height: 60px;
+    /* height: 60px; */
+    height: auto;
     color: white;
 }
 
@@ -41,6 +42,8 @@ NAVIGATION BAR
     backdrop-filter: blur(6px);
     min-height: 80px;
     color: white;
+    width: 100%;
+    /* margin-bottom: 150px; */
 }
 
 /* .navbar-nav {
@@ -140,7 +143,8 @@ NAVIGATION BAR
 
 #navbar .show {
     margin-top: 15px;
-    padding-bottom: 30px;
+    /* margin-bottom: 100px; */
+    /* padding-bottom: 30px; */
 }
 
 @media screen and (min-width: 769px) {
@@ -213,11 +217,21 @@ MAIN CONTENT
 
 */
 
+#content {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+}
+
 .main {
-    height: calc(100vh - 110px);
-    /* position: relative; */
-    max-width: 80%;
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    margin: auto 0;
 }
 
 
@@ -229,10 +243,9 @@ MAIN CONTENT
     font-family: 'reislustnormal', sans-serif;
     font-size: 50px;
     color: #FFB266;
-    padding: 10px 20px;
     width: auto;
     text-align: center;
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 .main .address {
@@ -274,13 +287,14 @@ MAIN CONTENT
     display: flex;
     flex-direction: column;   
     min-width: 80%;
+    margin: 10px 0;
 }
 
 .menu-item {
     font-family: 'Lato', sans-serif;
     font-size: 20px;
     text-align: center;
-    padding: 10px 0;
+    padding: 10px 5px;
 }
 
 .menu-price {
