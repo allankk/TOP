@@ -218,7 +218,7 @@ MAIN CONTENT
 
 #content {
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
     flex-direction: column;
     justify-content: top;
     align-items: center;
