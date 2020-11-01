@@ -8,7 +8,7 @@ const pageAbout = () => {
 
     // container for address and opening times
     const aboutContent = document.createElement('div');
-    aboutContent.setAttribute('class', 'main-content address d-flex flex-column');
+    aboutContent.setAttribute('class', 'main-content address d-flex flex-column about-us');
     aboutContainer.appendChild(aboutContent);
 
     const aboutHeader = document.createElement('div');
