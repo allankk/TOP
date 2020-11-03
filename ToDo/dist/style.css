@@ -1,0 +1,158 @@
+html {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fafafa;
+    font-family: 'Lato', sans-serif;
+}
+
+/* NAVIGATION BAR */
+
+/* MOBILE */
+
+#nav-bar {
+    width: 100%;
+    height: auto;
+    float: top;
+    z-index: 1;
+    border-bottom: 2px solid #509bff;
+    display: block;
+    margin: 0 auto;
+}
+
+#nav-bar header {
+    display: none;
+    font-size: 30px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    left: 0;
+
+}
+
+nav li {
+    text-align: left;
+    font-size: 18px;
+    border-top: 1px solid gray;
+    line-height: 1.5em;
+}
+
+nav li a {
+    text-decoration: none;
+    display: block;
+    padding: 5px 20px 5px 60px;
+}
+
+nav li a:visited {
+    color: #000000;
+}
+
+nav li a:hover {
+    background-color: #509bff;
+    color: white;
+}
+
+nav .new-project {
+    text-align: center;
+    padding: 5px 0;
+}
+
+/* DESKTOP */
+
+@media (min-width: 800px) {
+    #nav-bar {
+        width: 330px;
+        height: 100%;
+        position: fixed;
+        float: left;
+        border-right: 2px solid #509bff;
+        margin: 0;
+        top: 0;
+        left: 0;
+    }
+
+    #nav-bar header {
+        display: block;
+        margin-top: 10px;
+    }
+}
+
+
+/* MAIN CONTENT */
+
+/* MOBILE */
+
+main header {
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+main .project-head {
+    margin: 10px 0;
+    border: 1px solid #509bff;
+    background-color: #509bff;
+    color: white;
+}
+
+main .project-head header {
+    margin-left: 20px;
+}
+
+main .project-head p {
+    margin-left: 10px;
+}
+
+main .project-content {
+    border: 1px solid #509bff;
+    padding: 5px 30px;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* TODO CONTENT */
+
+.project-content .buttons {
+    width: 50px;
+}
+
+.project-content .content {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-content .title {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.project-content .description {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.project-content .date {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+
+
+
+
+
+/* DESKTOP */
+
+@media (min-width: 800px) {
+    main {
+        margin: 40px 20px 40px 350px;
+    }
+
+}
