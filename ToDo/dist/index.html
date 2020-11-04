@@ -3,12 +3,13 @@
     <head>
         <title>todo web-app</title>
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="webfonts/all.min.css">
     </head>
     <body>
         <nav id="nav-bar">
             <header>ToDo App</header>
             <ul id="project-list">
-                <li><a href="#new-project" class="new-project">+ add project</a></li>
+                <li id="new-project-li"><a href="#new-project" id="new-project" class="new-project">+ add project</a></li>
                 <li><a href="#Project-1" class="nav-link">Project 1</a></li>
                 <li><a href="#Project-1" class="nav-link">Project 1</a></li>
                 <li><a href="#Project-1" class="nav-link">Project 1</a></li>
@@ -18,10 +19,24 @@
         </nav>
 
         <main id="main-container">
+
+            <div id="popup" class="popup">
+                <div class="popup-container">
+                    <span class="close">&times;</span>
+                    <p>Sample text</p>
+                </div> 
+            </div>
+
             <section class="main-section" id="project-1">
                 <div class="project-head">
-                    <header>Project 1</header>
-                    <p>This is a description of Project 1</p>
+                    <div class="content">
+                        <header>Project 1</header>
+                        <p>This is a description of Project 1</p>
+                    </div>
+                    <div class="buttons">
+                        <i class="fa fa-pencil-alt" aria-hidden="true"></i>
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </div>
                 </div>
 
                 <div class="project-content">
@@ -37,7 +52,8 @@
                         </div>
                     </div>
                     <div class="buttons">
-                        btn
+                        <i class="fa fa-pencil-alt" aria-hidden="true"></i>
+                        <i class="fa fa-trash" aria-hidden="true"></i>
                     </div>
 
                 </div>
