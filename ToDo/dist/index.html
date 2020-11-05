@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>todo web-app</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="webfonts/all.min.css">
     </head>
@@ -23,7 +24,8 @@
             <div id="popup" class="popup">
                 <div class="popup-container">
                     <span class="close">&times;</span>
-                    <p>Sample text</p>
+
+                    <input type="button" id="apply" value="Apply">
                 </div> 
             </div>
 
@@ -52,7 +54,7 @@
                         </div>
                     </div>
                     <div class="buttons">
-                        <i class="fa fa-pencil-alt" aria-hidden="true"></i>
+                        <i class="fa fa-pencil-alt" aria-hidden="true" id="todo-button"></i>
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </div>
 

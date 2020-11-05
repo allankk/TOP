@@ -86,7 +86,7 @@ nav #new-project-li {
 
 /* DESKTOP */
 
-@media (min-width: 800px) {
+@media (min-width: 820px) {
     #nav-bar {
         width: 330px;
         height: 100%;
@@ -150,7 +150,7 @@ main .project-content {
     height: 100px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
 }
 
 .project-head .buttons i {
@@ -210,7 +210,7 @@ main .project-content {
 
 /* DESKTOP */
 
-@media (min-width: 800px) {
+@media (min-width: 820px) {
     main {
         margin: 40px 20px 40px 350px;
     }
@@ -232,28 +232,79 @@ main .project-content {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
+}
 
   /* Content */
-  .popup-container {
+.popup-container {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-  }
+}
   
   /* The Close Button */
-  .close {
+.close {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-  }
+}
   
-  .close:hover,
-  .close:focus {
+.close:hover,
+.close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
-  }
+}
+
+.popup-container p {
+    margin: 10px 0;
+    font-weight: bold;    
+}
+
+.popup-container input, .popup-container textarea {
+    border: 1px solid gray;
+    width: 500px;
+    max-width: 100%;
+    outline: none;
+    padding: 5px;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+}
+
+.popup-container input:focus, .popup-container textarea:focus {
+    border: 1px solid #509bff;
+    box-shadow: 0px 0px 2px 0px rgba(80,155,255,0.75);
+}
+
+.popup-container .descriptionInput {
+    resize: none;
+}
+
+.popup-container .content-div {
+    margin-top: 25px;
+}
+
+.popup-container #apply {
+    width: 200px;
+    padding: 5px;
+    margin: 10px 0 10px 0;
+}
+
+.popup-container #apply:hover {
+    background-color: #509bff;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+@media (min-width: 820px) {
+    .popup-container {
+        text-align: center;
+    }
+    
+    .content-div {
+        margin: 25px auto 0 auto;
+        width: 512px;
+    }
+}
