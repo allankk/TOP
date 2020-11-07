@@ -1,10 +1,8 @@
+import { projectStorage } from './project-info.js';
 import { popupDisplay } from './popup.js';
 
-
 function App() {
-    popupDisplay();
-
+    popupDisplay(projectStorage());
 }
 
-console.log("hello testing 2");
 App();
