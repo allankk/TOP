@@ -37,6 +37,23 @@ const projectStorage = () => {
                         todoDescription: "todo description 1"
                     }
                 ]
+            },
+            {
+                projectID: 2,
+                projectTitle: "Project 2",
+                projectDescription: "description 2",
+                todos:[
+                    {
+                        todoID: 0,
+                        todoTitle: "todo Title 0",
+                        todoDescription: "todo description 0"
+                    },
+                    {
+                        todoID: 1,
+                        todoTitle: "todo Title 1",
+                        todoDescription: "todo description 1"
+                    }
+                ]
             }
         ]
     }

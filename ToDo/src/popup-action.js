@@ -43,10 +43,9 @@ const addProject = (projectStorage, titleInput, descriptionInput) => {
         todos: []
     }
 
-
     // Add project to projectStorage
-    // projectStorage.projects.push(projectItem);
-    // console.log(projectStorage);
+    projectStorage.projects.push(projectItem);
+    console.log(projectStorage);
 }
 
 

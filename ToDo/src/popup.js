@@ -4,43 +4,49 @@ import { addProject, addToDo } from './popup-action.js';
 const popupDisplay = (projectStorage) => {
 
     // create an array of added elements
-    let popupElements = [];
+    // let popupElements = [];
 
     // get popup element from DOM
     const popup = document.getElementById("popup");
 
     // element that closes the popup
-    const closeBtn = document.getElementsByClassName("close")[0];
+    // const closeBtn = document.getElementsByClassName("close")[0];
     
     // button for add project
     const addProjectBtn = document.getElementById("new-project");
     
-    // button for editing todo (TO BE CHANGED LATER)
-    const toDoBtn = document.getElementById("todo-button");
+    // button for adding/editing todo
+    // const toDoBtn = document.getElementById("todo-button");
+    // const AddTodoBtn = document.getElementById("add-todo-button");
 
     // button event for opening/closing popup
     addProjectBtn.onclick = function () {
         // add content to Add Project button
-        popupAddProject(projectStorage, popupElements);
+        popupAddProject(projectStorage, []);
         popup.style.display = "block";
     };
 
-    toDoBtn.onclick = function() {
-        popupTodo(projectStorage, popupElements);
-        popup.style.display = "block";
-    }
+    // toDoBtn.onclick = function() {
+    //     popupTodo(projectStorage, popupElements);
+    //     popup.style.display = "block";
+    // }
 
-    closeBtn.onclick = function () {
-        popup.style.display = "none";
-        removeContent(popupElements);
-    };
+    // AddTodoBtn.onclick = function() {
+    //     popupTodo(projectStorage, popupElements);
+    //     popup.style.display = "block";
+    // }
 
-    window.onclick = function(event) {
-        if (event.target == popup) {
-            popup.style.display = "none";
-            removeContent(popupElements);
-        };
-    };
+    // closeBtn.onclick = function () {
+    //     popup.style.display = "none";
+    //     removeContent(popupElements);
+    // };
+
+    // window.onclick = function(event) {
+    //     if (event.target == popup) {
+    //         popup.style.display = "none";
+    //         removeContent(popupElements);
+    //     };
+    // };
 };
 
 
@@ -83,6 +89,7 @@ const popupAddProject = (projectStorage, elementArray) => {
         removeContent(elementArray);
     }
 
+
     // Add elements to DOM
     titleDiv.appendChild(titleP);
     titleDiv.appendChild(titleInput);
@@ -92,6 +99,22 @@ const popupAddProject = (projectStorage, elementArray) => {
 
     container.insertBefore(titleDiv, applyBtn);
     container.insertBefore(descriptionDiv, applyBtn);
+
+    // Remove content when closing popup
+    const closeBtn = document.getElementsByClassName("close")[0];
+
+    closeBtn.onclick = function () {
+        popup.style.display = "none";
+        removeContent(elementArray);
+    };
+
+    window.onclick = function(event) {
+        if (event.target == popup) {
+            popup.style.display = "none";
+            removeContent(elementArray);
+        };
+    };
+
 };
 
 const popupTodo = (projectStorage, elementArray) => {
@@ -132,6 +155,8 @@ const popupTodo = (projectStorage, elementArray) => {
         removeContent(elementArray);
     }
 
+ 
+
     // Add elements to DOM
     titleDiv.appendChild(titleP);
     titleDiv.appendChild(titleInput);
@@ -141,6 +166,21 @@ const popupTodo = (projectStorage, elementArray) => {
 
     container.insertBefore(titleDiv, applyBtn);
     container.insertBefore(descriptionDiv, applyBtn);
+
+   // remove content when closing popup
+   const closeBtn = document.getElementsByClassName("close")[0];
+
+    closeBtn.onclick = function () {
+        popup.style.display = "none";
+        removeContent(elementArray);
+    };
+
+    window.onclick = function(event) {
+        if (event.target == popup) {
+            popup.style.display = "none";
+            removeContent(elementArray);
+    };
+};
 }
 
 // remove elements from DOM and empty the element array
@@ -153,4 +193,4 @@ const removeContent = (elementArray) => {
 }
 
 // TODO: delete the content from the popup after closing?
-export { popupDisplay };
+export { popupDisplay, popupAddProject, popupTodo };

@@ -10,7 +10,7 @@ body {
 /* DISPLAY, FLEX-BOX */
 
 .d-none {
-    display: none;
+    display: none !important;
 }
 
 .d-block {
@@ -29,7 +29,6 @@ body {
 /* NAVIGATION BAR */
 
 /* MOBILE */
-
 #nav-bar {
     width: 100%;
     height: auto;
@@ -50,7 +49,6 @@ nav ul {
     list-style: none;
     padding: 0;
     left: 0;
-
 }
 
 nav li {
@@ -73,6 +71,12 @@ nav li a:visited {
 nav li a:hover {
     background-color: #509bff;
     color: white;
+    cursor: pointer;
+}
+
+nav li .active {
+    background-color: #509bff;
+    color: white !important;
 }
 
 nav .new-project {
@@ -162,7 +166,31 @@ main .project-content {
     cursor: pointer;
 }
 
+.add-todo {
+    margin: 15px 38px 0 10px;
+    color: gray;
+    font-size: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: start;
+}
 
+.add-todo .add-button {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.add-todo span {
+    font-size: 20px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.add-todo .add-button:hover {
+    color: #509bff;
+    cursor: pointer;
+}
 
 .project-content .buttons {
     font-size: 30px;
