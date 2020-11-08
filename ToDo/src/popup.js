@@ -20,11 +20,11 @@ const popupDisplay = (projectStorage) => {
     // const AddTodoBtn = document.getElementById("add-todo-button");
 
     // button event for opening/closing popup
-    addProjectBtn.onclick = function () {
-        // add content to Add Project button
-        popupAddProject(projectStorage, []);
-        popup.style.display = "block";
-    };
+    // addProjectBtn.onclick = function () {
+    //     // add content to Add Project button
+    //     popupAddProject(projectStorage, []);
+    //     popup.style.display = "block";
+    // };
 
     // toDoBtn.onclick = function() {
     //     popupTodo(projectStorage, popupElements);
@@ -117,7 +117,7 @@ const popupAddProject = (projectStorage, elementArray) => {
 
 };
 
-const popupTodo = (projectStorage, elementArray) => {
+const popupTodo = (projectStorage, elementArray, currentProjectID) => {
     const container = document.getElementsByClassName("popup-container")[0];
     const applyBtn = document.getElementById('apply');
 
@@ -150,12 +150,10 @@ const popupTodo = (projectStorage, elementArray) => {
 
     // set apply button to retrieve information from the form
     applyBtn.onclick = function(event) {
-        addToDo(projectStorage, 0, titleInput, descriptionInput);
+        addToDo(projectStorage, currentProjectID, titleInput, descriptionInput);
         popup.style.display = "none";
         removeContent(elementArray);
     }
-
- 
 
     // Add elements to DOM
     titleDiv.appendChild(titleP);

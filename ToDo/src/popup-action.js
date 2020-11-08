@@ -1,3 +1,5 @@
+import { updateNav, updateProject } from './ui-action.js';
+
 const checkIfProjectExists = (projectStorage, projectID) => {
     let doesProjectExist = false;
 
@@ -45,7 +47,10 @@ const addProject = (projectStorage, titleInput, descriptionInput) => {
 
     // Add project to projectStorage
     projectStorage.projects.push(projectItem);
-    console.log(projectStorage);
+
+    // update the nav bar to add the project button
+    updateNav(projectStorage);
+
 }
 
 
@@ -87,8 +92,8 @@ const addToDo = (projectStorage, currentProjectID, titleInput, descriptionInput)
     // push todo object to project
     projectStorage.projects[projectIndex].todos.push(todoItem);
 
-    console.log(projectStorage);
-
+    // update the project DOM
+    updateProject(projectStorage, currentProjectID);
 }
 
 // let projectStorage = {

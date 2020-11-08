@@ -58,7 +58,6 @@ const projectStorage = () => {
         ]
     }
 
-    console.log(projectStorage);
 
     return projectStorage;
 }

@@ -1,13 +1,55 @@
 import { popupDisplay, popupAddProject, popupTodo } from './popup.js';
 
+
+// remove project information from DOM (for updating the html)
+const removeProjectDOM = () => {
+    const projectHTML = document.getElementsByTagName("section")[0];
+
+    if (projectHTML != undefined) {
+        projectHTML.parentNode.removeChild(projectHTML);
+    }    
+}
+
+const removeNavDOM = () => {
+    const navHTML = document.getElementById('project-list');
+
+    while (navHTML.children[0]) {
+        navHTML.removeChild(navHTML.children[0])
+    }
+}
+
+
 // Update navbar buttons
 const updateNav = (projectStorage) => {
     
+    removeNavDOM();
     let navButtons = [];
 
-    // create nav-bar items
+    // create add project button
+    const addProjectBtn = document.createElement('li');
+    addProjectBtn.setAttribute('id', 'new-project-li');
+
+    const addProjectA = document.createElement('a');
+    addProjectA.setAttribute('href', '#new-project');
+    addProjectA.setAttribute('id', 'new-project');
+    addProjectA.setAttribute('class', 'new-project');
+    addProjectA.innerHTML = '+ add project';
+
+    addProjectBtn.appendChild(addProjectA);
+
+    addProjectBtn.onclick = function() {
+        const popup = document.getElementById("popup");   
+        popupDisplay(projectStorage);       
+        popupAddProject(projectStorage, [])
+        popup.style.display = "block";
+    }
+
+    navButtons.push(addProjectBtn);
+
+    // create nav-bar links
     projectStorage.projects.forEach(element => {
         const linkContainer = document.createElement('li');
+        linkContainer.setAttribute('class', 'project')
         const link = document.createElement('a')
         link.setAttribute('class', 'nav-link');
         link.setAttribute('id', `project-${element.projectID}`);
@@ -28,9 +70,13 @@ const updateNav = (projectStorage) => {
     navButtons.forEach(element => {     
         projectList.appendChild(element);
     })
+
 }
 
 const updateProject = (projectStorage, projectID) => {
+
+    removeProjectDOM();
+
     let projectIndex = null;
     
     // console.log(`length is ${projectStorage.projects.length}` )
@@ -47,7 +93,6 @@ const updateProject = (projectStorage, projectID) => {
     projectSection.setAttribute('class', `project-${projectID}`);
     
     // add project head to DOM
-    // TODO: add onclick events
 
     const projectHead = document.createElement('div');
     projectHead.setAttribute('class', 'project-head');
@@ -71,6 +116,13 @@ const updateProject = (projectStorage, projectID) => {
     buttonPencil.setAttribute('class', 'fa fa-pencil-alt');
     buttonPencil.setAttribute('aria-hidden', 'true');
 
+    buttonPencil.onclick = function() {
+        const popup = document.getElementById("popup");   
+        popupDisplay(projectStorage);       
+        popupAddProject(projectStorage, [])
+        popup.style.display = "block";
+    }
+
     const buttonTrash = document.createElement('i');
     buttonTrash.setAttribute('class', 'fa fa-trash');
     buttonTrash.setAttribute('aria-hidden', 'true');
@@ -90,6 +142,13 @@ const updateProject = (projectStorage, projectID) => {
     addButtonContainer.setAttribute('class', 'add-button');
     addButtonContainer.setAttribute('id', 'add-todo-button');
 
+    addButtonContainer.onclick = function() {
+        const popup = document.getElementById("popup");   
+        popupDisplay(projectStorage);       
+        popupTodo(projectStorage, [], projectID)
+        popup.style.display = "block";
+    }
+
     const addTaskSpan = document.createElement('span');
     addTaskSpan.innerHTML = 'add task';
 
@@ -107,6 +166,8 @@ const updateProject = (projectStorage, projectID) => {
     projectSection.appendChild(addTaskContainer);
     
     // Add project content (todos)
+
+    
 
     projectStorage.projects[projectIndex].todos.forEach(element => {
 
@@ -161,6 +222,7 @@ const updateProject = (projectStorage, projectID) => {
 
             projectStorage.projects[projectIndex].todos.splice(todoIndex, 1);
             updateProject(projectStorage, projectID);
+            console.log(projectStorage);
         }
 
         taskButtons.appendChild(buttonPencil);
@@ -170,11 +232,8 @@ const updateProject = (projectStorage, projectID) => {
         taskContentContainer.appendChild(taskButtons);
         projectSection.appendChild(taskContentContainer);
     })
-
-    
-    
 }
 
 
 
-export { updateNav };
+export { updateNav, updateProject, removeNavDOM };
