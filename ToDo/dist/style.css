@@ -72,6 +72,7 @@ nav li a:hover {
     background-color: #509bff;
     color: white;
     cursor: pointer;
+    transition-duration: 0.15s;
 }
 
 nav li .active {
@@ -154,7 +155,7 @@ main .project-content {
     height: 100px;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: space-evenly;
 }
 
 .project-head .buttons i {
@@ -164,6 +165,7 @@ main .project-content {
 .project-head .buttons i:hover {
     color: #fafafa;
     cursor: pointer;
+    transition-duration: 0.15s;
 }
 
 .add-todo {
@@ -190,6 +192,7 @@ main .project-content {
 .add-todo .add-button:hover {
     color: #509bff;
     cursor: pointer;
+    transition-duration: 0.15s;
 }
 
 .project-content .buttons {
@@ -208,6 +211,7 @@ main .project-content {
 .project-content .buttons i:hover {
     color: #509bff;
     cursor: pointer;
+    transition-duration: 0.15s;
 }
 
 /* TODO CONTENT */
@@ -284,6 +288,7 @@ main .project-content {
     color: #000;
     text-decoration: none;
     cursor: pointer;
+    transition-duration: 0.15s;
 }
 
 .popup-container p {
@@ -324,6 +329,7 @@ main .project-content {
     background-color: #509bff;
     color: #ffffff;
     cursor: pointer;
+    transition-duration: 0.15s;
 }
 
 @media (min-width: 820px) {

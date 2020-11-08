@@ -1,4 +1,5 @@
 import { popupDisplay, popupAddProject, popupTodo } from './popup.js';
+import { getProjectIndex } from './popup-action.js';
 
 
 // remove project information from DOM (for updating the html)
@@ -40,7 +41,7 @@ const updateNav = (projectStorage) => {
     addProjectBtn.onclick = function() {
         const popup = document.getElementById("popup");   
         popupDisplay(projectStorage);       
-        popupAddProject(projectStorage, [])
+        popupAddProject(projectStorage, null, [])
         popup.style.display = "block";
     }
 
@@ -119,13 +120,22 @@ const updateProject = (projectStorage, projectID) => {
     buttonPencil.onclick = function() {
         const popup = document.getElementById("popup");   
         popupDisplay(projectStorage);       
-        popupAddProject(projectStorage, [])
+        popupAddProject(projectStorage, projectID, [])
         popup.style.display = "block";
     }
 
     const buttonTrash = document.createElement('i');
     buttonTrash.setAttribute('class', 'fa fa-trash');
     buttonTrash.setAttribute('aria-hidden', 'true');
+    
+    buttonTrash.onclick = function() {
+        let projectIndex = getProjectIndex(projectStorage, projectID);
+
+        projectStorage.projects.splice(projectIndex, 1);
+
+        updateNav(projectStorage);
+        removeProjectDOM();
+    }
 
     projectButtonContainer.appendChild(buttonPencil);
     projectButtonContainer.appendChild(buttonTrash);
@@ -145,7 +155,7 @@ const updateProject = (projectStorage, projectID) => {
     addButtonContainer.onclick = function() {
         const popup = document.getElementById("popup");   
         popupDisplay(projectStorage);       
-        popupTodo(projectStorage, [], projectID)
+        popupTodo(projectStorage, [], projectID, null)
         popup.style.display = "block";
     }
 
@@ -166,8 +176,6 @@ const updateProject = (projectStorage, projectID) => {
     projectSection.appendChild(addTaskContainer);
     
     // Add project content (todos)
-
-    
 
     projectStorage.projects[projectIndex].todos.forEach(element => {
 
@@ -204,7 +212,7 @@ const updateProject = (projectStorage, projectID) => {
         buttonPencil.onclick = function() {
             const popup = document.getElementById("popup");   
             popupDisplay(projectStorage);       
-            popupTodo(projectStorage, [])
+            popupTodo(projectStorage, [], projectID, element.todoID);
             popup.style.display = "block";
         }
 
@@ -222,7 +230,6 @@ const updateProject = (projectStorage, projectID) => {
 
             projectStorage.projects[projectIndex].todos.splice(todoIndex, 1);
             updateProject(projectStorage, projectID);
-            console.log(projectStorage);
         }
 
         taskButtons.appendChild(buttonPencil);

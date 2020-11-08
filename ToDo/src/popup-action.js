@@ -12,18 +12,29 @@ const checkIfProjectExists = (projectStorage, projectID) => {
     return doesProjectExist;
 }
 
-// TODO
-const checkIfTodoExists = (projectID, todoID) => {
-    return true;
+const checkIfTodoExists = (projectStorage, projectIndex, taskID) => {
+    let doesTaskExist = false;
+
+    projectStorage.projects[projectIndex].todos.forEach(element => {
+        if (element.todoID == taskID) {
+            doesTaskExist = true;
+        }
+    });
+    
+    return doesTaskExist;
+}
+
+// get project index in array;
+const getProjectIndex = (projectStorage, currentProjectID) => {
+    for (let i = 0; i < projectStorage.projects.length; i++) {
+        if (projectStorage.projects[i].projectID == currentProjectID) {
+            return i;
+        }
+    }
 }
 
 
-const addProject = (projectStorage, titleInput, descriptionInput) => {
-    if (titleInput == '' || titleInput == undefined || titleInput == null) {
-        console.log("The project needs a title");
-        return;
-    };
-
+const createNewProject = (projectStorage, titleInput, descriptionInput) => {
     // Find new project ID
     function getNewProjectID(projectStorage) {
         let lastID = 0;
@@ -48,27 +59,30 @@ const addProject = (projectStorage, titleInput, descriptionInput) => {
     // Add project to projectStorage
     projectStorage.projects.push(projectItem);
 
-    // update the nav bar to add the project button
-    updateNav(projectStorage);
-
 }
 
+const addProject = (projectStorage, currentProjectID, titleInput, descriptionInput) => {
+    if (titleInput == '' || titleInput == undefined || titleInput == null) {
+        console.log("The project needs a title");
+        return;
+    };
 
-const addToDo = (projectStorage, currentProjectID, titleInput, descriptionInput) => {
-    // check if project exists
-    if (checkIfProjectExists(projectStorage, currentProjectID) == false) return;
+    if (checkIfProjectExists(projectStorage, currentProjectID)) {
+        const projectIndex = getProjectIndex(projectStorage, currentProjectID);
+        
+        projectStorage.projects[projectIndex].projectTitle = titleInput.value;
+        projectStorage.projects[projectIndex].projectDescription = descriptionInput.value;
 
-    // get project index in array;
-    function getProjectIndex(projectStorage, currentProjectID) {
-        for (let i = 0; i < projectStorage.projects.length; i++) {
-            if (projectStorage.projects[i].projectID == currentProjectID) {
-                return i;
-            }
-        }
+        updateProject(projectStorage, currentProjectID);
+    } else {
+        createNewProject(projectStorage, titleInput, descriptionInput);
     }
 
-    let projectIndex = getProjectIndex(projectStorage, currentProjectID);
+    // update the nav bar to add the project button
+    updateNav(projectStorage);
+}
 
+const createNewTask = (projectStorage, projectIndex, titleInput, descriptionInput) => {
     // Find new todo ID
     function getNewTodoID(projectStorage, projectIndex) {
         let lastID = 0;
@@ -88,51 +102,42 @@ const addToDo = (projectStorage, currentProjectID, titleInput, descriptionInput)
         todoTitle: `${titleInput.value}`,
         todoDescription: `${descriptionInput.value}`,
     }
-
+    
     // push todo object to project
     projectStorage.projects[projectIndex].todos.push(todoItem);
+
+}
+
+// find task index
+function getTaskIndex(projectStorage, projectIndex, currentTaskID) {
+    for (let i = 0; i < projectStorage.projects[projectIndex].todos.length; i++) {
+        if (projectStorage.projects[projectIndex].todos[i].todoID == currentTaskID) {
+            return i;
+        }
+    }
+}
+
+const addToDo = (projectStorage, currentProjectID, currentTaskID, titleInput, descriptionInput) => {
+    // check if project exists
+    if (checkIfProjectExists(projectStorage, currentProjectID) == false) return;
+
+    let projectIndex = getProjectIndex(projectStorage, currentProjectID);
+
+    // if task exists, edit the content. If not, create new task.
+    if (checkIfTodoExists(projectStorage, projectIndex, currentTaskID)) {
+
+        const taskIndex = getTaskIndex(projectStorage, projectIndex, currentTaskID);
+
+        projectStorage.projects[projectIndex].todos[taskIndex].todoTitle = titleInput.value;
+        projectStorage.projects[projectIndex].todos[taskIndex].todoDescription = descriptionInput.value;
+
+    } else {
+        createNewTask(projectStorage, projectIndex, titleInput, descriptionInput);
+    }
 
     // update the project DOM
     updateProject(projectStorage, currentProjectID);
 }
 
-// let projectStorage = {
-//     projects:[
-//         {
-//             projectID: 0,
-//             projectTitle: "Project 0",
-//             projectDescription: "description 0",
-//             todos: [
-//                 {
-//                     todoID: 0,
-//                     todoTitle: "todo Title 0",
-//                     todoDescription: "todo description 0"
-//                 },
-//                 {
-//                     todoID: 1,
-//                     todoTitle: "todo Title 1",
-//                     todoDescription: "todo description 1"
-//                 }
-//             ]
-//         },
-//         {
-//             projectID: 1,
-//             projectTitle: "Project 1",
-//             projectDescription: "description 1",
-//             todos:[
-//                 {
-//                     todoID: 0,
-//                     todoTitle: "todo Title 0",
-//                     todoDescription: "todo description 0"
-//                 },
-//                 {
-//                     todoID: 1,
-//                     todoTitle: "todo Title 1",
-//                     todoDescription: "todo description 1"
-//                 }
-//             ]
-//         }
-//     ]
-// }
 
-export { addProject, addToDo };
+export { addProject, addToDo, getProjectIndex, getTaskIndex, checkIfProjectExists, checkIfTodoExists };

@@ -1,4 +1,4 @@
-import { addProject, addToDo } from './popup-action.js';
+import { addProject, addToDo, getProjectIndex, getTaskIndex, checkIfProjectExists, checkIfTodoExists } from './popup-action.js';
 
 // Create listeners for DOM
 const popupDisplay = (projectStorage) => {
@@ -51,7 +51,12 @@ const popupDisplay = (projectStorage) => {
 
 
 // Create content into the popup for adding a project
-const popupAddProject = (projectStorage, elementArray) => {
+const popupAddProject = (projectStorage, currentProjectID, elementArray) => {
+
+    let projectIndex = getProjectIndex(projectStorage, currentProjectID);
+
+    let doesProjectExist = checkIfProjectExists(projectStorage, currentProjectID);
+
     const container = document.getElementsByClassName("popup-container")[0];
     const applyBtn = document.getElementById('apply');
 
@@ -66,6 +71,9 @@ const popupAddProject = (projectStorage, elementArray) => {
 
     const titleInput = document.createElement('input');
     titleInput.setAttribute('class', 'titleInput');
+    if (doesProjectExist) {
+        titleInput.setAttribute('value', projectStorage.projects[projectIndex].projectTitle)
+    }
     elementArray.push(titleInput);
 
     // create description space
@@ -80,11 +88,19 @@ const popupAddProject = (projectStorage, elementArray) => {
     const descriptionInput = document.createElement('textarea');
     descriptionInput.setAttribute('class', 'descriptionInput');
     descriptionInput.setAttribute('rows', '4');
+    if (doesProjectExist) {
+        descriptionInput.innerHTML = projectStorage.projects[projectIndex].projectDescription;
+    }
+
+
     elementArray.push(descriptionInput);
+
+    
+
 
     // set apply button to retrieve information from the form
     applyBtn.onclick = function(event) {
-        addProject(projectStorage, titleInput, descriptionInput);
+        addProject(projectStorage, currentProjectID, titleInput, descriptionInput);
         popup.style.display = "none";
         removeContent(elementArray);
     }
@@ -117,9 +133,13 @@ const popupAddProject = (projectStorage, elementArray) => {
 
 };
 
-const popupTodo = (projectStorage, elementArray, currentProjectID) => {
+const popupTodo = (projectStorage, elementArray, currentProjectID, currentTaskID) => {
     const container = document.getElementsByClassName("popup-container")[0];
     const applyBtn = document.getElementById('apply');
+
+    let projectIndex = getProjectIndex(projectStorage, currentProjectID);
+
+    let doesTaskExist = checkIfTodoExists(projectStorage, projectIndex, currentTaskID);
 
     // create title space
     const titleDiv = document.createElement('div');
@@ -132,25 +152,34 @@ const popupTodo = (projectStorage, elementArray, currentProjectID) => {
 
     const titleInput = document.createElement('input');
     titleInput.setAttribute('class', 'titleInput');
-    elementArray.push(titleInput);
-
+    
     // create description space
     const descriptionDiv = document.createElement('div');
     descriptionDiv.setAttribute('class', 'content-div');
-    elementArray.push(descriptionDiv);
 
     const descriptionP = document.createElement('p');
     descriptionP.innerHTML = 'Task Description'
-    elementArray.push(descriptionP);
 
     const descriptionInput = document.createElement('textarea');
     descriptionInput.setAttribute('class', 'descriptionInput');
     descriptionInput.setAttribute('rows', '4');
+    // if todo exists, add placeholders
+    if (doesTaskExist) {
+        let taskIndex = getTaskIndex(projectStorage, projectIndex, currentTaskID);
+
+        titleInput.setAttribute('value', projectStorage.projects[projectIndex].todos[taskIndex].todoTitle);
+        descriptionInput.innerHTML = projectStorage.projects[projectIndex].todos[taskIndex].todoDescription
+
+    }
+
+    elementArray.push(titleInput);
+    elementArray.push(descriptionDiv);
+    elementArray.push(descriptionP);
     elementArray.push(descriptionInput);
 
     // set apply button to retrieve information from the form
     applyBtn.onclick = function(event) {
-        addToDo(projectStorage, currentProjectID, titleInput, descriptionInput);
+        addToDo(projectStorage, currentProjectID, currentTaskID, titleInput, descriptionInput);
         popup.style.display = "none";
         removeContent(elementArray);
     }
