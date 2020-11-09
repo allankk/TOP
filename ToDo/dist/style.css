@@ -83,6 +83,11 @@ nav li .active {
 nav .new-project {
     text-align: center;
     padding: 5px 0;
+    color: #000000;
+}
+
+nav .new-project:hover {
+    color: #fafafa;
 }
 
 nav #new-project-li {
@@ -150,7 +155,7 @@ main .project-content {
 }
 
 .project-head .content a {
-    color: #ffffff;
+    color: #fafafa;
 }
 
 .project-head .content a:hover {
@@ -347,7 +352,7 @@ main .project-content {
 
 .popup-container #apply:hover {
     background-color: #509bff;
-    color: #ffffff;
+    color: #fafafa;
     cursor: pointer;
     transition-duration: 0.12s;
 }
