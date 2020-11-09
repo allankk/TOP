@@ -1,7 +1,8 @@
 import { popupDisplay, popupAddProject, popupTodo } from './popup.js';
 import { getProjectIndex } from './popup-action.js';
 import { updateStorage } from './project-info.js';
-import { differenceInDays, format, formatRelative } from 'date-fns'
+import { differenceInDays, format, formatRelative } from 'date-fns';
+import { enGB } from 'date-fns/locale';
 
 // remove project information from DOM (for updating the html)
 const removeProjectDOM = () => {
@@ -74,6 +75,17 @@ const updateNav = (projectStorage) => {
     })
 
 }
+
+// check if date or time are empty
+const checkDate = (element) => {
+    return (element.todoDate == '') ? false : true;
+}
+
+const checkTime = (element) => {
+    return (element.todoTime == '') ? false : true;
+}
+
+
 
 const updateProject = (projectStorage, projectID) => {
     
@@ -198,17 +210,49 @@ const updateProject = (projectStorage, projectID) => {
         const taskDate = document.createElement('div');
         taskDate.setAttribute('class', 'date');
 
-        // get the date element
-        let newDate = new Date(element.todoDate + " " + element.todoTime);
-        let currentDate = new Date();
 
-        function relativeDate(date, baseDate, options) {
-            return Math.abs(differenceInDays(date, baseDate)) < 6
-              ? formatRelative(date, baseDate, options)
-              : format(date, `dd-MM-yyyy    HH:mm`)
+        // get the date element. Format relative functions
+
+        const formatRelativeLocale = {
+            lastWeek: "'last' eeee",
+            yesterday: "'yesterday'",
+            today: "'today'",
+            tomorrow: "'tomorrow'",
+            nextWeek: "eeee",
+            other: 'dd.MM.yyyy',
         }
 
-        taskDate.innerHTML = `${relativeDate(newDate, currentDate)}`;
+        const locale = {
+            ...enGB,
+            formatRelative: (token) => formatRelativeLocale[token],
+        };
+
+
+        if (checkDate(element) && checkTime(element)) {
+            let newDate = new Date(element.todoDate + " " + element.todoTime);
+            let currentDate = new Date();
+    
+            function relativeDate(date, baseDate, options) {
+                return Math.abs(differenceInDays(date, baseDate)) < 6
+                  ? formatRelative(date, baseDate, { locale: enGB })
+                  : format(date, 'dd.MM.yyyy    HH:mm');
+            }
+    
+            taskDate.innerHTML = `${relativeDate(newDate, currentDate)}`;
+        }  else if (checkDate(element)) {
+            let newDate = new Date(element.todoDate);
+            let currentDate = new Date();
+
+            function relativeDate(date, baseDate, options) {
+                return Math.abs(differenceInDays(date, baseDate)) < 6
+                  ? formatRelative(date, baseDate, { locale })
+                  : format(date, `dd.MM.yyyy`)
+            }
+    
+            taskDate.innerHTML = `${relativeDate(newDate, currentDate)}`;
+        } else if (checkTime(element)) {
+            taskDate.innerHTML = `${element.todoTime}`;
+        }
 
         // 
 
