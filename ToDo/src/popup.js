@@ -158,28 +158,59 @@ const popupTodo = (projectStorage, elementArray, currentProjectID, currentTaskID
     descriptionDiv.setAttribute('class', 'content-div');
 
     const descriptionP = document.createElement('p');
-    descriptionP.innerHTML = 'Task Description'
+    descriptionP.innerHTML = 'Task Description';
 
     const descriptionInput = document.createElement('textarea');
     descriptionInput.setAttribute('class', 'descriptionInput');
     descriptionInput.setAttribute('rows', '4');
+
+
+    // create date space
+    const dateDiv = document.createElement('div');
+    dateDiv.setAttribute('class', 'content-div');
+
+    const dateP = document.createElement('p');
+    dateP.innerHTML = 'Due Date';
+
+    const dateInput = document.createElement('input');
+    dateInput.setAttribute('type', 'date');
+    dateInput.setAttribute('id', 'due-date');
+
+    // create time space
+    const timeDiv = document.createElement('div');
+    timeDiv.setAttribute('class', 'content-div');
+
+    const timeP = document.createElement('p');
+    timeP.innerHTML = 'Due Time';
+
+    const timeInput = document.createElement('input');
+    timeInput.setAttribute('type', 'time');
+    timeInput.setAttribute('id', 'due-time');
+    
     // if todo exists, add placeholders
     if (doesTaskExist) {
         let taskIndex = getTaskIndex(projectStorage, projectIndex, currentTaskID);
 
         titleInput.setAttribute('value', projectStorage.projects[projectIndex].todos[taskIndex].todoTitle);
         descriptionInput.innerHTML = projectStorage.projects[projectIndex].todos[taskIndex].todoDescription
-
+        dateInput.setAttribute('value', projectStorage.projects[projectIndex].todos[taskIndex].todoDate);
+        timeInput.setAttribute('value', projectStorage.projects[projectIndex].todos[taskIndex].todoTime);
     }
 
     elementArray.push(titleInput);
     elementArray.push(descriptionDiv);
     elementArray.push(descriptionP);
     elementArray.push(descriptionInput);
+    elementArray.push(dateDiv);
+    elementArray.push(dateP);
+    elementArray.push(dateInput);
+    elementArray.push(timeDiv);
+    elementArray.push(timeP);
+    elementArray.push(timeInput)
 
     // set apply button to retrieve information from the form
     applyBtn.onclick = function(event) {
-        addToDo(projectStorage, currentProjectID, currentTaskID, titleInput, descriptionInput);
+        addToDo(projectStorage, currentProjectID, currentTaskID, titleInput, descriptionInput, dateInput, timeInput);
         popup.style.display = "none";
         removeContent(elementArray);
     }
@@ -191,8 +222,16 @@ const popupTodo = (projectStorage, elementArray, currentProjectID, currentTaskID
     descriptionDiv.appendChild(descriptionP);
     descriptionDiv.appendChild(descriptionInput);
 
+    dateDiv.appendChild(dateP);
+    dateDiv.appendChild(dateInput);
+
+    timeDiv.appendChild(timeP);
+    timeDiv.appendChild(timeInput);
+
     container.insertBefore(titleDiv, applyBtn);
     container.insertBefore(descriptionDiv, applyBtn);
+    container.insertBefore(dateDiv, applyBtn);
+    container.insertBefore(timeDiv, applyBtn);
 
    // remove content when closing popup
    const closeBtn = document.getElementsByClassName("close")[0];

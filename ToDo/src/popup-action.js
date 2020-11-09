@@ -82,7 +82,7 @@ const addProject = (projectStorage, currentProjectID, titleInput, descriptionInp
     updateNav(projectStorage);
 }
 
-const createNewTask = (projectStorage, projectIndex, titleInput, descriptionInput) => {
+const createNewTask = (projectStorage, projectIndex, titleInput, descriptionInput, dateInput, timeInput) => {
     // Find new todo ID
     function getNewTodoID(projectStorage, projectIndex) {
         let lastID = 0;
@@ -101,6 +101,8 @@ const createNewTask = (projectStorage, projectIndex, titleInput, descriptionInpu
         todoID: getNewTodoID(projectStorage, projectIndex),
         todoTitle: `${titleInput.value}`,
         todoDescription: `${descriptionInput.value}`,
+        todoDate: `${dateInput.value}`,
+        todoTime: `${timeInput.value}`
     }
     
     // push todo object to project
@@ -117,7 +119,7 @@ function getTaskIndex(projectStorage, projectIndex, currentTaskID) {
     }
 }
 
-const addToDo = (projectStorage, currentProjectID, currentTaskID, titleInput, descriptionInput) => {
+const addToDo = (projectStorage, currentProjectID, currentTaskID, titleInput, descriptionInput, dateInput, timeInput) => {
     // check if project exists
     if (checkIfProjectExists(projectStorage, currentProjectID) == false) return;
 
@@ -130,9 +132,11 @@ const addToDo = (projectStorage, currentProjectID, currentTaskID, titleInput, de
 
         projectStorage.projects[projectIndex].todos[taskIndex].todoTitle = titleInput.value;
         projectStorage.projects[projectIndex].todos[taskIndex].todoDescription = descriptionInput.value;
+        projectStorage.projects[projectIndex].todos[taskIndex].todoDate = dateInput.value;
+        projectStorage.projects[projectIndex].todos[taskIndex].todoTime = timeInput.value;
 
     } else {
-        createNewTask(projectStorage, projectIndex, titleInput, descriptionInput);
+        createNewTask(projectStorage, projectIndex, titleInput, descriptionInput, dateInput, timeInput);
     }
 
     // update the project DOM

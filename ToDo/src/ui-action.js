@@ -1,6 +1,7 @@
 import { popupDisplay, popupAddProject, popupTodo } from './popup.js';
 import { getProjectIndex } from './popup-action.js';
-
+import { updateStorage } from './project-info.js';
+import { differenceInDays, format, formatRelative } from 'date-fns'
 
 // remove project information from DOM (for updating the html)
 const removeProjectDOM = () => {
@@ -75,7 +76,8 @@ const updateNav = (projectStorage) => {
 }
 
 const updateProject = (projectStorage, projectID) => {
-
+    
+    updateStorage(projectStorage);
     removeProjectDOM();
 
     let projectIndex = null;
@@ -195,7 +197,20 @@ const updateProject = (projectStorage, projectID) => {
 
         const taskDate = document.createElement('div');
         taskDate.setAttribute('class', 'date');
-        taskDate.innerHTML = "dd/mm/yy hh:mm";
+
+        // get the date element
+        let newDate = new Date(element.todoDate + " " + element.todoTime);
+        let currentDate = new Date();
+
+        function relativeDate(date, baseDate, options) {
+            return Math.abs(differenceInDays(date, baseDate)) < 6
+              ? formatRelative(date, baseDate, options)
+              : format(date, `dd-MM-yyyy    HH:mm`)
+        }
+
+        taskDate.innerHTML = `${relativeDate(newDate, currentDate)}`;
+
+        // 
 
         taskContent.appendChild(taskTitle);
         taskContent.appendChild(taskDescription);
