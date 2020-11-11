@@ -4,11 +4,13 @@ const startStorage = () => {
     let projectStorage;
     if (localStorage.getItem('projectStorage') == undefined) {
         projectStorage = {
+            isSmall: true,
             projects:[
                 {
                     projectID: 0,
                     projectTitle: "Simple Todo App",
                     projectDescription: "This App uses Local Storage to save your work. <a href='https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage' target='_blank'>Read more</a>",
+                    isOpen: false,
                     todos: [
                         {
                             todoID: 0,
@@ -20,6 +22,28 @@ const startStorage = () => {
                         {
                             todoID: 1,
                             todoTitle: "Sample Task 2",
+                            todoDescription: "Task description goes here",
+                            todoDate: "",
+                            todoTime: ""
+                        }
+                    ]
+                },
+                {
+                    projectID: 1,
+                    projectTitle: "Project 2",
+                    projectDescription: "This App uses Local Storage to save your work. <a href='https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage' target='_blank'>Read more</a>",
+                    isOpen: false,
+                    todos: [
+                        {
+                            todoID: 0,
+                            todoTitle: "Sample Task 11",
+                            todoDescription: "Task description goes here",
+                            todoDate: "",
+                            todoTime: ""
+                        },
+                        {
+                            todoID: 1,
+                            todoTitle: "Sample Task 22",
                             todoDescription: "Task description goes here",
                             todoDate: "",
                             todoTime: ""

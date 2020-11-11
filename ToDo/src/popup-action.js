@@ -48,20 +48,24 @@ const createNewProject = (projectStorage, titleInput, descriptionInput) => {
         return lastID + 1;
     }
 
+    let newProjectID = getNewProjectID(projectStorage);
+
     // Create project object
     let projectItem = {
-        projectID: getNewProjectID(projectStorage),
+        projectID: newProjectID,
         projectTitle: `${titleInput.value}`,
         projectDescription: `${descriptionInput.value}`,
+        isOpen: true,
         todos: []
     }
 
     // Add project to projectStorage
     projectStorage.projects.push(projectItem);
-
+    return newProjectID;
 }
 
 const addProject = (projectStorage, currentProjectID, titleInput, descriptionInput) => {
+
     if (titleInput == '' || titleInput == undefined || titleInput == null) {
         console.log("The project needs a title");
         return;
@@ -75,7 +79,8 @@ const addProject = (projectStorage, currentProjectID, titleInput, descriptionInp
 
         updateProject(projectStorage, currentProjectID);
     } else {
-        createNewProject(projectStorage, titleInput, descriptionInput);
+        let newProjectID = createNewProject(projectStorage, titleInput, descriptionInput);
+        updateProject(projectStorage, newProjectID);
     }
 
     // update the nav bar to add the project button
