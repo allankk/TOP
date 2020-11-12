@@ -114,7 +114,7 @@ nav #new-project-li {
 
 /* DESKTOP */
 
-@media (min-width: 820px) {
+@media (min-width: 720px) {
     #nav-bar {
         width: 250px;
         height: 100%;
@@ -253,7 +253,8 @@ main .project-content {
 }
 
 .project-content .buttons i {
-    margin: 10px 5px;
+    margin: 4px 5px;
+    font-size: 25px;
 }
 
 .project-content .buttons i:hover {
@@ -265,7 +266,7 @@ main .project-content {
 /* TODO CONTENT */
 
 .project-content .buttons {
-    width: 50px;
+    width: 48px;
 }
 
 .project-content .content {
@@ -290,9 +291,21 @@ main .project-content {
     white-space: pre-wrap;
 }
 
+.project-content.red {
+    border-color: #ff6f6f;
+}
+
+.project-content.blue {
+    border-color: #509bff;
+}
+
+.project-content.green {
+    border-color: #289e2d;
+}
+
 /* DESKTOP */
 
-@media (min-width: 820px) {
+@media (min-width: 720px) {
     main {
         margin: 40px 20px 40px 280px;
     }
@@ -421,7 +434,8 @@ main .project-head.small {
 }
 
 main .project-head p.small {
-    display: none;
+    visibility: hidden;
+    min-height: 1em;
 }
 
 main .content.small {
@@ -440,6 +454,10 @@ main .project-head .buttons.small {
     flex-direction: row;
     height: 30px;
     font-size: 25px;
+}
+
+main .project-head .content.small {
+    margin-top: 50px;
 }
 
 main .content.small {
@@ -488,12 +506,27 @@ main .date.small {
     visibility: hidden;
 }
 
+main .project-head .content.small.visible {
+    margin: 13px 0 0 0;
+}
+
+main .project-head p.visible {
+    visibility: visible;
+    height: auto;
+    margin: 20px 0 30px 20px;
+    cursor: default;
+}
+
+main .project-head.small.visible {
+    height: auto;
+}
+
 
 main .project-content .buttons.small {
     flex-direction: row;
     height: 30px;
     font-size: 25px;
-    margin-right: 8px;
+    margin-right: 42px;
 }
 
 main .project-content .buttons.small i {
@@ -509,13 +542,13 @@ main .project-content .content.small.visible {
 }
 
 main .description.small.visible {
-    margin: 5px 0;
+    margin: 20px 0 0 0;
     height: auto;
     visibility: visible;
 }
 
 main .date.small.visible {
-    margin: 10px 0;
+    margin: 20px 0 10px 0;
     height: auto;
     visibility: visible;
 }
@@ -531,7 +564,7 @@ SLIDER
     display: none;
 }
 
-@media (min-width: 820px) {
+@media (min-width: 720px) {
     .switch-field {
         display: flex;
         margin: 10px auto;

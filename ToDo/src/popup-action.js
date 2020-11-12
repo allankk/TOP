@@ -106,6 +106,7 @@ const createNewTask = (projectStorage, projectIndex, titleInput, descriptionInpu
         todoID: getNewTodoID(projectStorage, projectIndex),
         todoTitle: `${titleInput.value}`,
         todoDescription: `${descriptionInput.value}`,
+        todoColor: 0,
         todoDate: `${dateInput.value}`,
         todoTime: `${timeInput.value}`
     }

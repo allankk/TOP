@@ -10,19 +10,29 @@ const startStorage = () => {
                     projectID: 0,
                     projectTitle: "Simple Todo App",
                     projectDescription: "This App uses Local Storage to save your work. <a href='https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage' target='_blank'>Read more</a>",
-                    isOpen: false,
+                    isOpen: true,
                     todos: [
                         {
                             todoID: 0,
-                            todoTitle: "Sample Task",
-                            todoDescription: "Task description goes here",
+                            todoTitle: "Click on me to display more information",
+                            todoDescription: "Check the toggleswitch on the bottom of the page to see all tasks fully.",
+                            todoColor: 0,
                             todoDate: "",
                             todoTime: ""
                         },
                         {
                             todoID: 1,
-                            todoTitle: "Sample Task 2",
-                            todoDescription: "Task description goes here",
+                            todoTitle: "Add a project",
+                            todoDescription: "Add a project using the first item on the navigation bar",
+                            todoColor: 0,
+                            todoDate: "",
+                            todoTime: ""
+                        },
+                        {
+                            todoID: 2,
+                            todoTitle: "Add a task",
+                            todoDescription: "Add a task using the 'add task' button above. You can also add a due date for your task.",
+                            todoColor: 0,
                             todoDate: "",
                             todoTime: ""
                         }
@@ -30,21 +40,71 @@ const startStorage = () => {
                 },
                 {
                     projectID: 1,
-                    projectTitle: "Project 2",
-                    projectDescription: "This App uses Local Storage to save your work. <a href='https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage' target='_blank'>Read more</a>",
+                    projectTitle: "Project 1",
+                    projectDescription: "Project description goes here",
                     isOpen: false,
                     todos: [
                         {
                             todoID: 0,
-                            todoTitle: "Sample Task 11",
+                            todoTitle: "Sample Task 1",
                             todoDescription: "Task description goes here",
+                            todoColor: 0,
                             todoDate: "",
                             todoTime: ""
                         },
                         {
                             todoID: 1,
-                            todoTitle: "Sample Task 22",
+                            todoTitle: "Sample Task 2",
                             todoDescription: "Task description goes here",
+                            todoColor: 0,
+                            todoDate: "",
+                            todoTime: ""
+                        }
+                    ]
+                },
+                {
+                    projectID: 2,
+                    projectTitle: "Project 2",
+                    projectDescription: "",
+                    isOpen: false,
+                    todos: [
+                        {
+                            todoID: 0,
+                            todoTitle: "Sample Task 1",
+                            todoDescription: "Task description goes here",
+                            todoColor: 0,
+                            todoDate: "",
+                            todoTime: ""
+                        },
+                        {
+                            todoID: 1,
+                            todoTitle: "Sample Task 2",
+                            todoDescription: "Task description goes here",
+                            todoColor: 0,
+                            todoDate: "",
+                            todoTime: ""
+                        }
+                    ]
+                },
+                {
+                    projectID: 3,
+                    projectTitle: "Project 3",
+                    projectDescription: "",
+                    isOpen: false,
+                    todos: [
+                        {
+                            todoID: 0,
+                            todoTitle: "Sample Task 1",
+                            todoDescription: "Task description goes here",
+                            todoColor: 0,
+                            todoDate: "",
+                            todoTime: ""
+                        },
+                        {
+                            todoID: 1,
+                            todoTitle: "Sample Task 2",
+                            todoDescription: "Task description goes here",
+                            todoColor: 0,
                             todoDate: "",
                             todoTime: ""
                         }

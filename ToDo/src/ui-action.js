@@ -66,8 +66,6 @@ const removeProjectDOM = (projectStorage) => {
         }
     })
 
-    // console.log(removableProjects);
-
     // remove the projects that are not open
     const projectHTML = document.querySelectorAll("section");
     if (projectHTML.length > 0) {
@@ -80,6 +78,28 @@ const removeProjectDOM = (projectStorage) => {
         }
     }
 }
+
+const removeProjectDOMwithID = (projectStorage, projectID) => {
+
+    // create an array of projects to be removed from DOM
+    const removableProjects = [];
+    projectStorage.projects.forEach(element => {
+        if (element.isOpen == false) {
+            removableProjects.push(element);
+        }
+    })
+
+    // remove the projects that are not open
+    const projectHTML = document.querySelectorAll("section");
+    if (projectHTML.length > 0) {
+        for (let i = 0; i < projectHTML.length; i++) {
+            if (projectHTML[i].className == ('project-' + projectID)) {
+                projectHTML[i].parentNode.removeChild(projectHTML[i]);
+            }
+        }
+    }
+}
+
 
 const removeNavDOM = () => {
     const navHTML = document.getElementById('project-list');
@@ -181,7 +201,8 @@ const checkTime = (element) => {
 const updateProject = (projectStorage, projectID) => {
     
     updateStorage(projectStorage);
-    // removeProjectDOM(projectStorage);
+    removeProjectDOM(projectStorage);
+    removeProjectDOMwithID(projectStorage, projectID);
 
     let projectIndex = null;
     let contentItems = [];
@@ -243,11 +264,15 @@ const updateProject = (projectStorage, projectID) => {
     
     buttonTrash.onclick = function() {
         let projectIndex = getProjectIndex(projectStorage, projectID);
-
+        
+        // first hide the element by changing isOpen, then delete it.
+        projectStorage.projects[projectIndex].isOpen = false;
+        removeProjectDOM(projectStorage);
+        
         projectStorage.projects.splice(projectIndex, 1);
 
+        updateStorage(projectStorage)
         updateNav(projectStorage);
-        removeProjectDOM();
     }
 
     projectButtonContainer.appendChild(buttonPencil);
@@ -298,7 +323,7 @@ const updateProject = (projectStorage, projectID) => {
     mainContainer.appendChild(projectSection);
     projectSection.appendChild(projectHead);
     projectSection.appendChild(addTaskContainer);
-    
+   
     // Add project content (todos)
 
     projectStorage.projects[projectIndex].todos.forEach(element => {
@@ -308,6 +333,15 @@ const updateProject = (projectStorage, projectID) => {
         const taskContentContainer = document.createElement('div');
         taskContentContainer.setAttribute('class', 'project-content');
         taskItems.push(taskContentContainer);
+
+        if (element.todoColor == 0) {
+            taskContentContainer.classList.add('blue');
+        } else if (element.todoColor == 1) {
+            taskContentContainer.classList.add('green');
+        } else {
+            taskContentContainer.classList.add('red');
+        };
+
     
         const taskContent = document.createElement('div');
         taskContent.setAttribute('class', 'content');
@@ -382,6 +416,30 @@ const updateProject = (projectStorage, projectID) => {
         taskButtons.setAttribute('class', 'buttons');
         taskItems.push(taskButtons);
 
+        const buttonBrush = document.createElement('i');
+        buttonBrush.setAttribute('class', 'fa fa-palette');
+        buttonBrush.setAttribute('id', 'color-button');
+        taskItems.push(buttonBrush);
+
+        buttonBrush.onclick = function() {
+            if (element.todoColor == 0) {
+                element.todoColor = 1;
+                taskContentContainer.classList.remove('blue');
+                taskContentContainer.classList.add('green');
+                updateStorage(projectStorage);
+            } else if (element.todoColor == 1) {
+                element.todoColor = 2;
+                taskContentContainer.classList.remove('green');
+                taskContentContainer.classList.add('red');
+                updateStorage(projectStorage);
+            } else {
+                element.todoColor = 0;
+                taskContentContainer.classList.remove('red');
+                taskContentContainer.classList.add('blue');
+                updateStorage(projectStorage);
+            };
+        }
+
         const buttonPencil = document.createElement('i');
         buttonPencil.setAttribute('class', 'fa fa-pencil-alt');
         buttonPencil.setAttribute('aria-hidden', 'true');
@@ -408,9 +466,11 @@ const updateProject = (projectStorage, projectID) => {
                     todoIndex = i;
                 }
             }
-
+            
+            taskContentContainer.parentNode.removeChild(taskContentContainer);
             projectStorage.projects[projectIndex].todos.splice(todoIndex, 1);
-            updateProject(projectStorage, projectID);
+            updateStorage(projectStorage);
+            // updateProject(projectStorage, projectID);
         }
 
         // if small items are selected, add class 'small' to every element
@@ -448,6 +508,7 @@ const updateProject = (projectStorage, projectID) => {
         }
 
 
+        taskButtons.appendChild(buttonBrush);
         taskButtons.appendChild(buttonPencil);
         taskButtons.appendChild(buttonTrash);
 
@@ -455,6 +516,31 @@ const updateProject = (projectStorage, projectID) => {
         taskContentContainer.appendChild(taskButtons);
         projectSection.appendChild(taskContentContainer);
     })
+
+    if (projectStorage.isSmall) {
+
+        // clicking content will reveal description and date
+        projectHeader.onclick = function() {
+            if (projectHead.classList.contains('visible')) {
+                projectHead.classList.remove('visible');
+            } else {
+                projectHead.classList.add('visible');
+            }
+
+            if (projectContent.classList.contains('visible')) {
+                projectContent.classList.remove('visible');
+            } else {
+                projectContent.classList.add('visible');
+            }
+
+            if (projectDescription.classList.contains('visible')) {
+                projectDescription.classList.remove('visible');
+            } else {
+                projectDescription.classList.add('visible');
+            }
+        }
+    }
+
 }
 
 // update the DOM when starting the page or refreshing 
