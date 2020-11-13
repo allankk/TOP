@@ -1,0 +1,77 @@
+html, body {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fafafa;
+}
+
+.image-container {
+    margin: 100px auto;
+    width: 90%;
+    max-width: 900px;
+    height: 600px;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+.image {
+    height: 550px;
+    width: 100%;
+    transition: 1s;
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    display: block;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.button-container div {
+    margin: 0 5px;
+    font-size: 20.5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px 30px;
+    color: #666;
+}
+
+.button-container .arrow {
+    width: 25%;
+    text-align: center;
+}
+
+.button-container div:hover {
+    color: #000;
+    cursor: pointer;
+}
+
+#nav-dots {
+    margin-top: 30px;
+    display: flex;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: lightgray;
+    margin: 0 10px;
+}
+
+.nav-dot.selected {
+    background-color: gray;
+}
