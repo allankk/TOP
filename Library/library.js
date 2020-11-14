@@ -23,14 +23,34 @@ const readInput = document.querySelector('#read');
 function loadEventListeners() {
     bookForm.style.display = 'none';
     bookDisplay.style.display = 'none';
+    const error = document.getElementById('error');
 
-    bookFormSubmit.addEventListener('click', addBookToLibrary);
+    // bookFormSubmit.addEventListener('click', addBookToLibrary);
+
+    bookFormSubmit.onclick = function() {
+        if (bookForm.checkValidity()) {
+            addBookToLibrary();
+            if (error.classList.contains("visible")) {
+                error.classList.remove('visible');
+                error.innerHTML = "";
+            }
+        } else {
+            error.classList.add('visible');
+            error.innerHTML = "Author and Title fields are required"
+        }
+    }
     
+
     formDisplayBtn.addEventListener('click', function() {
         if (bookForm.style.display == 'block') {
             bookForm.style.display = 'none';
         } else if (bookForm.style.display == 'none') {
             bookForm.style.display = 'block';
+        }
+
+        error.innerHTML = "";
+        if (error.classList.contains('displayed')) {
+            error.classList.remove('visible');
         }
     })
 
@@ -40,6 +60,33 @@ function loadEventListeners() {
         } else if (bookDisplay.style.display == 'none') {
             bookDisplay.style.display = 'flex';
         };
+    })
+}
+
+
+function addBookListener(book) {
+    const bookDeleteButtons = document.querySelectorAll('.delete-book-btn');
+    const bookReadButtons = document.querySelectorAll('.toggle-read-btn');
+
+    bookDeleteButtons.forEach(element => {
+        if (book.idNumber == element.getAttribute('data-idNumber')) {
+            element.addEventListener('click', function() {
+                myLibrary.splice(myLibrary.indexOf(book), 1);
+                removeBookHTML(book);
+                saveToStorage();
+            })
+        }
+    })
+
+    bookReadButtons.forEach(element => {
+        if (book.idNumber == element.getAttribute('data-idNumber')) {
+            element.addEventListener('click', function() {
+                book.read ? book.read = false : book.read = true;
+                let bookItem = document.querySelector(`[data-idNumber='${book.idNumber}']`);
+                setBackgroundBasedOnRead(book, bookItem);
+                saveToStorage();
+            })
+        }
     })
 }
 
@@ -59,15 +106,17 @@ function loadBookListeners() {
         saveToStorage();
     }));
 
+
     const bookReadButtons = document.querySelectorAll('.toggle-read-btn');
 
     bookReadButtons.forEach(button => button.addEventListener('click', function() {
         myLibrary.forEach(book => {
             if (book.idNumber == this.getAttribute('data-idNumber')) {
                 book.read ? book.read = false : book.read = true;
+                let bookItem = document.querySelector(`[data-idNumber='${book.idNumber}']`);
+                setBackgroundBasedOnRead(book, bookItem);
+                saveToStorage();
             }
-            let bookItem = document.querySelector(`[data-idNumber='${book.idNumber}']`);
-            setBackgroundBasedOnRead(book, bookItem);
         })
 
     }));
@@ -94,22 +143,22 @@ Book.prototype.info = function () {
 // TAKE USERS INPUT TO ADD A BOOK
 
 function addBookToLibrary() {
-    let newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, readInput.value);   
-    
+    let newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, Boolean(readInput.value));   
+
     bookForm.reset();
     
     myLibrary.push(newBook);
     createDiv(newBook);
-    loadBookListeners();    
+    addBookListener(newBook);    
     saveToStorage();
 }
 
 
-// SET READ PROPERTY
-function setReadProperty() {
-    const checkRead = document.getElementById("read");
-    (checkRead.value == 'true') ? checkRead.value = false : checkRead.value = true
-}
+// // SET READ PROPERTY
+// function setReadProperty() {
+//     const checkRead = document.getElementById("read");
+//     (checkRead.value == 'true') ? checkRead.value = true : checkRead.value = false
+// }
 
 // SETS THE BACKGROUND COLOR OF A BOOK BASED ON IF IT HAS BEEN READ
 
@@ -117,11 +166,10 @@ function setBackgroundBasedOnRead(book, bookItem) {
     if (book.read && bookItem.classList.contains('is-not-read')) {
         bookItem.classList.add('is-read');
         bookItem.classList.remove('is-not-read');
-        saveToStorage();
     } else if (!book.read && bookItem.classList.contains('is-read')) {
         bookItem.classList.add('is-not-read');
         bookItem.classList.remove('is-read');
-        saveToStorage();
+
     };
 
 }
@@ -200,12 +248,13 @@ function removeBookHTML(book) {
 
 function saveToStorage() {
     localStorage.setItem('my-library', JSON.stringify(myLibrary));
-    console.log(localStorage)
 }
 
 function getFromStorage() {
     if (localStorage.getItem('my-library') != null) {
         myLibrary = JSON.parse(localStorage.getItem('my-library'));
+    } else {
+        saveToStorage();
     }
 }
 
@@ -219,7 +268,6 @@ let lordRings = new Book("Lord Of The Rings", "J.R.R. Tolkien", 399, true);
 myLibrary.push(lordRings);
 
 // START THE JS
-
 getFromStorage();
 
 myLibrary.forEach(element => {

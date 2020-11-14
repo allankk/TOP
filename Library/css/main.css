@@ -95,6 +95,24 @@ input {
     box-sizing: border-box;
 }
 
+input:invalid {
+    border: 1px red;
+}
+
+.error {
+    display: none;
+}
+
+#error.visible {
+    display: block;
+    margin-top: 15px;
+    padding: 5px;
+    color: red;
+    background-color: rgb(236, 236, 236);
+    border-radius: 5px;
+    box-shadow: 0 0 2px 1px rgb(233, 233, 233);
+}
+
 .read-container {
     margin-bottom: 10px;
     display: flex;

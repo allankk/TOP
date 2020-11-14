@@ -18,17 +18,20 @@
         <form class="add-book-form">
             
             <div class="inputs">
-                <input type="text" id="author" placeholder="Author" autocomplete="off">
-                <input type="text" id="title" placeholder="Title" autocomplete="off">
+                <input type="text" id="author" placeholder="Author" autocomplete="off" required>
+                <input type="text" id="title" placeholder="Title" autocomplete="off" required>
                 <input type="number" id="pages" placeholder="Number of Pages" autocomplete="off">
                 <div class="read-container">
-                    <input type="checkbox" id="read" value="false" onclick="setReadProperty()">
+                    <input type="checkbox" id="read" value=false>
                     <label id="read-label" for="read">I have read the book</label>
                 </div>
                 <div class="submit-container">
                     <button id="submit-form" type="button">
                         SUBMIT
                     </button>
+                </div>
+                <div id="error">
+
                 </div>
             </div>
         </form>
