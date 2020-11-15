@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+}
+
+main.form-container {
+    margin: 0 auto;
+    color: green;
+    text-align: center;
+    margin-top: 200px;
+}
+
+main.form-container form {
+    text-align: start;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+input {
+    margin: 5px 0 20px 0;
+    padding: 5px;
+    width: 250px;
+}
+
+input#submit {
+    width: 100%;
+}
+
+main label a {
+    color: red;
+    float: right;
+    position: relative;
+    top: 28px;
+    right: 5px;
+}

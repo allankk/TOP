@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="form-container">
+        <form name="indexForm" action="" onsubmit="return validateForm()">
+            <label for="email">E-mail</label><br>
+            <input type="text" id="email" name="email" onblur="validateEmail()"><br>
+
+            <label for="country">Country</label><br>
+            <input type="text" id="country" name="country" onblur="validateCountry()"><br>
+
+            <label for="zipcode">Zip Code</label><br>
+            <input type="text" id="zipcode" name="zipcode" onblur="validateZipcode()"><br>
+
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password" onblur="validatePassword()"><br>
+
+            <label for="password-confirm">Password Confirmation</label><br>
+            <input type="password" id="password-confirm" name="password-confirm" onblur="validatePasswordConfirm()"><br>
+
+            <input type="submit" id="submit" name="submit"><br>
+        </form>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
