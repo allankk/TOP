@@ -15,6 +15,7 @@ body {
 	color: #fafafa;
 	background-color: #353535;
 	user-select: none;
+	z-index: 100;
 }
 
 .top-bar i {
@@ -36,6 +37,7 @@ nav {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	z-index: 100;
 }
 
 nav #search {
@@ -81,7 +83,8 @@ nav #search-btn:hover {
 	margin-top: 120px;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
+	justify-content: center;
+	flex-wrap: wrap;
 }
 
 .weather-item {
@@ -89,15 +92,82 @@ nav #search-btn:hover {
 	box-shadow: 0px 0px 6px 0px #353535;
 	margin: 10px;
 	width: 280px;
-	height: 330px;
+	height: 300px;
 	background-color: #eaeaea;
 }
 
 .weather-item i {
 	position: absolute;
-	right: 20px;
+	right: 30px;
 	top: 10px;
 	font-size: 50px;
+}
+
+.weather-item .item-container {
+	height: 80px;
+	font-size: 30px;
+	font-weight: bold;
+	width: 33%;
+}
+
+.weather-item .item-container.icon {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.weather-item #wind-speed {
+	font-weight: normal;
+}
+
+.weather-item #humidity {
+	font-weight: normal;
+}
+
+.weather-item .item-container i {
+	position: static;
+	text-align: center;
+    font-size: 30px;
+}
+
+.weather-item .item-container i.north {
+	transform: rotate(-45deg);
+}
+
+.weather-item .item-container i.north-east {
+	transform: rotate(0deg);
+}
+
+.weather-item .item-container i.east {
+	transform: rotate(45deg);
+}
+
+.weather-item .item-container i.south-east {
+	transform: rotate(90deg);
+}
+
+
+.weather-item .item-container i.south {
+	transform: rotate(135deg);
+}
+
+.weather-item .item-container i.south-west {
+	transform: rotate(180deg);
+}
+
+.weather-item .item-container i.west {
+	transform: rotate(225deg);
+}
+
+.weather-item .item-container i.north-west {
+	transform: rotate(270deg);
+}
+
+.weather-item .item-container span {
+	text-align: center;
+	margin-top: 2px;
+	font-size: 16px;
+	font-weight: normal;
 }
 
 .weather-item #city {
@@ -114,3 +184,48 @@ nav #search-btn:hover {
 	box-sizing: border-box;
 }
 
+.weather-item .description {
+	text-align: center;
+	height: 30px;
+	margin-top: 25px;
+}
+
+.weather-item .content {
+	margin-top: 10px;
+	height: 70px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: flex-start;
+	text-align: center;
+}
+
+.weather-item .content span {
+	font-size: 16px;
+}
+
+.weather-item #temp {
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.weather-item #feels-like {
+	font-size: 28px;
+	font-weight: bold;
+}
+
+
+.weather-item #sunrise {
+	font-size: 28px;
+}
+
+.weather-item #sunset {
+	font-size: 28px;
+}
+
+
+/* FOOTER */
+
+footer {
+	height: 50px;
+}
