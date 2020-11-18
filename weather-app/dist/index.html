@@ -3,26 +3,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="webfonts/all.min.css">
     <title>Weather App</title>
 </head>
 <body>
+    <div class="top-bar">
+        <i class="fa fa-cloud-sun"></i>
+        <h1>Weather App</h1>            
+    </div>
     <main>
-
         <nav>
-            <div class="brand">
-                Weather App
-            </div>
             <div class="search-container">
-                <input type="text" name="search" id="search">
-                <input type="submit" id="search">
+                <input type="text" name="search" id="search" placeholder="Search for a city">
+                <input type="submit" id="search-btn">
             </div>
         </nav>
-
-
-
+        <div class="weather-content">
+            <div class="weather-item">
+                 <i class="fa fa-cloud-sun"></i>
+                <div id="city">Tallinn</div>
+                <div id="country">Estonia</div>
+            </div>
+        </div>
     </main>
-    
-
 
     <script src="main.js"></script>
 </body>
