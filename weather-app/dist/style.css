@@ -120,11 +120,20 @@ nav #search-btn:hover {
 	font-size: 50px;
 }
 
+.weather-item.cloudy {
+	background-image: url('./cloudy.webp');
+	background-position: right;
+
+}
+
 .weather-item .item-container {
-	height: 80px;
+	height: 60px;
 	font-size: 30px;
 	font-weight: bold;
 	width: 33%;
+	margin: 5px;
+	padding-top: 10px;
+	background-color: #ffffff9e;
 }
 
 .weather-item .item-container.icon {
