@@ -1,7 +1,16 @@
 import packageInfo from './country_codes.json';
+import { createWeatherItem } from './weatherItem.js';
 
 const URLSTART = 'http://api.openweathermap.org/data/2.5/weather?q=';
 const URLEND = '&appid=ccc5bdcd6b167bc37faefb623abeb33b';
+
+
+// remove errors
+const removeErrors = () => {
+    const error = document.querySelector('error');
+
+    error.setAttribute('class', 'error');
+}
 
 // get weather information from openweathermap api, then use that information in logResponse()
 const getWeather = (location) => {
@@ -15,6 +24,11 @@ const getWeather = (location) => {
         })
         .then(function(response) {
             logResponse(response);
+        })
+        .catch(function(response) {
+            console.log(response);
+            const error = document.querySelector('error');
+            error.setAttribute('class', 'error show');          
         })
 }
 
@@ -46,6 +60,7 @@ const logResponse = (response) => {
     }
 
     console.log(weather);
+    createWeatherItem(weather);
 }
 
 // convert time from unix format to HH:MM

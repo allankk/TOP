@@ -75,6 +75,23 @@ nav #search-btn:hover {
 	}
 }
 
+.error {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 0px;
+	background-color: #e44b4b;
+	margin-top: 100px;
+	color: #6f0000;
+	overflow: hidden;
+	transition: 0.2s;
+}
+
+.error.show {
+	height: 50px;
+}
+
 /* WEATHER CONTENT AND ITEMS */
 
 .weather-content {

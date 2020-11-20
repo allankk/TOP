@@ -3,7 +3,7 @@
 
 import { getWeather } from './getWeather.js'
 
-const LOCATION = 'belo+horizonte'
+const LOCATION = 'Tartu'
 
 function App() {
 
