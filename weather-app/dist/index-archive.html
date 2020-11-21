@@ -1,0 +1,257 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="webfonts/all.min.css">
+    <title>Weather App</title>
+</head>
+<body>
+    <div class="top-bar">
+        <i class="fa fa-cloud-sun"></i>
+        <h1>Weather App</h1>            
+    </div>
+    <main>
+        <nav>
+            <div class="search-container">
+                <input type="text" name="search" id="search" placeholder="Search for a city" autocomplete="off">
+                <input type="submit" id="search-btn">
+            </div>
+        </nav>
+        <div class="error">
+            
+        </div>
+
+        <div class="weather-content" id="weather-content">
+            <div class="weather-item athmosphere">
+                <div class="weather-icon">
+                    <img src="icons/01d.png" alt="">
+                </div>
+
+
+                <div class="change-bar">
+                    <i class="fa fa-sync"></i>
+                    <i class="fa fa-times"></i>
+
+                </div>
+
+                <div id="city">Tallinn</div>
+                <div id="country">Estonia</div>
+                <div class="description">
+                    Broken Clouds
+                </div>
+
+                <div class="content">
+                    <div class="item-container">
+                        <span id="temp">22°C</span>
+                        <span><br>Temp.</span>
+                    </div>
+                    <div class="item-container">
+                        <span id="feels-like">15°C</span>
+                        <span><br>Feels like</span>
+                    </div>
+                    <div class="item-container icon">
+                        <i class="fa fa-location-arrow north-west"></i>
+                        <span id="wind-speed">4 m/s</span>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <div class="item-container">
+                        <span id="sunrise">08:30</span>
+                        <span><br>Sunrise</span>
+                    </div>
+                    <div class="item-container">
+                        <span id="sunset">16:25</span>
+                        <span><br>Sunset</span>                       
+                    </div>
+                    <div class="item-container icon">
+                        <i class="fa fa-water"></i>
+                        <span id="humidity">46%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="weather-item overcast-clouds">
+                <div class="weather-icon">
+                    <img src="icons/02d.png" alt="">
+                </div>
+
+                <div id="city">Tallinn</div>
+                <div id="country">Estonia</div>
+                <div class="description">
+                    Broken Clouds
+                </div>
+
+                <div class="content">
+                    <div class="item-container">
+                        <span id="temp">22°C</span>
+                        <span><br>Temp.</span>
+                    </div>
+                    <div class="item-container">
+                        <span id="feels-like">15°C</span>
+                        <span><br>Feels like</span>
+                    </div>
+                    <div class="item-container icon">
+                        <i class="fa fa-location-arrow north-west"></i>
+                        <span id="wind-speed">4 m/s</span>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <div class="item-container">
+                        <span id="sunrise">08:30</span>
+                        <span><br>Sunrise</span>
+                    </div>
+                    <div class="item-container">
+                        <span id="sunset">16:25</span>
+                        <span><br>Sunset</span>                       
+                    </div>
+                    <div class="item-container icon">
+                        <i class="fa fa-water"></i>
+                        <span id="humidity">46%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="weather-item thunderstorm">
+                <div class="weather-icon">
+                    <img src="icons/09n.png" alt="">
+                </div>
+
+                <div id="city">Tallinn</div>
+                <div id="country">Estonia</div>
+                <div class="description">
+                    Broken Clouds
+                </div>
+
+                <div class="content">
+                    <div class="item-container">
+                        <span id="temp">22°C</span>
+                        <span><br>Temp.</span>
+                    </div>
+                    <div class="item-container">
+                        <span id="feels-like">15°C</span>
+                        <span><br>Feels like</span>
+                    </div>
+                    <div class="item-container icon">
+                        <i class="fa fa-location-arrow north-west"></i>
+                        <span id="wind-speed">4 m/s</span>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <div class="item-container">
+                        <span id="sunrise">08:30</span>
+                        <span><br>Sunrise</span>
+                    </div>
+                    <div class="item-container">
+                        <span id="sunset">16:25</span>
+                        <span><br>Sunset</span>                       
+                    </div>
+                    <div class="item-container icon">
+                        <i class="fa fa-water"></i>
+                        <span id="humidity">46%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="weather-item few-clouds">
+                <div class="weather-icon">
+                    <img src="icons/13n.png" alt="">
+                </div>
+
+                <div id="city">Tallinn</div>
+                <div id="country">Estonia</div>
+                <div class="description">
+                    Broken Clouds
+                </div>
+
+                <div class="content">
+                    <div class="item-container">
+                        <span id="temp">22°C</span>
+                        <span><br>Temp.</span>
+                    </div>
+                    <div class="item-container">
+                        <span id="feels-like">15°C</span>
+                        <span><br>Feels like</span>
+                    </div>
+                    <div class="item-container icon">
+                        <i class="fa fa-location-arrow north-west"></i>
+                        <span id="wind-speed">4 m/s</span>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <div class="item-container">
+                        <span id="sunrise">08:30</span>
+                        <span><br>Sunrise</span>
+                    </div>
+                    <div class="item-container">
+                        <span id="sunset">16:25</span>
+                        <span><br>Sunset</span>                       
+                    </div>
+                    <div class="item-container icon">
+                        <i class="fa fa-water"></i>
+                        <span id="humidity">46%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="weather-item broken-clouds">
+                <div class="weather-icon">
+                    <img src="icons/11d.png" alt="">
+                </div>
+
+                <div id="city">Tallinn</div>
+                <div id="country">Estonia</div>
+                <div class="description">
+                    Broken Clouds
+                </div>
+
+                <div class="content">
+                    <div class="item-container">
+                        <span id="temp">22°C</span>
+                        <span><br>Temp.</span>
+                    </div>
+                    <div class="item-container">
+                        <span id="feels-like">15°C</span>
+                        <span><br>Feels like</span>
+                    </div>
+                    <div class="item-container icon">
+                        <i class="fa fa-location-arrow north-west"></i>
+                        <span id="wind-speed">4 m/s</span>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <div class="item-container">
+                        <span id="sunrise">08:30</span>
+                        <span><br>Sunrise</span>
+                    </div>
+                    <div class="item-container">
+                        <span id="sunset">16:25</span>
+                        <span><br>Sunset</span>                       
+                    </div>
+                    <div class="item-container icon">
+                        <i class="fa fa-water"></i>
+                        <span id="humidity">46%</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+    </main>
+
+    <footer>
+        
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

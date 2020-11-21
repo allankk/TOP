@@ -97,7 +97,7 @@ nav #search-btn:hover {
 .weather-content {
 	width: 100%;
 	display: flex;
-	margin-top: 120px;
+	margin-top: 80px;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -107,24 +107,113 @@ nav #search-btn:hover {
 .weather-item {
 	position: relative;
 	box-shadow: 0px 0px 6px 0px #353535;
-	margin: 10px;
+	padding-top: 30px;
+	margin: 20px 10px;
 	width: 280px;
 	height: 300px;
 	background-color: #eaeaea;
 }
 
-.weather-item i {
+.weather-item .weather-icon {
 	position: absolute;
-	right: 30px;
-	top: 10px;
+	right: 5px;
+	top: 5px;
 	font-size: 50px;
 }
 
-.weather-item.cloudy {
-	background-image: url('./cloudy.webp');
-	background-position: right;
-
+.weather-item .weather-icon img {
+	height: 80px;
 }
+
+/* DIFFERENT WEATHER BACKGROUNDS */
+
+.weather-item.athmosphere {
+	background-image: url('./backgrounds/Athmosphere.jpg');
+	background-position: right;
+	background-size: cover;
+}
+
+
+.weather-item.clear {
+	background-image: url('./backgrounds/Clear.jpg');
+	background-position: center top;
+	background-blend-mode: color-burn;
+}
+
+.weather-item.drizzle {
+	background-image: url('./backgrounds/Drizzle.jpg');
+	background-blend-mode: color-burn;
+    background-size: contain;
+}
+
+.weather-item.rain {
+	background-image: url('./backgrounds/Rain.jpg');
+	background-position: center;
+	background-blend-mode: darken;
+}
+
+.weather-item.snow {
+	background-image: url('./backgrounds/Snow.jpg');
+	background-position: center center;
+	background-blend-mode: color-burn;
+	background-size: cover
+}
+
+.weather-item.thunderstorm {
+	background-image: url('./backgrounds/Thunderstorm.jpg');
+	background-position: center right;
+}
+
+.weather-item.few-clouds {
+	background-image: url('./backgrounds/Few\ Clouds.jpg');
+	background-size: cover;
+}
+
+.weather-item.scattered-clouds {
+	background-image: url('./backgrounds/Scattered\ Clouds.jpg');
+	background-position: left bottom;
+	background-blend-mode: color-burn;
+}
+
+.weather-item.broken-clouds {
+	background-image: url('./backgrounds/Broken\ Clouds.jpg');
+	background-position: left bottom;
+    background-blend-mode: color-burn;
+}
+
+.weather-item.overcast-clouds {
+	background-image: url('./backgrounds/Overcast\ Clouds.jpg');
+	background-position: center top;
+    background-blend-mode: unset;
+}
+
+
+/*  */
+
+.weather-item .change-bar {
+	position: absolute;
+	right: 0;
+	top: -30px;
+	height: 0;
+	overflow: hidden;
+	transition: bottom 1s ease 1s;
+}
+
+.weather-item .change-bar.show {
+	height: 30px;
+}
+
+.weather-item .change-bar i {
+	font-size: 20px;
+	padding: 5px 10px;
+}
+
+.weather-item .change-bar i:hover {
+	font-size: 20px;
+	background-color: #d0d0d0;
+	cursor: pointer;
+}
+
 
 .weather-item .item-container {
 	height: 60px;

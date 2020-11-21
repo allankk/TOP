@@ -1,16 +1,10 @@
 import packageInfo from './country_codes.json';
 import { createWeatherItem } from './weatherItem.js';
+import { removeErrors } from './navigation.js';
 
 const URLSTART = 'http://api.openweathermap.org/data/2.5/weather?q=';
 const URLEND = '&appid=ccc5bdcd6b167bc37faefb623abeb33b';
 
-
-// remove errors
-const removeErrors = () => {
-    const error = document.querySelector('error');
-
-    error.setAttribute('class', 'error');
-}
 
 // get weather information from openweathermap api, then use that information in logResponse()
 const getWeather = (location) => {
@@ -24,10 +18,12 @@ const getWeather = (location) => {
         })
         .then(function(response) {
             logResponse(response);
+            console.log(response);
         })
         .catch(function(response) {
             console.log(response);
-            const error = document.querySelector('error');
+            const error = document.querySelector('.error');
+            error.innerHTML = "Could not retrieve information";
             error.setAttribute('class', 'error show');          
         })
 }
@@ -46,7 +42,8 @@ const logResponse = (response) => {
     weather.description = response.weather[0].description;
     weather.main = response.weather[0].main;
     weather.wind_deg = response.wind.deg;
-    weather.wind_speed = response.wind.speed;
+    weather.wind_speed = Math.round(response.wind.speed * 10) / 10;
+    weather.icon = response.weather[0].icon;
 
     // get the country from imported JSON file
     let countryCode = response.sys.country;
@@ -59,7 +56,6 @@ const logResponse = (response) => {
         }
     }
 
-    console.log(weather);
     createWeatherItem(weather);
 }
 

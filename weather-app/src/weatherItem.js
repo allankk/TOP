@@ -1,3 +1,6 @@
+import { getWeather } from "./getWeather";
+import { addSearchListener } from "./navigation";
+
 const createWeatherItem = (weather) => {
 
     createDOM(weather);
@@ -9,12 +12,34 @@ const createWeatherItem = (weather) => {
 const createDOM = (weather) => {
 
     const weatherItem = document.createElement('div');
-    weatherItem.setAttribute('class', 'weather-item');
+    const weatherType = getWeatherType(weather);
+    weatherItem.setAttribute('class', `weather-item ${weatherType}`);
+
+    // add navigation buttons and event listeners
+    const changeBar = document.createElement('div');
+    changeBar.setAttribute('class', 'change-bar');
+    weatherItem.appendChild(changeBar);
+    
+    addBarListener(weatherItem, changeBar);
+
+    const syncBtn = document.createElement('i');
+    syncBtn.setAttribute('class', 'fa fa-sync');
+    changeBar.appendChild(syncBtn);
+
+    const deleteBtn = document.createElement('i');
+    deleteBtn.setAttribute('class', 'fa fa-times');
+    changeBar.appendChild(deleteBtn);
+
+    addBtnListeners(weather, weatherItem, syncBtn, deleteBtn);
 
     // get the icon based on weather, placeholder for now
-    const main = document.createElement('i');
-    main.setAttribute('class', 'fa fa-cloud-sun');
+    const main = document.createElement('div');
+    main.setAttribute('class', 'weather-icon');
     weatherItem.appendChild(main);
+
+    const weatherIcon = document.createElement('img');
+    weatherIcon.setAttribute('src', `icons/${weather.icon}.png`)
+    main.appendChild(weatherIcon);
 
     // get the city, country and weather description
     const city = document.createElement('div');
@@ -143,6 +168,41 @@ const getWindDirection = (deg) => {
         return array[division+1];
     }
 }
+
+const getWeatherType = (weather) => {
+    let weatherType = (weather.main).toLowerCase();
+
+    if (weatherType == 'clouds') {
+        weatherType = (weather.description).replace(/ /g, "-");
+    }
+
+    return weatherType;
+};
+
+const addBarListener = (weatherItem, changeBar) => {
+
+    weatherItem.addEventListener('mouseover', () => {
+        changeBar.setAttribute('class', 'change-bar show');
+    })
+
+    weatherItem.addEventListener('mouseout', () => {
+        changeBar.setAttribute('class', 'change-bar');
+    })
+};
+
+const addBtnListeners = (weather, weatherItem, syncBtn, deleteBtn) => {
+
+    syncBtn.addEventListener('click', () => {
+        weatherItem.parentNode.removeChild(weatherItem);
+        getWeather((weather.place).replace(/ /g, '+'));
+    })
+
+    deleteBtn.addEventListener('click', () => {
+        weatherItem.parentNode.removeChild(weatherItem);
+    })
+
+
+};
 
 
 export { createWeatherItem };
