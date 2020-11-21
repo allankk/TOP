@@ -110,7 +110,7 @@ nav #search-btn:hover {
 	padding-top: 30px;
 	margin: 20px 10px;
 	width: 280px;
-	height: 300px;
+	height: 280px;
 	background-color: #eaeaea;
 }
 
@@ -210,19 +210,19 @@ nav #search-btn:hover {
 
 .weather-item .change-bar i:hover {
 	font-size: 20px;
-	background-color: #d0d0d0;
+	background-color: #8ec5d070;
 	cursor: pointer;
 }
 
 
 .weather-item .item-container {
 	height: 60px;
-	font-size: 30px;
+	font-size: 25px;
 	font-weight: bold;
 	width: 33%;
 	margin: 5px;
-	padding-top: 10px;
-	background-color: #ffffff9e;
+	padding-top: 12px;
+	background-color: #ffffff26;
 }
 
 .weather-item .item-container.icon {
@@ -242,7 +242,7 @@ nav #search-btn:hover {
 .weather-item .item-container i {
 	position: static;
 	text-align: center;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .weather-item .item-container i.north {
@@ -302,7 +302,7 @@ nav #search-btn:hover {
 .weather-item .description {
 	text-align: center;
 	height: 30px;
-	margin-top: 25px;
+	margin-top: 10px;
 }
 
 .weather-item .content {
@@ -320,22 +320,22 @@ nav #search-btn:hover {
 }
 
 .weather-item #temp {
-	font-size: 28px;
+	font-size: 25px;
 	font-weight: bold;
 }
 
 .weather-item #feels-like {
-	font-size: 28px;
+	font-size: 25px;
 	font-weight: bold;
 }
 
 
 .weather-item #sunrise {
-	font-size: 28px;
+	font-size: 25px;
 }
 
 .weather-item #sunset {
-	font-size: 28px;
+	font-size: 25px;
 }
 
 

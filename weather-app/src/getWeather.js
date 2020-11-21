@@ -1,24 +1,22 @@
 import packageInfo from './country_codes.json';
 import { createWeatherItem } from './weatherItem.js';
 import { removeErrors } from './navigation.js';
+import { getWeatherType, getWindDirection } from './weatherItem.js';
 
 const URLSTART = 'http://api.openweathermap.org/data/2.5/weather?q=';
 const URLEND = '&appid=ccc5bdcd6b167bc37faefb623abeb33b';
 
 
 // get weather information from openweathermap api, then use that information in logResponse()
-const getWeather = (location) => {
+const getWeather = (location, weatherItem) => {
     const fullURL = URLSTART + location + URLEND;
-
-    console.log(fullURL);
 
     fetch(fullURL, {mode: 'cors'})
         .then(function(response) {
             return response.json();
         })
         .then(function(response) {
-            logResponse(response);
-            console.log(response);
+            logResponse(response, weatherItem);
         })
         .catch(function(response) {
             console.log(response);
@@ -29,7 +27,7 @@ const getWeather = (location) => {
 }
 
 // create a json object with necessary information.
-const logResponse = (response) => {
+const logResponse = (response, weatherItem) => {
     // create json object
     let weather = {}
 
@@ -56,8 +54,58 @@ const logResponse = (response) => {
         }
     }
 
-    createWeatherItem(weather);
+    localStorage.setItem(`${weather.place}`, JSON.stringify(weather));
+
+    if (weatherItem) {
+        syncWeather(weather, weatherItem);
+    } else {
+        createWeatherItem(weather);
+    }
 }
+
+const syncWeather = (weather, weatherItem) => {
+    // const item = weatherItem.querySelector('.weather-item');
+    const weatherType = getWeatherType(weather);
+
+    weatherItem.setAttribute('class', `weather-item ${weatherType}`);
+
+    const backImg = weatherItem.querySelector('img');
+    backImg.setAttribute('src', `icons/${weather.icon}.png`);
+
+    const city = weatherItem.querySelector('#city');
+    city.innerHTML = weather.place;
+
+    const country = weatherItem.querySelector('#country');
+    country.innerHTML = weather.country;
+
+    const description = weatherItem.querySelector('.description');
+    description.innerHTML = weather.description;
+
+    const temp = weatherItem.querySelector('#temp');
+    temp.innerHTML = `${weather.temp}°C`;
+
+    const feelsLike = weatherItem.querySelector('#feels-like');
+    feelsLike.innerHTML = `${weather.feels_like}°C`;
+
+    const windArrow = weatherItem.querySelector('.wind-arrow');
+    let direction = getWindDirection(weather.wind_deg);
+    windArrow.setAttribute('class', `wind-arrow fa fa-location-arrow ${direction}`);
+
+    const windSpeed = weatherItem.querySelector('#wind-speed');
+    windSpeed.innerHTML = `${weather.wind_speed} m/s`;
+
+    const sunrise = weatherItem.querySelector('#sunrise');
+    sunrise.innerHTML = weather.sunrise;
+
+    const sunset = weatherItem.querySelector('#sunset');
+    sunset.innerHTML = weather.sunset;
+
+    const humidity = weatherItem.querySelector('#humidity');
+    humidity.innerHTML = `${weather.humidity}%`;
+
+}
+
+
 
 // convert time from unix format to HH:MM
 function timeConverter(UNIX_timestamp){

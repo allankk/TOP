@@ -97,7 +97,7 @@ const createDOM = (weather) => {
 
     const windArrow = document.createElement('i');
     const windDirection = getWindDirection(weather.wind_deg);
-    windArrow.setAttribute('class', `fa fa-location-arrow ${windDirection}`);
+    windArrow.setAttribute('class', `wind-arrow fa fa-location-arrow ${windDirection}`);
     firstContent_item_3.appendChild(windArrow);
 
     const windSpeed = document.createElement('span');
@@ -193,8 +193,8 @@ const addBarListener = (weatherItem, changeBar) => {
 const addBtnListeners = (weather, weatherItem, syncBtn, deleteBtn) => {
 
     syncBtn.addEventListener('click', () => {
-        weatherItem.parentNode.removeChild(weatherItem);
-        getWeather((weather.place).replace(/ /g, '+'));
+        // weatherItem.parentNode.removeChild(weatherItem);
+        getWeather((weather.place).replace(/ /g, '+'), weatherItem);
     })
 
     deleteBtn.addEventListener('click', () => {
@@ -205,4 +205,4 @@ const addBtnListeners = (weather, weatherItem, syncBtn, deleteBtn) => {
 };
 
 
-export { createWeatherItem };
+export { createWeatherItem, getWeatherType, getWindDirection };
