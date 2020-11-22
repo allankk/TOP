@@ -1,5 +1,5 @@
 html, body {
-    background-color: #ffffff;
+    background-color: #545a53;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -14,39 +14,51 @@ html, body {
     user-select: none;
 }
 
+nav {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 60px;
+    background-color: #333333;
+    color: #31bd8d;
+    display: flex;
+    align-items: center;
+}
+
+nav div {
+    margin-left: 50px;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+}
+
 .calculator-container {
     width: 500px;
-    height: 550px;
-    background-color: #aba6c5;
+    height: 500px;
     position: absolute;
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
-    border-radius: 30px;
-    box-shadow: 0px 0px 5px 2px rgba(119,118,150,1);
 }
 
 .screen {
-    background-color: #f7f7f7;
+    background-color: #333333;;
     margin: 20px 20px 20px 20px;
     height: 60px;
     display: flex;
     justify-content: center;
     align-content: center;
-    border-radius: 10px;
-    box-shadow: 0px 0px 5px 0px rgba(119,118,150,1);
 }
 
 .button-container {
-    background-color: #dedede;
-    height: 420px;
+    background-color: #44444429;
+    height: 380px;
     margin: 5px 20px;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-evenly;
     text-align: center;
-    border-radius: 10px;
-    box-shadow: 0px 0px 5px 0px rgba(119,118,150,1);
+    box-shadow: 0px 0px 5px 0px rgb(74 74 74);
 }
 
 .number-button-container {
@@ -62,81 +74,89 @@ html, body {
 .action-button-container {
     margin: 10px 0;
     width: 35%;
-
     display: flex;
     flex-flow: column wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
+    height: 375px;
 }
 
 .number {
-    width: 33%;
-    height: 22%;
+    width: 31%;
+    height: 24%;
     text-align: center;
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     font-size: 30px;
     transition-duration: 0.04s;
-    color: #143161;
+    color: #dcdcdc;
+    background-color: #333333;
+    margin: 2px;
 }
 
 .number:hover {
     cursor: pointer;
-    background-color: #aba6c5;
+    background-color: #31bd8d;
     font-size: 32px;
 }
 
 #plusminus {
     font-size: 25px;
-    width: 33%;
-    height: 22%;
+    width: 31%;
+    height: 24%;
     text-align: center;
     display:flex;
     justify-content: center;
     align-items: center;
     transition-duration: 0.04s;
-    color: #143161;
+    color: #dcdcdc;
+    margin: 2px;
+    background-color: #333333;
 }
 
 #plusminus:hover {
     font-size: 26px;
     cursor: pointer;
-    background-color: #aba6c5;
+    background-color: #31bd8d;
 }
 
 #dot {
-    width: 33%;
-    height: 22%;
+    width: 31%;
+    height: 24%;
     text-align: center;
     display:flex;
     justify-content: center;
     align-items: center;
     font-size: 30px;
     transition-duration: 0.04s;
-    color: #143161;
+    color: #dcdcdc;
+    margin: 2px;
+    background-color: #333333;
 }
 
 #dot:hover {
     cursor: pointer;
-    background-color: #aba6c5;
+    background-color: #31bd8d;
     font-size: 32px;
 }
 
 .action {
-    width: 50%;
-    height: 22%;
+    width: 48%;
+    height: 23%;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 30px;
     transition-duration: 0.04s;
-    color: #000000;
+    color: #dcdcdc;
+    background-color: #333333;
+    margin: 2px;
 }
 
 .action:hover {
     cursor: pointer;
-    background-color: #aba6c5;
+    background-color: #31bd8d;
     font-size: 32px;
 }
 
@@ -157,13 +177,14 @@ html, body {
 }
 
 #lastOperation {
-    background-color: #f7f7f7;
     text-align: center;
+    color: #dcdcdc;
     width: 20%;
     outline: none;
     border: none;
     height: 100%;
     font-size: 26px;
+    background-color: inherit;
 }
 
 #textInput {
@@ -173,9 +194,8 @@ html, body {
     height: 100%;
     font-size: 30px;
     border: none;
-    background-color: #f7f7f7;
-    /* background-color: #f7f7f7; */
-    color: #143161;
+    background-color: inherit;
+    color: #eaeaea;
 }
 
 #delete {
@@ -185,9 +205,8 @@ html, body {
 
 #delete:hover {
     font-size: 24px;
+    background-color: #31bd8d;
 }
-
-
 
 #reset {
     font-size: 25px;
@@ -195,21 +214,21 @@ html, body {
 
 #reset:hover {
     font-size: 26px;
+    background-color: #31bd8d;
 }
 
 
 #empty {
     width: 50%;
-    height: 22%;
+    height: 23%;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #dedede;
+    background-color: inherit;
 }
 
 #empty:hover {
     cursor: default;
-    background-color: #dedede;
     font-size: 32px;
 }
