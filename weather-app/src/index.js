@@ -9,9 +9,11 @@ const LOCATION = 'Tartu'
 function App() {
 
     addSearchListener();
-    getWeather(LOCATION);
-    getWeather('Tallinn');
-    getWeather('Belo Horizonte');
+
+    for (let i = 0; i < localStorage.length; i++) {
+        let item = JSON.parse(localStorage.getItem(localStorage.key(i)));
+        getWeather(item.place);
+    }
 
 }
 

@@ -5,6 +5,12 @@ const addSearchListener = () => {
     const searchBtn = document.getElementById('search-btn');
     const error = document.querySelector('.error');
 
+    searchInput.addEventListener('keyup', function(e) {
+        if (e.key == "Enter") {
+            searchBtn.click();
+        }
+    })
+
 
     searchBtn.addEventListener('click', () => {
         removeErrors();
@@ -17,7 +23,7 @@ const addSearchListener = () => {
         } else {
             // replace spaces with + to accurately search API.
             const inputValue = (searchInput.value).replace(/ /g,"+");
-
+            searchInput.value = '';
             getWeather(inputValue);
         }
     });

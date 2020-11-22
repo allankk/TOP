@@ -198,6 +198,7 @@ const addBtnListeners = (weather, weatherItem, syncBtn, deleteBtn) => {
     })
 
     deleteBtn.addEventListener('click', () => {
+        localStorage.removeItem(weather.place);
         weatherItem.parentNode.removeChild(weatherItem);
     })
 

@@ -54,6 +54,7 @@ const logResponse = (response, weatherItem) => {
         }
     }
 
+    // sync localStorage information
     localStorage.setItem(`${weather.place}`, JSON.stringify(weather));
 
     if (weatherItem) {
