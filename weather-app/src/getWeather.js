@@ -3,7 +3,7 @@ import { createWeatherItem } from './weatherItem.js';
 import { removeErrors } from './navigation.js';
 import { getWeatherType, getWindDirection } from './weatherItem.js';
 
-const URLSTART = 'http://api.openweathermap.org/data/2.5/weather?q=';
+const URLSTART = 'https://api.openweathermap.org/data/2.5/weather?q=';
 const URLEND = '&appid=ccc5bdcd6b167bc37faefb623abeb33b';
 
 
