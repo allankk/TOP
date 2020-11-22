@@ -10,9 +10,11 @@ function App() {
 
     addSearchListener();
 
-    for (let i = 0; i < localStorage.length; i++) {
-        let item = JSON.parse(localStorage.getItem(localStorage.key(i)));
-        getWeather(item.place);
+    if (localStorage.length > 0) {
+        for (let i = 0; i < localStorage.length; i++) {
+            let item = JSON.parse(localStorage.getItem(localStorage.key(i)));
+            getWeather(item.place);
+        }
     }
 
 }
