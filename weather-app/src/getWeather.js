@@ -54,8 +54,24 @@ const logResponse = (response, weatherItem) => {
         }
     }
 
+    // parse localStorage information
+    let JSONArray = JSON.parse(localStorage.getItem('weather_app'));
+
     // sync localStorage information
-    localStorage.setItem(`${weather.place}`, JSON.stringify(weather));
+    let isExisting = false;
+
+    JSONArray.forEach(element => {
+        if (element.place == response.name) {
+            element = weather;
+            isExisting = true;
+        }
+    })
+
+    if (!isExisting) {
+        JSONArray.push(weather);
+    }
+
+    localStorage.setItem(`weather_app`, JSON.stringify(JSONArray));
 
     if (weatherItem) {
         syncWeather(weather, weatherItem);

@@ -156,9 +156,8 @@ const createDOM = (weather) => {
     weatherContent.appendChild(weatherItem);
 }
 
+// Turn wind degrees into a directional string
 const getWindDirection = (deg) => {
-
-    // north north-east east south-east south south-west west north-west
     let array = ['north', 'north-east', 'east', 'south-east', 'south', 'south-west', 'west', 'north-west', 'north'];
 
     let division = Math.floor(deg/45);
@@ -169,6 +168,7 @@ const getWindDirection = (deg) => {
     }
 }
 
+// Formats the weather type for further use.
 const getWeatherType = (weather) => {
     let weatherType = (weather.main).toLowerCase();
 
@@ -179,6 +179,7 @@ const getWeatherType = (weather) => {
     return weatherType;
 };
 
+// add listeners for weather item
 const addBarListener = (weatherItem, changeBar) => {
 
     weatherItem.addEventListener('mouseover', () => {
@@ -190,6 +191,7 @@ const addBarListener = (weatherItem, changeBar) => {
     })
 };
 
+// add event listeners for sync and delete buttons
 const addBtnListeners = (weather, weatherItem, syncBtn, deleteBtn) => {
 
     syncBtn.addEventListener('click', () => {
@@ -198,7 +200,15 @@ const addBtnListeners = (weather, weatherItem, syncBtn, deleteBtn) => {
     })
 
     deleteBtn.addEventListener('click', () => {
-        localStorage.removeItem(weather.place);
+        let JSONArray = JSON.parse(localStorage.getItem('weather_app'));
+
+        for (let i = 0; i < JSONArray.length; i++) {
+            if (JSONArray[i].place == weather.place) {
+                JSONArray.splice(i, 1);
+            }
+        }
+
+        localStorage.setItem('weather_app', JSONArray);
         weatherItem.parentNode.removeChild(weatherItem);
     })
 
