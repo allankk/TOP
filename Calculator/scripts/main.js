@@ -207,7 +207,7 @@ function playKey(e) {
         key = document.querySelector(`.number[data-key="${e.key}"]`)
     } else if (allowedKeys.includes(e.key)) {
         key = document.querySelector(`.action[data-key="${e.key}"]`)
-    } else if (e.key == '.') {
+    } else if (e.key == '.' || e.key == ',') {
         key = document.getElementById('dot');
     } else {
         return;

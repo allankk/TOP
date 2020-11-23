@@ -208,7 +208,7 @@ const addBtnListeners = (weather, weatherItem, syncBtn, deleteBtn) => {
             }
         }
 
-        localStorage.setItem('weather_app', JSONArray);
+        localStorage.setItem('weather_app', JSON.stringify(JSONArray));
         weatherItem.parentNode.removeChild(weatherItem);
     })
 
