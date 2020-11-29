@@ -1,0 +1,28 @@
+state = 
+[
+{
+title: experience
+content: [
+		{
+		company:
+		title:	
+		description:
+		}
+		{
+		company:
+		title:
+		description:
+		}
+	]
+
+}
+{
+title: education
+content: [
+		{
+		degree:
+		school:
+		}
+	]
+}
+]
