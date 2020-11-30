@@ -12,11 +12,32 @@ code {
 
 body * {
   margin: 0;
+  box-sizing: border-box;
 }
 
 *:focus {
   outline: none;
 }
+
+.main-container input {
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  border: 1px solid #ffffff00;
+  font-family: Garamond, sans-serif;
+  margin-bottom: 1px;
+}
+
+.main-container input:hover {
+  cursor: pointer;
+}
+
+.main-container input:hover:focus {
+  cursor: text; 
+  /* box-shadow: 0 0 1px 0 #026102;   */
+  box-sizing: border-box;
+}
+
 
 .main-container {
   margin: 50px auto;
@@ -28,10 +49,12 @@ body * {
   box-sizing: border-box;
 }
 
-.main-container h1 {
+.content-header h1 input {
   font-weight: lighter;
   text-transform: uppercase;
   font-size: 40px;
+  font-family: Garamond, sans-serif;
+  width: 100%;
 }
 
 .main-container h2 {
@@ -47,6 +70,42 @@ body * {
   margin-right: 20px;
 }
 
+.content-header span input#titles {
+  width: 80%;
+  text-transform: uppercase;
+  height: 21px;
+}
+
+.content-header span input#contacts {
+  width: 80%;
+}
+
+.content-header textarea {
+  display: block;
+  outline: none;
+  border: none;
+  font-family: Garamond, sans-serif;
+  border: 1px solid #ffffff00;
+  resize: none;
+  width: 80%;
+  height: 21px;
+  box-sizing: border-box;
+}
+
+.content-header textarea:hover {
+  cursor: pointer;
+  outline: none;
+}
+
+.content-header textarea:focus {
+  box-shadow: 0 0 1px 0 #026102; 
+  border: 1px solid #026102;
+  resize: both;
+  cursor: text;
+  box-sizing: border-box;
+}
+
+
 /* CONTENT */
 
 .content-header {
@@ -54,7 +113,7 @@ body * {
 }
 
 .content-header p {
-  margin: 5px 0;
+  margin-bottom: 5px;
   font-size: 14px;
 }
 
@@ -64,9 +123,48 @@ body * {
   margin-top: 20px;
 }
 
-.content-item {
-  margin-bottom: 20px;
+
+.content-item input {
+  font-family: Garamond, sans-serif;
+  text-align: left;
+  padding: 0;
 }
+
+.content-item input.company, .content-item input.title {
+  display: block;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  width: 100%;
+  overflow: hidden;
+}
+
+.content-item textarea {
+  display: block;
+  outline: none;
+  border: none;
+  text-align: justify;
+  white-space: normal;
+    -moz-text-align-last: left;
+  text-align-last: left;
+  font-family: Garamond, sans-serif;
+  resize: none;
+  width: 450px;
+  padding: 0;
+  border: 1px solid #ffffff00;
+}
+
+.content-item textarea:hover {
+  cursor: pointer;
+  outline: none; 
+}
+
+.content-item textarea:focus {
+  box-shadow: 0 0 1px 0 #026102; 
+  border: 1px solid #026102;
+  cursor: text;
+}
+
 
 /* BUTTON */
 
@@ -77,6 +175,11 @@ button {
     width: 70px;
     height: 30px;
     transition: 0.2s;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
 }
 
 button#edit {
@@ -98,16 +201,49 @@ button:hover {
     display: block;
     box-sizing: border-box;
     position: absolute;
-    padding: 10px;
+    padding: 20px;
     width: 100%;
     min-height: 100%;
     left: 0;
     top: 0px;
     box-shadow: 0 0 3px 0 #717171;
-    background: #fbfbfb;
+    background: #fbfbfb7a;
     z-index: 20;
     display: flex;
     flex-direction: column;
+}
+
+
+.popup .closeBtn {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+}
+
+.popup label {
+  margin-bottom: 5px;
+}
+
+.popup input, .popup textarea {
+  padding: 5px;
+  width: 50%;
+  margin-bottom: 10px;
+  outline: none;
+  border: 1px solid #000000;
+  box-shadow: 0 0 2px 0px #a5a5a5;
+  resize: none;
+}
+
+.popup input:focus, .popup textarea:focus {
+  border-color: #026102;
+  box-shadow: 0 0 2px 0 #026102;
+}
+
+.popup textarea {
+  height: 63px;
 }
 
 

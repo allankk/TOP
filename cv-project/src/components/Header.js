@@ -1,6 +1,6 @@
 import React from 'react';
 import uniqid from "uniqid";
-import HeaderPopup from "./HeaderPopup";
+// import HeaderPopup from "./HeaderPopup";
 
 class Header extends React.Component {
     constructor(props) {
@@ -9,29 +9,27 @@ class Header extends React.Component {
         this.state =  {
             showPopup: false,
             name: "Allan Kossas",
-            titles: ['veetehnika', 'cad tehnoloogia'],
-            phone: '(+372) 534 582 39',
-            email: 'allankossas@gmail.com',
-            links: ['linkedin.com/in/allankossas'],
+            titles: "veetehnika - cad tehnoloogia",
+            contacts: '(+372) 534 582 39 - allankossas@gmail.com - linkedin.com/in/allankossas',
             description: 'Lõpetanud magistriõppe veetehnika erialal "Hooned ja Rajatised" õppekaval'
         }
 
         this.togglePopup = this.togglePopup.bind(this);
     }
 
-    renderTitles(titlesArr) {
-        return (
-            <p className="uppercase">        
-                {titlesArr.map(element => {
-                    if (titlesArr[titlesArr.length -1] === element) {
-                        return (<span key={uniqid()}>{element}</span>)
-                    } else {
-                        return (<span key={uniqid()}>{element} - </span>)
-                    } 
-                })}
-            </p>
-        )
-    }
+    // renderTitles(titlesArr) {
+    //     return (
+    //         <p className="uppercase">        
+    //             {titlesArr.map(element => {
+    //                 if (titlesArr[titlesArr.length -1] === element) {
+    //                     return (<span key={uniqid()}><input />{element}</span>)
+    //                 } else {
+    //                     return (<span key={uniqid()}>{element} - </span>)
+    //                 } 
+    //             })}
+    //         </p>
+    //     )
+    // }
 
     renderContacts() {
         // push valid contacts into an array
@@ -64,29 +62,20 @@ class Header extends React.Component {
         return(
             <div className="content-header">
                 {/* NAME */}
-                <h1 className="text-green">{this.state.name}</h1>
+                <h1><input className="edit text-green" type="text" value={this.state.name} onChange={e => this.setState({ name: e.target.value })}/></h1>
                 {/* TITLES */}
-                {this.renderTitles(this.state.titles)}
+                <span><input className="edit" id="titles" type="text" value={this.state.titles} onChange={e => this.setState({ titles: e.target.value })}/></span>
 
                 {/* PHONE & LINKS */}
-                {this.renderContacts()}
+                <textarea className="edit" spellCheck="false" id="contacts" type="text" value={this.state.contacts} onChange={e => this.setState({ contacts: e.target.value })}/>
 
                 {/* description */}
-                { (() => {
-                    if (this.state.description !== '') { 
-                        return <p>{this.state.description}</p> 
-                    } 
-                    }) 
-                    ()
-                }
-
-                <button id="edit" onClick={this.togglePopup}>edit</button>
-
-                {this.state.showPopup ? <HeaderPopup /> : null}
+                <textarea className="edit" spellCheck="false" id="description" type="text" value={this.state.description} onChange={e => this.setState({ description: e.target.value })}/>
 
             </div>
         )
     }
 }
+
 
 export default Header;
