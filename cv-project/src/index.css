@@ -23,7 +23,7 @@ body * {
   border: none;
   outline: none;
   box-sizing: border-box;
-  border: 1px solid #ffffff00;
+  border: 2px solid #ffffff00;
   font-family: Garamond, sans-serif;
   margin-bottom: 1px;
 }
@@ -36,6 +36,10 @@ body * {
   cursor: text; 
   /* box-shadow: 0 0 1px 0 #026102;   */
   box-sizing: border-box;
+}
+
+.main-container input:focus {
+  border-left: 2px solid #026102;
 }
 
 
@@ -123,6 +127,9 @@ body * {
   margin-top: 20px;
 }
 
+.content-item {
+  position: relative;
+}
 
 .content-item input {
   font-family: Garamond, sans-serif;
@@ -130,7 +137,7 @@ body * {
   padding: 0;
 }
 
-.content-item input.company, .content-item input.title {
+.content-item input.company, .content-item input.title, .content-item input.education {
   display: block;
   font-weight: bold;
   font-size: 14px;
@@ -138,6 +145,15 @@ body * {
   width: 100%;
   overflow: hidden;
 }
+
+.content-item input.school {
+  display: block;
+  font-weight: normal;
+  font-size: 14px;
+  width: 100%;
+  overflow: hidden;
+}
+
 
 .content-item textarea {
   display: block;
@@ -165,6 +181,18 @@ body * {
   cursor: text;
 }
 
+.content-skill {
+  position: relative;
+}
+
+.content-skill span {
+  font-family: Garamond;
+  border-left: 2px solid #ffffff00;
+}
+
+.content-skill span:focus {
+  border-left: 2px solid #026102;
+}
 
 /* BUTTON */
 
@@ -189,6 +217,34 @@ button#edit {
   }
 
 button:hover {
+  color: #026102;
+  border-color: #026102;
+  cursor: pointer;
+  box-shadow: 0 0 2px 1px #a5a5a5;
+}
+
+.content-item:hover .remove-btn, .content-skill:hover .remove-btn {
+  opacity: 1;
+}
+
+.content-item .remove-btn, .content-skill .remove-btn {
+  opacity: 0;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  color: gray;
+  border: 1px solid gray;
+  transition-duration: 0.1s;
+}
+
+.content-skill .remove-btn {
+  top: -5px;
+}
+
+.content-item .remove-btn:hover, .content-skill .remove-btn:hover {
   color: #026102;
   border-color: #026102;
   cursor: pointer;

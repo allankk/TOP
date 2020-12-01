@@ -30,7 +30,7 @@ class Experience extends React.Component {
         })
 
         // if dealing with textarea, resize it to fit contents
-        if (e.target.localName == 'textarea') {
+        if (e.target.localName === 'textarea') {
             e.target.style.height = 0;
             e.target.style.height = e.target.scrollHeight + 4 + 'px';
         }
@@ -38,6 +38,19 @@ class Experience extends React.Component {
         this.setState({ experience : expArr });
     }
 
+    removeItem(element) {
+        let expArr = [...this.state.experience];
+
+        // reverse array loop for deleting an element
+        for (let i = expArr.length-1; i >= 0; i-= 1) {
+            if (expArr[i] === element) {
+                expArr.splice(i, 1);
+            }
+        
+        }
+
+        this.setState({ experience : expArr });
+    }
 
 
     renderExperience() {
@@ -46,6 +59,7 @@ class Experience extends React.Component {
                 {this.state.experience.map((element,i) => {
                     return (
                         <div key={`e-div-${i}`} className="content-item">
+                            <button className="remove-btn" onClick={e => {this.removeItem(element)}}>x</button>
                             <input key={`e-company-${i}`} className="company text-green" type="text" spellCheck="false" onChange={e => this.changeState(e, element, 'company')} value={element.company} />
                             <input key={`e-title-${i}`} className="title" spellCheck="false" type="text" onChange={e => this.changeState(e, element, 'title')} value={element.title} />
                             {/* <h3 key={uniqid()}>{element.title}: {element.time}</h3> */}

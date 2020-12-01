@@ -1,5 +1,4 @@
 import React from 'react';
-import uniqid from "uniqid";
 
 class Education extends React.Component {
     constructor(props) {
@@ -8,44 +7,61 @@ class Education extends React.Component {
         this.state = {
             education: [
                 {
-                    header: "Veetehnika magister",
-                    time: "2017 - ...",
-                    description: '',
+                    header: "Veetehnika magister: 2017 - ...",
                     school: "Tallinna Tehnikaülikool"
                 },
                 {
-                    header: "Magistritudeng ehitusinseneri õppes",
-                    time: "2018 - 2019",
-                    description: 'Vahetusprogramm 2018-2019 sügissemestril',
+                    header: "Magistritudeng ehitusinseneri õppes: 2018-2019",
                     school: "Budapest University of Technology and Economics"
                 },
                                 {
-                    header: "MATERJALITEADUSE BAKALAUREUS",
-                    time: "2013 - 2016",
-                    description: '',
+                    header: "MATERJALITEADUSE BAKALAUREUS: 2013 - 2016",
                     school: "Tartu Ülikool"
                 },
                                 {
-                    header: "Keskkool",
-                    time: "2013",
-                    description: '',
+                    header: "Keskkool: 2013",
                     school: "Tallinna Inglise Kolledž"
                 }
             ]
         }
     }
 
-    renderEducation() {
 
+    changeState(e, element, attribute) {
+        let edArr = [...this.state.education];
+
+        edArr.forEach(stateElement => {
+            if (stateElement === element) {
+                element[attribute] = e.target.value;
+            }
+        })
+
+        this.setState({ education : edArr });
+    }
+
+    removeItem(element) {
+        let edArr = [...this.state.education];
+
+        // reverse array loop for deleting an element
+        for (let i = edArr.length-1; i >= 0; i-= 1) {
+            if (edArr[i] === element) {
+                edArr.splice(i, 1);
+            }
+        
+        }
+
+        this.setState({ education : edArr });
+    }
+
+    renderEducation() {
         return(
             <div>
-                {this.state.education.map(element => {
+                {this.state.education.map((element, i) => {
                     return (
-                        <div key={uniqid()} className="content-item">
-                            <h3 key={uniqid()} >{element.header}: {element.time}</h3>
-                            {/* RETURN DESCRIPTION IF IT IS NOT EMPTY */}
-                            {(() => {if (element.description !== '') {return <p key={uniqid()}>{element.description}</p>}})()}
-                            <p key={uniqid()}>{element.school}</p>
+                        <div key={`ed-div-${i}`} className="content-item">
+                            <button className="remove-btn" onClick={e => {this.removeItem(element)}}>x</button>
+                            <input type="text" key={`ed-header-${i}`} className="education" spellCheck="false" onChange={e => this.changeState(e, element, 'header')} value={element.header}/>
+                            <input type="text" key={`ed-school-${i}`} className="school" spellCheck="false" onChange={e => this.changeState(e, element, 'school')} value={element.school}/>
                         </div>
                     )
                 })}
@@ -59,8 +75,6 @@ class Education extends React.Component {
             <h2 className="text-green">Education</h2>
 
             {this.renderEducation()}
-
-
         </div>
         )
     }
