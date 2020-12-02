@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import Navigation from './components/Navigation';
+import Scoreboard from './components/Scoreboard';
+import Cards from './components/Cards';
 
-function App() {
+
+const CARDAMOUNT = 25; // number of cards to be played with. 
+
+const App = () => {
+  const [currentScore, setCurrentScore] = useState(0);
+  const [bestScore, setBestScore] = useState(2);
+  const [totalCards, setTotalCards] = useState(CARDAMOUNT);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <Navigation />
+      <Scoreboard currentScore={currentScore} bestScore={bestScore} totalCards={totalCards} />
+
+      <Cards cardAmount={CARDAMOUNT}/>
+    </main>
   );
-}
+};
 
 export default App;

@@ -1,0 +1,32 @@
+
+const allImages = [
+    {id: 1, src: '/cards/alfa-romeo.png', title: 'alfa-romeo', clicked: false},
+    {id: 2, src: '/cards/audi.png', title: 'audi', clicked: false},
+    {id: 3, src: '/cards/bmw.png', title: 'bmw', clicked: false},
+    {id: 4, src: '/cards/citroen.png', title: 'citroen', clicked: false},
+    {id: 5, src: '/cards/fiat.png', title: 'fiat', clicked: false},
+    {id: 6, src: '/cards/ford.png', title: 'ford', clicked: false},
+    {id: 7, src: '/cards/honda.png', title: 'honda', clicked: false},
+    {id: 8, src: '/cards/hyundai.png', title: 'hyundai', clicked: false},
+    {id: 9, src: '/cards/jaguar.png', title: 'jaguar', clicked: false},
+    {id: 10, src: '/cards/kia.png', title: 'kia', clicked: false},
+    {id: 11, src: '/cards/lamborghini.png', title: 'lamborghini', clicked: false},
+    {id: 12, src: '/cards/lexus.png', title: 'lexus', clicked: false},
+    {id: 13, src: '/cards/maserati.png', title: 'maserati', clicked: false},
+    {id: 14, src: '/cards/mazda.png', title: 'mazda', clicked: false},
+    {id: 15, src: '/cards/mercedes-benz.png', title: 'mercedes-benz', clicked: false},
+    {id: 16, src: '/cards/mitsubishi.png', title: 'mitsubishi', clicked: false},
+    {id: 17, src: '/cards/nissan.png', title: 'nissan', clicked: false},
+    {id: 18, src: '/cards/peugeot.png', title: 'peugeot', clicked: false},
+    {id: 19, src: '/cards/porsche.png', title: 'porsche', clicked: false},
+    {id: 20, src: '/cards/subaru.png', title: 'subaru', clicked: false},
+    {id: 21, src: '/cards/suzuki.png', title: 'suzuki', clicked: false},
+    {id: 22, src: '/cards/tesla.png', title: 'tesla', clicked: false},
+    {id: 23, src: '/cards/toyota.png', title: 'toyota', clicked: false},
+    {id: 24, src: '/cards/volkswagen.png', title: 'volkswagen', clicked: false},
+    {id: 25, src: '/cards/volvo.png', title: 'volvo', clicked: false},
+    {id: 26, src: '/cards/ferrari.png', title: 'ferrari', clicked: false},
+    {id: 27, src: '/cards/jeep.png', title: 'jeep', clicked: false},
+];
+
+export default allImages;
