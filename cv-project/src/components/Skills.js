@@ -87,7 +87,7 @@ class Skills extends React.Component {
 
     renderSkills() {
         return(
-            <div>
+            <div className="skills-container">
                 {this.state.skills.map((element, i) => {
                     return (
                         <div className="mb-5 content-skill" key={`s-div-${i}`}>
