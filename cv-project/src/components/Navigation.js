@@ -11,7 +11,7 @@ class Navigation extends React.Component {
                 <div className="top-bar">
                     <span></span>
                     <span>Create your CV</span>
-                    <div class="icons">
+                    <div className="icons">
                         <i className="fa fa-home"></i>
                         <i className="fab fa-github"></i>
                         <i className="fab fa-linkedin-in"></i>

@@ -93,8 +93,8 @@ class Skills extends React.Component {
                         <div className="mb-5 content-skill" key={`s-div-${i}`}>
                             <button className="remove-btn" onClick={e => {(this.removeItem(element))}}>x</button>
                             {/* Use contenteditable instead of input to simplify resizing the box according to the content */}
-                            <span className="bold" key={`s-title-${i}`} contentEditable onInput={e => this.changeState(e, element, 'title')}>{element.title}: </span> 
-                            <span key={`s-description-${i}`} contentEditable onInput={e => this.changeState(e, element, 'description')}>{element.description}</span>
+                            <span className="bold" key={`s-title-${i}`} spellCheck="false" contentEditable onInput={e => this.changeState(e, element, 'title')}>{element.title}: </span> 
+                            <span key={`s-description-${i}`} spellCheck="false" contentEditable onInput={e => this.changeState(e, element, 'description')}>{element.description}</span>
                         </div>
                         
                     )

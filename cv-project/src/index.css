@@ -115,6 +115,7 @@ nav button:hover {
   border: 2px solid #ffffff00;
   font-family: Garamond, sans-serif;
   margin-bottom: 1px;
+  width: 100%;
 }
 
 .main-container input:hover {
@@ -180,8 +181,10 @@ nav button:hover {
 }
 
 .content-header span input#titles {
-  width: 80%;
-  height: 21px;
+  display: block;
+  overflow: hidden;
+  height: 23px;
+  padding: 0;
 }
 
 .content-header span input#contacts {
@@ -339,7 +342,6 @@ button#edit {
   top: 30px;
   width: 30px;
   height: 30px;
-  padding-top: 4px;
   border-radius: 30px;
   border: 1px solid gray;
 }
@@ -364,6 +366,7 @@ button#edit {
   color: gray;
   border: 1px solid gray;
   transition-duration: 0.1s;
+  line-height: 1.5em;
 }
 
 .content-skill .remove-btn {
