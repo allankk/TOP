@@ -9,7 +9,7 @@ class Header extends React.Component {
         this.state =  {
             showPopup: false,
             name: "John Doe",
-            titles: "business - technology",
+            titles: "BUSINESS - TECHNOLOGY",
             contacts: '(+777) 512 345 67 - email@mail.com - linkedin.com/in/johndoe',
             description: 'This is an example profile. None of the information is true'
         }

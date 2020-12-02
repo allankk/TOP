@@ -36,7 +36,7 @@ class Experience extends React.Component {
             // resize textareas to fit contents
             if (e.target.localName === 'textarea') {
                 e.target.style.height = 0;
-                e.target.style.height = e.target.scrollHeight + 4 + 'px';
+                e.target.style.height = e.target.scrollHeight + 6 + 'px';
             }
 
             this.setState({ experience : expArr });

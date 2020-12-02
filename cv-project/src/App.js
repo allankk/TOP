@@ -1,8 +1,10 @@
+import Navigation from './components/Navigation';
 import Header from './components/Header';
 import Experience from './components/Experience';
 import Education from './components/Education';
 import Skills from './components/Skills';
 import React from 'react';
+import { savePDF } from '@progress/kendo-react-pdf';
 
 function App() {
 
@@ -11,18 +13,29 @@ function App() {
     let textAreas = document.querySelectorAll('textarea.description');
 
     textAreas.forEach(element => {
-      element.style.height = element.scrollHeight + 4 + 'px';
+      element.style.height = element.scrollHeight + 6 + 'px';
     })
   }, []);
 
+  const exportPDF = (e) => {
+    const element = document.getElementById('main-container');
+    element.classList.add('savepdf');
+
+    savePDF( element, {
+      paperSize: 'A4',
+      margin: "0cm",
+      fileName: 'cv.pdf',
+      scale: 0.75,
+    });
+
+    element.classList.remove('savepdf');
+  }
+
   return (
     <div className="App">
-      <h1>H1 Hello</h1>
-      <h2>H2 Hello</h2>
-      <h3>H3 Hello</h3>
-      <p>P Hello</p>
+      <Navigation exportPDF={e => {exportPDF()}}/>
 
-      <div className="main-container">
+      <div className="main-container" id="main-container">
       <Header />
       <Experience />
       <Education />
@@ -31,6 +44,8 @@ function App() {
       
     </div>
   );
+
+
 }
 
 export default App;

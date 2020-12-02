@@ -19,6 +19,95 @@ body * {
   outline: none;
 }
 
+@font-face {
+  font-family: "Garamond";
+  font-weight: normal;
+  src: url('./fonts/GARA.TTF') format("truetype");
+}
+
+@font-face {
+  font-family: "Garamond";
+  font-weight: bold;
+  src: url('./fonts/GARABD.TTF') format("truetype");
+}
+
+/* NAVIGATION */
+
+nav {
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+}
+
+.top-bar {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  background-color: #3a3a3a;
+  box-shadow: 0 0 0.2cm rgba(0,0,0,0.5);
+  font-weight: bold;
+  text-transform: uppercase;
+  z-index: 10;
+  color: #eaeaea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-bar span {
+  margin-top: 5px;
+  color: #eaeaea;
+  letter-spacing: 3px;
+}
+
+.top-bar .icons {
+  margin-top: 5px;
+  position: absolute;
+  right: 5%;
+}
+
+.top-bar i {
+  font-size: 25px;
+  margin: 0 10px;
+}
+
+.top-bar i:hover {
+  cursor: pointer;
+  color: #8c8c8c;
+}
+
+nav button {
+  margin-top: 30px;
+  width: 110px;
+  height: 30px;
+  background-color: #ffffff;
+  color: #3a3a3a;
+  box-shadow: 0 0 2px 1px #9c9c9c;
+  border: 1px solid #9c9c9c;
+  border-radius: 3px;
+  transition-duration: 0.15s;
+}
+
+nav button:hover {
+  cursor: pointer;
+  border-color: #949494;
+  color: #3a3a3a;
+  background-color: #eaeaea;
+  box-shadow: 0 0 4px 1px #9c9c9c;
+}
+
+@media only screen and (max-width: 660px) {
+  .top-bar {
+    justify-content: space-between;
+  }
+
+  .top-bar .icons {
+    position: static;
+  }
+
+}
+
+/* MAIN CONTAINER */
+
 .main-container input {
   border: none;
   outline: none;
@@ -44,13 +133,18 @@ body * {
 
 
 .main-container {
-  margin: 50px auto;
+  margin: 30px auto;
   width: 794px; /* A4 width and height */
   height: 1122px;
   box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
   background-color: #ffffff;
   padding: 80px 60px;
   box-sizing: border-box;
+  font-family: Garamond, sans-serif;
+}
+
+.main-container.savepdf {
+  margin: 0;
 }
 
 .content-header h1 input {
@@ -59,6 +153,7 @@ body * {
   font-size: 40px;
   font-family: Garamond, sans-serif;
   width: 100%;
+  line-height: 1.3em;
 }
 
 .main-container h2 {
@@ -86,7 +181,6 @@ body * {
 
 .content-header span input#titles {
   width: 80%;
-  text-transform: uppercase;
   height: 21px;
 }
 
@@ -145,7 +239,7 @@ body * {
 .content-item input {
   font-family: Garamond, sans-serif;
   text-align: left;
-  padding: 0;
+  padding: 0.1em, 0;
 }
 
 .content-item input.company, .content-item input.title, .content-item input.education {
@@ -163,8 +257,8 @@ body * {
   font-size: 14px;
   width: 100%;
   overflow: hidden;
+  border:none;
 }
-
 
 .content-item textarea {
   display: block;
@@ -207,7 +301,7 @@ body * {
 
 /* BUTTON */
 
-button {
+.main-container button {
     background-color: transparent;
     border: 1px solid black;
     box-shadow: 0 0 2px 0px #a5a5a5;
@@ -227,7 +321,7 @@ button#edit {
     top: 50px;
   }
 
-button:hover {
+.main-container button:hover {
   color: #026102;
   border-color: #026102;
   cursor: pointer;
@@ -245,7 +339,7 @@ button:hover {
   top: 30px;
   width: 30px;
   height: 30px;
-  padding-top: 2px;
+  padding-top: 4px;
   border-radius: 30px;
   border: 1px solid gray;
 }
@@ -330,15 +424,15 @@ button:hover {
   box-shadow: 0 0 2px 0 #026102;
 }
 
-.popup textarea {
+/* .popup textarea {
   height: 63px;
-}
+} */
 
 
 /* TEXT FRAMEWORK */
 
 .text-green {
-  color: #026102;
+  color: #015001;
 }
 
 .uppercase {
