@@ -5,22 +5,23 @@ class Skills extends React.Component {
         super(props);
 
         this.state = {
+            title: 'Skills',
             skills: [
                 {
                     title: "Languages",
-                    description: "Estonian C2, English C1, Russian A2, German A2"
+                    description: "English C2, French C1, Mandarin B2, German B1"
                 },
                 {
                     title: "Software",
-                    description: "Microsoft Office, AutoCAD, Civil3D"
+                    description: "Microsoft Office, Google Chrome"
                 },
                 {
                     title: "Programming",
-                    description: "Java, Python, C, JavaScript (React)"
+                    description: "VBA, C"
                 },
                 {
                     title: "Others",
-                    description: "Guitar, piano, choir singing, tennis"
+                    description: "Guitar, Football, Painting"
                 }
             ]
         }
@@ -28,20 +29,26 @@ class Skills extends React.Component {
 
     }
 
+    // stop rerendering when state is updated. Needed because of contentEditable being used.
     shouldComponentUpdate(nextProps, nextState) {
         return false;
     };
 
     changeState(e, element, attribute) {
-        let skillsArr = [...this.state.skills];
+        if (attribute === 'main-title') {
+            this.setState({ title: e.target.value });
+            this.forceUpdate();
+        } else {
+            let skillsArr = [...this.state.skills];
 
-        skillsArr.forEach(stateElement => {
-            if (stateElement === element) {
-                element[attribute] = e.target.innerHTML;
-            }
-        });
+            skillsArr.forEach(stateElement => {
+                if (stateElement === element) {
+                    element[attribute] = e.target.innerHTML;
+                }
+            });
 
-        this.setState({ skills : skillsArr })
+            this.setState({ skills : skillsArr })
+        }
     }
 
     removeItem(element) {
@@ -57,8 +64,26 @@ class Skills extends React.Component {
         }
 
         this.setState({ skills : skillsArr });
+        // force render after deletion from state.
         this.forceUpdate();
     }
+
+    
+    addItem() {
+        let skillsArr = [...this.state.skills];
+
+        let newItem = {
+            title: "Category",
+            description: "skill 1, skill 2",
+        }
+
+        skillsArr.push(newItem);
+
+        this.setState( { skills : skillsArr } );
+        // force render after adding a new item
+        this.forceUpdate();
+    }
+
 
     renderSkills() {
         return(
@@ -67,6 +92,7 @@ class Skills extends React.Component {
                     return (
                         <div className="mb-5 content-skill" key={`s-div-${i}`}>
                             <button className="remove-btn" onClick={e => {(this.removeItem(element))}}>x</button>
+                            {/* Use contenteditable instead of input to simplify resizing the box according to the content */}
                             <span className="bold" key={`s-title-${i}`} contentEditable onInput={e => this.changeState(e, element, 'title')}>{element.title}: </span> 
                             <span key={`s-description-${i}`} contentEditable onInput={e => this.changeState(e, element, 'description')}>{element.description}</span>
                         </div>
@@ -80,7 +106,8 @@ class Skills extends React.Component {
     render() {
         return (
         <div className="content-main">
-            <h2 className="text-green">Skills</h2>
+            <input type="text" className="main-title text-green" spellCheck="false" onChange={e => this.changeState(e, null, 'main-title')} value={this.state.title}/>
+            <button className="add-btn" onClick={e => {this.addItem()}}>+</button>
 
             {this.renderSkills()}
         </div>

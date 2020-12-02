@@ -66,6 +66,16 @@ body * {
   text-transform: uppercase;
   text-align: right;
   margin-right: 20px;
+  font-weight: bold;
+}
+
+.main-container .main-title {
+  font-size: 14px;
+  text-transform: uppercase;
+  text-align: right;
+  margin-right: 20px;
+  height: 1.5em;
+  font-weight: bold;
 }
 
 .main-container h3 {
@@ -122,6 +132,7 @@ body * {
 }
 
 .content-main {
+  position: relative;
   display: grid;
   grid-template-columns: 180px auto;
   margin-top: 20px;
@@ -221,6 +232,27 @@ button:hover {
   border-color: #026102;
   cursor: pointer;
   box-shadow: 0 0 2px 1px #a5a5a5;
+}
+
+.content-main:hover .add-btn {
+  opacity: 1;
+}
+
+.content-main .add-btn {
+  position: absolute;
+  opacity: 0;
+  left: 20%;
+  top: 30px;
+  width: 30px;
+  height: 30px;
+  padding-top: 2px;
+  border-radius: 30px;
+  border: 1px solid gray;
+}
+
+.content-main .add-btn:hover {
+  color: #026102;
+  border-color: #026102;
 }
 
 .content-item:hover .remove-btn, .content-skill:hover .remove-btn {

@@ -8,28 +8,14 @@ class Header extends React.Component {
 
         this.state =  {
             showPopup: false,
-            name: "Allan Kossas",
-            titles: "veetehnika - cad tehnoloogia",
-            contacts: '(+372) 534 582 39 - allankossas@gmail.com - linkedin.com/in/allankossas',
-            description: 'Lõpetanud magistriõppe veetehnika erialal "Hooned ja Rajatised" õppekaval'
+            name: "John Doe",
+            titles: "business - technology",
+            contacts: '(+777) 512 345 67 - email@mail.com - linkedin.com/in/johndoe',
+            description: 'This is an example profile. None of the information is true'
         }
 
-        this.togglePopup = this.togglePopup.bind(this);
+        // this.togglePopup = this.togglePopup.bind(this);
     }
-
-    // renderTitles(titlesArr) {
-    //     return (
-    //         <p className="uppercase">        
-    //             {titlesArr.map(element => {
-    //                 if (titlesArr[titlesArr.length -1] === element) {
-    //                     return (<span key={uniqid()}><input />{element}</span>)
-    //                 } else {
-    //                     return (<span key={uniqid()}>{element} - </span>)
-    //                 } 
-    //             })}
-    //         </p>
-    //     )
-    // }
 
     renderContacts() {
         // push valid contacts into an array
@@ -52,11 +38,13 @@ class Header extends React.Component {
         )
     }
 
-    togglePopup() {
-        this.setState({
-            showPopup: !this.state.showPopup,
-        })
-    }
+    // popup not used, kept here for possible future use.
+
+    // togglePopup() {
+    //     this.setState({
+    //         showPopup: !this.state.showPopup,
+    //     })
+    // }
 
     render() {
         return(

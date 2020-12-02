@@ -5,22 +5,19 @@ class Education extends React.Component {
         super(props);
 
         this.state = {
+            title: "education",
             education: [
                 {
-                    header: "Veetehnika magister: 2017 - ...",
-                    school: "Tallinna Tehnikaülikool"
+                    header: "master of scientology: 2004 - 2006",
+                    school: "University 1"
                 },
                 {
-                    header: "Magistritudeng ehitusinseneri õppes: 2018-2019",
-                    school: "Budapest University of Technology and Economics"
+                    header: "bachelors of religious affairs: 2000-2003",
+                    school: "University 2"
                 },
-                                {
-                    header: "MATERJALITEADUSE BAKALAUREUS: 2013 - 2016",
-                    school: "Tartu Ülikool"
-                },
-                                {
-                    header: "Keskkool: 2013",
-                    school: "Tallinna Inglise Kolledž"
+                {
+                    header: "High school: 1999",
+                    school: "My High School"
                 }
             ]
         }
@@ -28,15 +25,19 @@ class Education extends React.Component {
 
 
     changeState(e, element, attribute) {
-        let edArr = [...this.state.education];
+        if (attribute === 'main-title') {
+            this.setState( { title: e.target.value } );                    
+        } else {
+            let edArr = [...this.state.education];
 
-        edArr.forEach(stateElement => {
-            if (stateElement === element) {
-                element[attribute] = e.target.value;
-            }
-        })
+            edArr.forEach(stateElement => {
+                if (stateElement === element) {
+                    element[attribute] = e.target.value;
+                }
+            })
 
-        this.setState({ education : edArr });
+            this.setState({ education : edArr });
+        }
     }
 
     removeItem(element) {
@@ -52,6 +53,21 @@ class Education extends React.Component {
 
         this.setState({ education : edArr });
     }
+
+    
+    addItem() {
+        let edArr = [...this.state.education];
+
+        let newItem = {
+            header: "degree: 2010-2012",
+            school: "school/university"
+        }
+
+        edArr.push(newItem);
+
+        this.setState( { education : edArr } );
+    }
+
 
     renderEducation() {
         return(
@@ -72,7 +88,10 @@ class Education extends React.Component {
     render() {
         return (
         <div className="content-main">
-            <h2 className="text-green">Education</h2>
+            <input type="text" className="main-title text-green" spellCheck="false" onChange={e => this.changeState(e, null, 'main-title')} value={this.state.title}/>
+
+            {/* <h2 className="text-green">Education</h2> */}
+            <button className="add-btn" onClick={e => {this.addItem()}}>+</button>
 
             {this.renderEducation()}
         </div>
