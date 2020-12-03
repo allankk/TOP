@@ -17,7 +17,7 @@ const App = () => {
       <Navigation />
       <Scoreboard currentScore={currentScore} bestScore={bestScore} totalCards={totalCards} />
 
-      <Cards cardAmount={CARDAMOUNT}/>
+      <Cards cardAmount={CARDAMOUNT} setCurrentScore={setCurrentScore}/>
     </main>
   );
 };
