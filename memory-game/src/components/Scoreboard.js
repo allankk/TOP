@@ -15,9 +15,7 @@ const Scoreboard = (props) => {
                 <p>Best Score</p>
                 <p>{props.bestScore}/{props.totalCards}</p>
             </div>
-        
-
-
+    
         </div>
     )
 }

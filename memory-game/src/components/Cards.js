@@ -3,12 +3,12 @@ import allImages from './Images';
 
 const PUBLIC_URL = process.env.PUBLIC_URL || 'http://localhost:3000';
 
-let fullArray = [...allImages];
-let playArray = [];
+let fullArray;
+let playArray;
+let useEffectCalled = false;
 
 // select cards to be played by choosing random items
 const iterate = (i) => {
-    
     let randomIndex = Math.floor(Math.random() * fullArray.length);
 
     playArray.push(fullArray[randomIndex]);
@@ -22,58 +22,85 @@ const iterate = (i) => {
     }
 };
 
+// create a new array of images to be played
 const getNewArray = (i) => {
     fullArray = [...allImages];
     playArray = [];
 
-    console.log('getting new array');
+    fullArray.forEach(element => {
+        element.clicked = false;
+    });
 
-    iterate(i);    
+    iterate(i);
 };
 
+// Custom hook to use a constructor for a functional component. This runs only once before rendering.
+const useConstructor = (callBack = () => {}) => { 
+    const [hasBeenCalled, setHasBeenCalled] = useState(false);
+    if (hasBeenCalled) return;
+    callBack();
+    setHasBeenCalled(true);
+}
+
 // TODO: FIX. how get into component to run only once
-getNewArray(25);
+// getNewArray(25);
+
+// shuffle array
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        let x = array[j];
+        array[j] = array[i];
+        array[i] = x;
+    }
+}
 
 const Cards = (props) => {
 
-    getNewArray(props.cardAmount);
+    useConstructor(() => {
+        getNewArray(props.cardAmount);
+    });
 
     // assign the cardarray to the state
-    const [cardArray, setCardArray] = useState(playArray);
-    const [count, setCount] = useState(0);
+    const [cardArray, setCardArray] = useState([...playArray]);
 
     useEffect(() => {
-        props.setCurrentScore(count);
+        if (!useEffectCalled){
+            useEffectCalled = true;
+        } else {
+            getNewArray(props.cardAmount);
+            setCardArray([...playArray]);
+        }
+    }, [props.cardAmount])
 
-    }, [count, props]);
-    
     const checkIfClicked = (id) => {
-        let newArray = [...cardArray];
-        
         // go through the array. if element is not clicked, set clicked to true. If it is clicked, end the game.
-        for(let i=0; i<newArray.length; i++) {
-            if (newArray[i].id === id) {
-                if (!newArray[i].clicked) {
-                    newArray[i].clicked = true;
-                    setCount(count + 1)
+        for(let i=0; i<playArray.length; i++) {
+            if (playArray[i].id === id) {
+                if (!playArray[i].clicked) {
+                    playArray[i].clicked = true;
+                    props.setCurrentScore(props.currentScore + 1);
+                    shuffleArray(playArray);
+                    setCardArray([...playArray]);
                     break;
                 } else {
-                    // start new game, turn all clicked attributes to false
-                    for (let j=0; j<newArray.length; j++) {
-                        newArray[i].clicked = false;
-                    }
+                    console.log('GAME LOST');
                     // get new images for a new game
-                    getNewArray();
-                    setCount(0);
+                    getNewArray(props.cardAmount);
+                    setCardArray([...playArray]);
+                    props.setCurrentScore(0);
                     break;
                 } 
             }
+        }   
+
+        if (props.cardAmount == props.currentScore) {
+            console.log('YOU WON');
+            getNewArray(props.cardAmount);
+            setCardArray([...playArray]);
+            props.setCurrentScore(0);
         }
-
-        setCardArray(newArray);
     }
-
-    console.log(playArray);
 
     return (
         <div className='cards'>
