@@ -56,7 +56,16 @@ nav li:hover {
 
 /* SHOP */
 
+.card-item * {
+  display: block;
+}
+
 .card-item img {
   width: 100px;
   height: 100px;
+}
+
+.card-item:hover {
+  background-color: #eaeaea;
+  cursor: pointer;
 }

@@ -1,20 +1,40 @@
-import Watches from './Items';
+import React, { useState } from 'react';
+import Content from './Content';
+import { Watches, Wallets, Other } from './Items';
 
-const PUBLIC_URL = process.env.PUBLIC_URL || 'http://localhost:3000';
+
 
 function Shop() {
+    const [showWatches, setShowWatches] = useState(true);
+    const [showWallets, setShowWallets] = useState(true);
+    const [showOther, setShowOther] = useState(false);
+    
+    function show(showItems, items, title) {
+        if (showItems) {
+            return ( <Content items={items} title={title} /> )
+        }
+    }
+
+
     return (
         <div className="shop">
-            <h1>This is a shop page</h1>
-            {Watches.map(element => {
-                return (
-                    
-                    <div key={'watch-' + element.id} className="card-item">
-                        {console.log('hello')}
-                        <img src={PUBLIC_URL + element.src} key={'watch-img-' + element.id} alt=""/>
-                    </div>
-                )
-            })}
+            <div className="side">
+                <input type="checkbox" id="watches-box" checked={showWatches} onChange={e => setShowWatches(!showWatches)} />
+                <label htmlFor="watches-box">Watches</label>
+                <input type="checkbox" id="wallets-box" checked={showWallets} onChange={e => setShowWallets(!showWallets)} />
+                <label htmlFor="wallets-box">Wallets</label>
+                <input type="checkbox" id="other-box" checked={showOther} onChange={e => setShowOther(!showOther)} />
+                <label htmlFor="other-box">Other</label>
+            </div>
+            <div className="content">
+
+                <h1>This is a shop page</h1>
+                {show(showWatches, Watches, 'Watches')}
+                {show(showWallets, Wallets, 'Wallets')}
+                {show(showOther, Other, 'Other')}
+
+            </div>
+
         </div>
     );
 }
