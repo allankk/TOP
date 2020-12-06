@@ -42,9 +42,6 @@ const useConstructor = (callBack = () => {}) => {
     setHasBeenCalled(true);
 }
 
-// TODO: FIX. how get into component to run only once
-// getNewArray(25);
-
 // shuffle array
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
