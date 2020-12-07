@@ -33,8 +33,6 @@ const Content = (props) => {
             {showPopup ? <Popup element={currentElement} togglePopup={togglePopup}/> : null}
         </div>
     )
-
-
 }
 
 export default Content;
