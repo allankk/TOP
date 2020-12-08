@@ -15,9 +15,10 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Nav />
+        
         <Switch>
-          <CartItemsProvider>       
+          <CartItemsProvider>
+            <Nav />       
             <Route path="/" exact component={Home} />
             <Route path="/about" component={About} />
             <Route path="/shop" component={Shop} />
@@ -33,7 +34,9 @@ function App() {
 const Home = () => {
   return (
     <div className="home">
-      <h1>Home Page</h1>
+      <div className="short">
+        <h1>ACCESSORY SHOP</h1>
+      </div>
     </div>
   )
 }

@@ -19,16 +19,16 @@ function Shop() {
     return (
         <div className="shop">
             <div className="side">
-                <input type="checkbox" id="watches-box" checked={showWatches} onChange={e => setShowWatches(!showWatches)} />
                 <label htmlFor="watches-box">Watches</label>
-                <input type="checkbox" id="wallets-box" checked={showWallets} onChange={e => setShowWallets(!showWallets)} />
+                <input type="checkbox" id="watches-box" checked={showWatches} onChange={e => setShowWatches(!showWatches)} />
                 <label htmlFor="wallets-box">Wallets</label>
-                <input type="checkbox" id="other-box" checked={showOther} onChange={e => setShowOther(!showOther)} />
+                <input type="checkbox" id="wallets-box" checked={showWallets} onChange={e => setShowWallets(!showWallets)} />
                 <label htmlFor="other-box">Other</label>
+                <input type="checkbox" id="other-box" checked={showOther} onChange={e => setShowOther(!showOther)} />
             </div>
             <div className="content">
 
-                <h1>This is a shop page</h1>
+                <h1>shop</h1>
                 {show(showWatches, Watches, 'Watches')}
                 {show(showWallets, Wallets, 'Wallets')}
                 {show(showOther, Other, 'Other')}

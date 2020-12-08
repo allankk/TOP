@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { CartItems } from '../App';
 
+const PUBLIC_URL = process.env.PUBLIC_URL || 'http://localhost:3000';
+
 const Cart = () => {
     const data = useContext(CartItems);
-
-    console.log(data);
 
     const handleChange = (e, element) => {
         if (e.target.value < 0) {
@@ -16,19 +16,39 @@ const Cart = () => {
 
     return (
         <div className="cart-container">
-            <h1>This is cart</h1>
+            <h1>shopping cart</h1>
 
             <div className="items">
+                {data.addedItems.length === 0 ? (<h3>cart is empty</h3>) : null}
                 {data.addedItems.map(element => {
                     return (
                         <div key={'cart-' + element.id} className="cart-item"> 
-                            <h2>{element.title}</h2>
-                            {/* <button class="edit-number" onClick={data.decrementItem(element)}>-</button> */}
-                            <input type="number" value={element.amount} onChange={e => {handleChange(e, element)}}/>
-                            {/* <button class="edit-number" onClick={data.incrementItem(element)}>+</button> */}
+                            <img src={PUBLIC_URL + element.src} alt=""/>
+                            <div className="item-content">
+                                <h2>{element.title}</h2>
+                                <p>Price: {element.price}€</p>
+                                <div className="buttons">
+                                    <div className="quantity">
+                                        <p>Quantity: </p>
+                                        <input type="number" value={element.amount} onChange={e => {handleChange(e, element)}}/>
+                                    </div>
+                                    <button className="edit-number decrement" onClick={e => {data.decrementItem(element)}}>-</button>
+                                    <button className="edit-number increment" onClick={e => {data.incrementItem(element)}}>+</button>
+                                    <button className="remove-element" onClick={e => {data.removeItem(element)}}>Remove item</button>   
+                                </div>
+
+                            </div>
+
                         </div>
                     )                    
                 })}
+                
+                {data.addedItems.length === 0 ? null : (
+                    <div class="checkout">
+                        <p>Total price: {data.totalPrice}€</p>
+                        <button id="checkout-btn">Checkout</button>
+                    </div>
+                )}
             </div>
             
 

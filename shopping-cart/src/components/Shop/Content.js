@@ -20,15 +20,20 @@ const Content = (props) => {
     return (
         <div>
             <h2>{props.title}</h2>
-            {props.items.map(element => {
-                return (
-                    <div key={'div-' + element.id} className="card-item" onClick={e => togglePopup(element)}>
-                        <img src={PUBLIC_URL + element.src} key={'img-' + element.id} alt={element.title}/>
-                        <span>{element.title}</span>
-                        <span>{element.price + "€"}</span>
-                    </div>
-                )
-            })}
+            <div className="items">
+                {props.items.map(element => {
+                    return (
+                        <div key={'div-' + element.id} className="card-item" onClick={e => togglePopup(element)}>
+                            <div className="image-overflow">
+                                <img src={PUBLIC_URL + element.src} key={'img-' + element.id} alt={element.title}/>
+                            </div>
+                            <span>{element.title}</span>
+                            <span>{element.price + "€"}</span>
+                        </div>
+                    )
+                })}
+            </div>
+
 
             {showPopup ? <Popup element={currentElement} togglePopup={togglePopup}/> : null}
         </div>

@@ -1,14 +1,24 @@
-import React, {useEffect, useState} from 'react';
+import React, { useState } from 'react';
 
 import {CartItems} from '../App';
 
 const CartItemsProvider = (props) => {
 
     const [addedItems, setAddedItems] = useState([]);
+    const [totalPrice, setTotalPrice] = useState('0')
 
-    useEffect(() => {
-        console.log('items changed');
-    }, [addedItems])
+    const calculateTotalPrice = () => {
+        let tempTotal = 0;
+
+        addedItems.forEach(element => {
+            tempTotal = tempTotal + element.price * element.amount;
+        })
+
+        let roundTotal = Math.round(tempTotal * 100) / 100;
+        roundTotal = roundTotal.toFixed('2');
+
+        setTotalPrice(roundTotal);
+    }
 
     const addItem = (item) => {
         let tempArray = [...addedItems];
@@ -27,6 +37,7 @@ const CartItemsProvider = (props) => {
             tempArray.push(item);
             setAddedItems(tempArray);
         }
+        calculateTotalPrice();
     }
 
     const removeItem = (item) => {
@@ -40,6 +51,7 @@ const CartItemsProvider = (props) => {
         }
 
         setAddedItems(tempArray);
+        calculateTotalPrice();
     };
 
     const incrementItem = (item) => {
@@ -51,6 +63,7 @@ const CartItemsProvider = (props) => {
             }
         })
         setAddedItems(tempArray);
+        calculateTotalPrice();
     }
 
     const decrementItem = (item) => {
@@ -64,10 +77,10 @@ const CartItemsProvider = (props) => {
             }
         })
         setAddedItems(tempArray);
+        calculateTotalPrice();
     }
 
     const setItemAmount = (item, amount) => {
-        console.log('setting item amount');
         let tempArray = [...addedItems];
 
         tempArray.forEach(element => {
@@ -81,6 +94,20 @@ const CartItemsProvider = (props) => {
         })
 
         setAddedItems(tempArray);
+        calculateTotalPrice();
+    }
+
+    const getItemAmount = (item) => {
+        let tempArray = [...addedItems];
+        let tempAmount = 0;
+
+        tempArray.forEach(element => {
+            if (item.id === element.id) {
+                tempAmount = element.amount;
+            }
+        })
+
+        return tempAmount;
     }
 
     const contextValues = {
@@ -89,7 +116,9 @@ const CartItemsProvider = (props) => {
         removeItem,
         incrementItem,
         decrementItem,
-        setItemAmount
+        setItemAmount,
+        totalPrice,
+        getItemAmount
     };
 
     return (
