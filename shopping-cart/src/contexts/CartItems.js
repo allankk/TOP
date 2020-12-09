@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {CartItems} from '../App';
 
@@ -7,10 +7,11 @@ const CartItemsProvider = (props) => {
     const [addedItems, setAddedItems] = useState([]);
     const [totalPrice, setTotalPrice] = useState('0')
 
-    const calculateTotalPrice = () => {
+    useEffect(() => {
         let tempTotal = 0;
 
         addedItems.forEach(element => {
+            console.log(element.title + ": " + element.amount);
             tempTotal = tempTotal + element.price * element.amount;
         })
 
@@ -18,7 +19,7 @@ const CartItemsProvider = (props) => {
         roundTotal = roundTotal.toFixed('2');
 
         setTotalPrice(roundTotal);
-    }
+    }, [addedItems]);
 
     const addItem = (item) => {
         let tempArray = [...addedItems];
@@ -35,9 +36,8 @@ const CartItemsProvider = (props) => {
         if (!itemFound){
             item.amount = 1;
             tempArray.push(item);
-            setAddedItems(tempArray);
-        }
-        calculateTotalPrice();
+            setAddedItems(tempArray)
+        }    
     }
 
     const removeItem = (item) => {
@@ -51,7 +51,6 @@ const CartItemsProvider = (props) => {
         }
 
         setAddedItems(tempArray);
-        calculateTotalPrice();
     };
 
     const incrementItem = (item) => {
@@ -63,7 +62,6 @@ const CartItemsProvider = (props) => {
             }
         })
         setAddedItems(tempArray);
-        calculateTotalPrice();
     }
 
     const decrementItem = (item) => {
@@ -77,7 +75,6 @@ const CartItemsProvider = (props) => {
             }
         })
         setAddedItems(tempArray);
-        calculateTotalPrice();
     }
 
     const setItemAmount = (item, amount) => {
@@ -94,7 +91,6 @@ const CartItemsProvider = (props) => {
         })
 
         setAddedItems(tempArray);
-        calculateTotalPrice();
     }
 
     const getItemAmount = (item) => {

@@ -16,8 +16,8 @@ const Popup = (props) => {
                     <div className="price">
                         <span>Price: {props.element.price + "€"}</span>
                         <button className="add-cart-btn" onClick={e => data.addItem(props.element)}>Add to cart</button>
+                        {(data.getItemAmount(props.element) !== 0) ? (<p className="current-cart">Currently in cart: {props.element.amount}</p>) : null}
                     </div>
-                    {(data.getItemAmount(props.element) !== 0) ? (<p>Currently in cart: {props.element.amount}</p>) : null}
                     <button className="close-btn" onClick={e => props.togglePopup()}>Close</button>
                 </div>
             </div>

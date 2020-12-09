@@ -44,7 +44,7 @@ const Cart = () => {
                 })}
                 
                 {data.addedItems.length === 0 ? null : (
-                    <div class="checkout">
+                    <div className="checkout">
                         <p>Total price: {data.totalPrice}€</p>
                         <button id="checkout-btn">Checkout</button>
                     </div>
