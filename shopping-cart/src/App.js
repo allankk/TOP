@@ -1,6 +1,6 @@
 import React from 'react';
 import CartItemsProvider from './contexts/CartItems';
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { BrowserRouter, Switch, Route} from 'react-router-dom';
 import Nav from './components/Nav';
 import Shop from './components/Shop/Shop.js';
 import About from './components/About';
@@ -13,7 +13,7 @@ export { CartItems };
 function App() {
   
   return (
-    <Router>
+    <BrowserRouter basename="/shopsory">
       <div className="App">
         
         <Switch>
@@ -26,7 +26,7 @@ function App() {
           </CartItemsProvider>
         </Switch>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 
