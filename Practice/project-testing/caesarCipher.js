@@ -9,7 +9,7 @@ function caesarCipher(string, shift) {
         let charCode = splitString[i].charCodeAt(0);
 
         if (charCode >= 97 && charCode <= 122) {
-            newCode = ((charCode - 97) + shift) % 26;
+            let newCode = ((charCode - 97) + shift) % 26;
 
             if (newCode < 0) { 
                 newCode = newCode + 26;
@@ -19,7 +19,7 @@ function caesarCipher(string, shift) {
 
         } else if (charCode >= 65 && charCode <= 90) {
             
-            newCode = ((charCode - 65) + shift) % 26;
+            let newCode = ((charCode - 65) + shift) % 26;
 
             if (newCode < 0) { 
                 newCode = newCode + 26;

@@ -1,5 +1,3 @@
-let reset = 'hello';
-
 const capitalize = (string) => {
     const strCapitalized = string.charAt(0).toUpperCase() + string.slice(1);
     
@@ -20,8 +18,10 @@ const calculator = {
     multiply: function(a,b) { return a * b }
 }
 
-module.exports = {
-    capitalize,
-    reverseString,
-    calculator
-}
+export { capitalize, reverseString, calculator }
+
+// module.exports = {
+//     capitalize,
+//     reverseString,
+//     calculator
+// }

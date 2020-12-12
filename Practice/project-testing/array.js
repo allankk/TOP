@@ -25,7 +25,7 @@ function analyze(array) {
     }
 
     const findAverage = (array) => {
-        totalSum = 0;
+        let totalSum = 0;
 
         array.forEach(element => {
             totalSum += element;

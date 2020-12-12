@@ -1,5 +1,7 @@
 const { test, expect } = require("@jest/globals");
-const { capitalize, reverseString, calculator } = require("./start");
+// const { capitalize, reverseString, calculator } = require("./start");
+
+import { capitalize, reverseString, calculator } from './start';
 
 // testing if jest works
 test('jest works', () => {
