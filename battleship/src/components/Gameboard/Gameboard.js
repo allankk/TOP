@@ -57,20 +57,34 @@ const Gameboard = () => {
     // check if position to place ship is valid
     const checkIfValid = (shipArray) => {
 
-        // [2,2], [2,3]
-        // need to check [1,1][2,1][3,1]
-        //               [1,2][3,2]
-        //               [1,3][3,3]
-        //               [1,4][2,4][3,4]
+        for (let i = 0; i < shipArray.length; i++) {
+            let row = shipArray[i][0];
+            let col = shipArray[i][1];
 
-        // or need to check (with inside of ship parts)
-        // 
-        shipArray.forEach(element => {
+            // check if ship is placed outside of board
+            if (row < 0 || row > BOARD_SIZE-1) return false;
+            if (col < 0 || col > BOARD_SIZE-1) return false;
 
-        })
+            // check if the squares around each ship part are empty            
+            for(let j = -1; j < 2; j++) {
+                for(let k = -1; k < 2; k++) {
+                    let checkRow = row + j;
+                    let checkCol = col + k;
+
+                    // don't check outside the board
+                    if (checkRow > BOARD_SIZE-1 || checkRow < 0) break;
+                    if (checkCol > BOARD_SIZE-1 || checkCol < 0) break;
+
+                    if (board[checkRow][checkCol] != 0) {
+                        return false;
+                    }
+                }
+            }
+        }
 
         return true;
-    }
+
+        }
 
 
     function getBoard() { return board };
