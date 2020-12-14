@@ -54,12 +54,31 @@ const Gameboard = () => {
         });
     }
 
+    // check if position to place ship is valid
+    const checkIfValid = (shipArray) => {
+
+        // [2,2], [2,3]
+        // need to check [1,1][2,1][3,1]
+        //               [1,2][3,2]
+        //               [1,3][3,3]
+        //               [1,4][2,4][3,4]
+
+        // or need to check (with inside of ship parts)
+        // 
+        shipArray.forEach(element => {
+
+        })
+
+        return true;
+    }
+
 
     function getBoard() { return board };
 
     return {
         placeShip,
-        getBoard
+        getBoard,
+        checkIfValid
     }
 }
 
