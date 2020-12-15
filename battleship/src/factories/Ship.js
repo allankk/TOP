@@ -1,22 +1,3 @@
-
-// creates an array of coordinates for ship parts.
-// function createShipArray(length, coords, isVertical) {
-//     let coordArr = [];
-
-//     coordArr.push([coords[0], coords[1]]);
-
-//     for(let i = 1; i < length; i++) {
-//         if (isVertical) {
-//             coordArr.push([coords[0] + i, coords[1]]);
-//         } else {
-//             coordArr.push([coords[0], coords[1] + i]);
-//         }
-//     };
-
-//     return coordArr;
-// }
-
-// creates array of positions hit. initiate with 0 (not hit)
 function createPositionsArray(length) {
     let posArray = [];
 
@@ -36,12 +17,12 @@ function findIndex(array, element) {
     }
 }
 
-
-const Ship = ( length, coordArr ) => {
+const Ship = ( length, coordArray ) => {
     const positionsHit = createPositionsArray(length);
+    const coordArr = [...coordArray];
 
     const hit = (coord) => {
-        // find the correct index
+        // find the correct index.
         let posIndex = findIndex(coordArr, coord);
 
         positionsHit[posIndex] = 1;
@@ -59,11 +40,22 @@ const Ship = ( length, coordArr ) => {
         }
     };
 
+    const isPartHit = (coord) => {
+        let posIndex = findIndex(coordArr, coord);
+
+        if (positionsHit[posIndex]) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     return {
         hit,
         getPositionsHit,
-        isSunk
+        isSunk,
+        isPartHit
     }
 }
 
-export { Ship };
+export default Ship;
