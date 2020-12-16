@@ -12,7 +12,7 @@ test('jest works', () => {
 
 test('player can attack AI board', () => {
     const player = Player(false);
-    player.toggleTurn();
+    // player.toggleTurn();
 
     const pc = Player(true);
 
@@ -23,7 +23,7 @@ test('player can attack AI board', () => {
 test('AI can attack player board', () => {
     const player = Player(false);
     const pc = Player(true);
-    pc.toggleTurn();
+    // pc.toggleTurn();
 
     pc.attack(player, [3, 3]);
 

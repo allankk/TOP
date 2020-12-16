@@ -105,7 +105,7 @@ const Gameboard = () => {
     // receive an attack on a tile. if the tile is an object (ship), use the hit function in ship object. 
     // Otherwise, write a 1 to the gameboard.
     const receiveAttack = (coords) => {
-        console.log('attack received');
+        console.log('receiveattack called');
         let tile = board[coords[0]][coords[1]];
 
         if (typeof(tile) === 'object') {

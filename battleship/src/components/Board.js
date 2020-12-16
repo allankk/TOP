@@ -4,21 +4,16 @@ const Board = (props) => {
 
     // set the board as state.
     const [grid, setGrid] = useState(props.player.board.getBoard());
-    const [turn, setTurn] = useState(props.player.isTurn());
 
     const handleAttack = (row, col) => {
         props.player.attack(props.opponent, [row, col])
-        props.player.toggleTurn();
-        props.opponent.toggleTurn();
+        props.toggleTurn();
+
     }
 
-    useEffect(() => {
-        console.log('useeffect called');
-    }, [props.player.isTurn()])
-    
     return (
         // if it is not this players turn (therefore is opponents turn), this board should be enabled
-        <div className={'board' + (turn ?  ' disabled' : '')}>
+        <div className={'board' + (props.turn ?  ' disabled' : '')}>
             {grid.map((innerArr, row) => {
                 return (
                     <div key={'row' + row} className={'grid-row row-' + row}>
@@ -27,7 +22,8 @@ const Board = (props) => {
                                 <div className="tile"
                                      id={'row-' + row + '-col-' + col}
                                      key={'row' + row + 'col' + col}
-                                     onClick={() => handleAttack(row, col)}>
+                                     onClick={() => handleAttack(row, col)}
+                                     >
                                 </div>
                             );
                         })}                    
