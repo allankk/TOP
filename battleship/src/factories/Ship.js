@@ -11,7 +11,7 @@ function createPositionsArray(length) {
 // finds the correct index of array;
 function findIndex(array, element) {
     for (let i = 0; i < array.length; i++) {
-        if (array[i][0] == element[0] && array[i][1] == element[1]) {
+        if (array[i][0] === element[0] && array[i][1] === element[1]) {
             return i;
         } 
     }

@@ -1,7 +1,5 @@
 import Gameboard from './Gameboard';
 
-const BOARD_SIZE = 10;
-
 const randomAttack = (opponent) => {
     
     while (true) {
@@ -17,7 +15,7 @@ const randomAttack = (opponent) => {
                 opponent.board.receiveAttack([randRow, randCol]);
                 break;
             }
-        } else if (tile == 1) {
+        } else if (tile === 1) {
             continue;
         } else {
             opponent.board.receiveAttack([randRow, randCol]);
@@ -32,6 +30,7 @@ const Player = (isPC) => {
 
     // attack the opponents board. If the AI is attacking, attack randomly
     const attack = (opponent, coords) => {
+        console.log('attack function - received');
         if (!turn) return;
 
         (isPC) ? randomAttack(opponent) : opponent.board.receiveAttack([coords[0], coords[1]]);
@@ -41,10 +40,15 @@ const Player = (isPC) => {
         turn = !turn;
     }
 
+    const isTurn = () => {
+        return turn;
+    }
+
     return {
         toggleTurn,
         attack,
-        board
+        board,
+        isTurn
     }
 }
 

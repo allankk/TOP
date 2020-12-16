@@ -1,11 +1,12 @@
-import './App.css';
 import Button from './components/button/button';
+import Game from './components/Game';
+
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Button label="click me please"></Button>
+        <Game />
       </header>
     </div>
   );

@@ -11,3 +11,64 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* .body {
+  text-align: center;
+}
+
+.body {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+} */
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #282c34;
+  text-align: center;
+}
+
+/* BOARD */
+
+.board-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.board {
+  display: block;
+  text-align: center;
+} 
+
+.board.disabled .tile {
+  background-color: #5585b566;
+}
+
+.board.disabled .tile:hover {
+  background-color: #5585b566;
+}
+
+.board .grid-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.board .tile {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #282c34;
+    background-color: #5585b5;
+}
+
+.board .tile:hover {
+  background-color: #72c7ffc9;
+  cursor: pointer;
+}
