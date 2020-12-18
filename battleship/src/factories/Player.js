@@ -25,15 +25,18 @@ const randomAttack = (opponent) => {
 } 
 
 const Player = (isPC) => {
+    console.log('starting player');
     const board = Gameboard();
     // let turn = false;
 
     // attack the opponents board. If the AI is attacking, attack randomly
     const attack = (opponent, coords) => {
-        console.log('attack function - calling receiveattack');
         // if (!turn) return;
 
-        (isPC) ? randomAttack(opponent) : opponent.board.receiveAttack([coords[0], coords[1]]);
+        opponent.board.receiveAttack([coords[0], coords[1]]);
+
+        // enable randomattack by pc
+        // (isPC) ? randomAttack(opponent) : opponent.board.receiveAttack([coords[0], coords[1]]);
     }
 
     // const toggleTurn = () => {

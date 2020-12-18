@@ -1,16 +1,25 @@
 // initiate the players and gameboards?
 
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 
 import Player from '../factories/Player';
 import Board from './Board';
 
+const player = Player(false);
+const pc = Player(true);
+
 const Game = () => {
+
+    console.log('starting game');
 
     const [playerTurn, setPlayerTurn] = useState(true);
 
-    const player = Player(false);
-    const pc = Player(true);
+    // const player = useRef(Player(false));
+    // const pc = useRef(Player(true));
+
+    // const player = Player(false);
+    // const pc = Player(true);
+
 
     //player.toggleTurn();
 
