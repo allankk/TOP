@@ -41,6 +41,7 @@ const Ship = ( length, coordArray ) => {
     };
 
     const isPartHit = (coord) => {
+
         let posIndex = findIndex(coordArr, coord);
 
         if (positionsHit[posIndex]) {

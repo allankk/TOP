@@ -50,6 +50,7 @@ body {
 
 .board.disabled .tile {
   background-color: #5585b566;
+  pointer-events: none;
 }
 
 .board.disabled .tile:hover {

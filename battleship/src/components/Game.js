@@ -5,8 +5,14 @@ import React, {useState, useRef} from 'react';
 import Player from '../factories/Player';
 import Board from './Board';
 
+// helper to manually place ships
+import PlaceShips from './../helpers/exampleShips';
+
 const player = Player(false);
 const pc = Player(true);
+
+PlaceShips(player);
+PlaceShips(pc);
 
 const Game = () => {
 
