@@ -9,7 +9,7 @@ const randomAttack = (opponent) => {
         let tile = opponent.board.getBoard()[randRow][randCol]
 
         if (typeof(tile) == 'object') {
-            if (tile.isPartHit()) {
+            if (tile.isPartHit([randRow, randCol])) {
                 continue;
             } else {
                 opponent.board.receiveAttack([randRow, randCol]);
@@ -25,18 +25,25 @@ const randomAttack = (opponent) => {
 } 
 
 const Player = (isPC) => {
-    console.log('starting player');
     const board = Gameboard();
     // let turn = false;
+
+    const getName = () => {
+        if (isPC) {
+            return 'Computer'
+        } else {
+            return 'Player'
+        }
+    }
 
     // attack the opponents board. If the AI is attacking, attack randomly
     const attack = (opponent, coords) => {
         // if (!turn) return;
 
-        opponent.board.receiveAttack([coords[0], coords[1]]);
+        // opponent.board.receiveAttack([coords[0], coords[1]]);
 
         // enable randomattack by pc
-        // (isPC) ? randomAttack(opponent) : opponent.board.receiveAttack([coords[0], coords[1]]);
+        (isPC) ? randomAttack(opponent) : opponent.board.receiveAttack([coords[0], coords[1]]);
     }
 
     // const toggleTurn = () => {
@@ -50,6 +57,7 @@ const Player = (isPC) => {
     return {
         attack,
         board,
+        getName
     }
 }
 

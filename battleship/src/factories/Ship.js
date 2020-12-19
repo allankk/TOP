@@ -17,9 +17,13 @@ function findIndex(array, element) {
     }
 }
 
-const Ship = ( length, coordArray ) => {
+const Ship = ( length, coordArray, name ) => {
     const positionsHit = createPositionsArray(length);
     const coordArr = [...coordArray];
+
+    const getName = () => {
+        return name;
+    }
 
     const hit = (coord) => {
         // find the correct index.
@@ -55,7 +59,8 @@ const Ship = ( length, coordArray ) => {
         hit,
         getPositionsHit,
         isSunk,
-        isPartHit
+        isPartHit,
+        getName
     }
 }
 

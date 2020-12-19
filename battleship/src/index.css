@@ -73,3 +73,22 @@ body {
   background-color: #72c7ffc9;
   cursor: pointer;
 }
+
+.board .tile.hit {
+  pointer-events: none;
+  background-color: #b57055;
+}
+
+.board .tile.sunk {
+  pointer-events: none;
+  background-color: #e44100;
+}
+
+.board .tile.attacked {
+  pointer-events: none;
+  line-height: 1.6em;
+}
+
+.board .tile.ship {
+  background-color: #548654;
+}

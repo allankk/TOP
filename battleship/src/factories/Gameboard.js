@@ -64,13 +64,13 @@ const Gameboard = () => {
         }
     };
 
-    const placeShip = (length, coords, isVertical) => {
+    const placeShip = (length, coords, isVertical, name) => {
 
         let shipCoords = createShipArray(length, coords, isVertical);
 
         // first check if the ship can be placed in the coordinates
         if (checkIfValid(shipCoords)) {
-            let newShip = Ship(length, shipCoords);
+            let newShip = Ship(length, shipCoords, name);
             shipsArr.push(newShip);
 
             // for each coordinate, place the newShip object into the array.
@@ -83,7 +83,6 @@ const Gameboard = () => {
 
     // check if position to place ship is valid
     const checkIfValid = (shipArray) => {
-        console.log(shipArray);
 
         for (let i = 0; i < shipArray.length; i++) {
             let row = shipArray[i][0];
@@ -105,11 +104,13 @@ const Gameboard = () => {
     // receive an attack on a tile. if the tile is an object (ship), use the hit function in ship object. 
     // Otherwise, write a 1 to the gameboard.
     const receiveAttack = (coords) => {
-        console.log('receiveattack called');
         let tile = board[coords[0]][coords[1]];
 
         if (typeof(tile) === 'object') {
             tile.hit([coords[0], coords[1]]);
+            if (tile.isSunk()) {
+                console.log('just sunk a ship');
+            }
         } else if (tile === 0 || tile === 'x') {
             board[coords[0]][coords[1]] = 1;
         }
@@ -117,7 +118,7 @@ const Gameboard = () => {
 
     const areAllSunk = () => {
         for(let i = 0; i < shipsArr.length; i++) {
-            if (!shipsArr[i].isSunk) return false;
+            if (!shipsArr[i].isSunk()) return false;
         }
 
         return true;
