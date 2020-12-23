@@ -35,27 +35,21 @@ const Game = () => {
         }
     }, [playerTurn]);
 
-
     // display a message for a few seconds when an action (such as a ship sinking) happens
     useEffect(() => {
         setTimeout(() => setMessage(null), 3000)
     }, [message])
 
+    const displayWinner = (name) => {
+        alert(`${name} has won the game!`)
+    }  
 
-    // const player = useRef(Player(false));
-    // const pc = useRef(Player(true));
-
-    // const player = Player(false);
-    // const pc = Player(true);
-
-
-    //player.toggleTurn();
 
     return (
         <div>
             <div className="board-container">
-                <Board player={player} opponent={pc} turn={playerTurn} toggleTurn={() => setPlayerTurn(!playerTurn)} setMessage={(msg) => setMessage(msg)} isPlayer={true}/>
-                <Board player={pc} opponent={player} turn={!playerTurn} toggleTurn={() => setPlayerTurn(!playerTurn)} setMessage={(msg) => setMessage(msg)} isPlayer={false}/>           
+                <Board player={player} opponent={pc} turn={playerTurn} toggleTurn={() => setPlayerTurn(!playerTurn)} setMessage={(msg) => setMessage(msg)} isPlayer={true} displayWinner={displayWinner} />
+                <Board player={pc} opponent={player} turn={!playerTurn} toggleTurn={() => setPlayerTurn(!playerTurn)} setMessage={(msg) => setMessage(msg)} isPlayer={false} displayWinner={displayWinner} />           
             </div>
             { (message != null) ? <Message message={message} setMessage={(msg) => setMessage(msg)} /> : null}
         </div>

@@ -8,9 +8,18 @@ const Board = (props) => {
 
         props.opponent.attack(props.player, [row, col])
 
+        // check if all ships are sunk. If so, display message
+
         // if attack was on a ship that was sunk, create a message outside of the board        
         if (typeof(grid[row][col]) === 'object' && grid[row][col].isSunk()) {
-            props.setMessage(`${props.player.getName()}'s ${grid[row][col].getName()} has been sunk`);
+            // check if all ships are sunk. If so, display message
+            if (props.player.board.areAllSunk()) {
+                props.displayWinner(props.opponent.getName());
+            } else {
+                props.setMessage(`${props.player.getName()}'s ${grid[row][col].getName()} has been sunk`);
+            }
+
+
         }
 
         props.toggleTurn();
@@ -43,28 +52,33 @@ const Board = (props) => {
 // ${renderShip(value, [row, col])}
 
     return (
-        // if it is not this players turn (therefore is opponents turn), this board should be enabled
-        <div className={'board' + (props.turn ?  ' disabled' : '')}>
-            {grid.map((innerArr, row) => {
-                return (
-                    <div key={'row' + row} className={'grid-row row-' + row}>
-                        {grid[row].map((value, col) => {
-                            return (
-                                <div className={tileClasses(value, row, col)}
-                                     id={'row-' + row + '-col-' + col}
-                                     key={'row' + row + 'col' + col}
-                                     onClick={() => handleAttack(row, col)}
-                                     >
-                                     { (value === 1) ? 'x' : null }
-                                     {/* { (typeof(value) === 'object') ? renderShip(value, [row, col]) : null} */}
-                                </div>
-                            );
-                        })}                    
-                    </div>
-                );
-            })}
+        <div>
+            { (props.isPlayer) ? (<h2>PLAYER</h2>) : (<h2>COMPUTER</h2>)}
+            <div className={'board' + (props.turn ?  ' disabled' : '')}>
+                {grid.map((innerArr, row) => {
+                    return (
+                        <div key={'row' + row} className={'grid-row row-' + row}>
+                            {grid[row].map((value, col) => {
+                                return (
+                                    <div className={tileClasses(value, row, col)}
+                                        id={'row-' + row + '-col-' + col}
+                                        key={'row' + row + 'col' + col}
+                                        onClick={() => handleAttack(row, col)}
+                                        >
+                                        { (value === 1) ? 'x' : null }
+                                        {/* { (typeof(value) === 'object') ? renderShip(value, [row, col]) : null} */}
+                                    </div>
+                                );
+                            })}                    
+                        </div>
+                    );
+                })}
 
+            </div>
+            
         </div>
+        // if it is not this players turn (therefore is opponents turn), this board should be enabled
+
     )
 
 }
