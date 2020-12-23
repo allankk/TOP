@@ -16,40 +16,36 @@ PlaceShips(player);
 PlaceShips(pc);
 
 const Game = () => {
-
-    console.log('starting game');
-
     const [playerTurn, setPlayerTurn] = useState(true);
     const [message, setMessage] = useState(null);
 
+    // if it is PC-s turn, carry out a random attack after a set amount of time, then change the turn back.
     useEffect(() => {
-        
-        if (playerTurn) {
-            if (player.board.areAllSunk()) {
-                console.log('You lost!');
-            }
+        if (!playerTurn) {
+                setTimeout(function() {
+                    pc.attack(player, [0, 0])
+                    if (player.board.areAllSunk()) {
+                        alert('You lost!');
+                    }
+                    setPlayerTurn(!playerTurn);
+            }, 1500 );
         } else {
             if (pc.board.areAllSunk()) {
-                console.log('YOU WON!');
+                alert('YOU WON!');
             }
         }
     }, [playerTurn]);
 
-    // display a message for a few seconds when an action (such as a ship sinking) happens
+    // when message of an action is displayed, delete it after a set amount of time
     useEffect(() => {
         setTimeout(() => setMessage(null), 3000)
     }, [message])
 
-    const displayWinner = (name) => {
-        alert(`${name} has won the game!`)
-    }  
-
-
     return (
         <div>
             <div className="board-container">
-                <Board player={player} opponent={pc} turn={playerTurn} toggleTurn={() => setPlayerTurn(!playerTurn)} setMessage={(msg) => setMessage(msg)} isPlayer={true} displayWinner={displayWinner} />
-                <Board player={pc} opponent={player} turn={!playerTurn} toggleTurn={() => setPlayerTurn(!playerTurn)} setMessage={(msg) => setMessage(msg)} isPlayer={false} displayWinner={displayWinner} />           
+                <Board player={player} opponent={pc} turn={playerTurn} toggleTurn={() => setPlayerTurn(!playerTurn)} setMessage={(msg) => setMessage(msg)} isPlayer={true} />
+                <Board player={pc} opponent={player} turn={!playerTurn} toggleTurn={() => setPlayerTurn(!playerTurn)} setMessage={(msg) => setMessage(msg)} isPlayer={false} />           
             </div>
             { (message != null) ? <Message message={message} setMessage={(msg) => setMessage(msg)} /> : null}
         </div>
@@ -57,5 +53,3 @@ const Game = () => {
 }
 
 export default Game;
-
-// 

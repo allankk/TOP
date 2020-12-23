@@ -8,35 +8,29 @@ const Board = (props) => {
 
         props.opponent.attack(props.player, [row, col])
 
-        // check if all ships are sunk. If so, display message
-
         // if attack was on a ship that was sunk, create a message outside of the board        
         if (typeof(grid[row][col]) === 'object' && grid[row][col].isSunk()) {
             // check if all ships are sunk. If so, display message
-            if (props.player.board.areAllSunk()) {
-                props.displayWinner(props.opponent.getName());
-            } else {
-                props.setMessage(`${props.player.getName()}'s ${grid[row][col].getName()} has been sunk`);
-            }
-
-
+            props.setMessage(`${props.player.getName()}'s ${grid[row][col].getName()} has been sunk`);
         }
 
         props.toggleTurn();
     }
 
+    // returns a proper classname for the ship tile.
     const renderShip = (object, coord) => {
-        // if its an unhit player ship, return 'S', otherwise return null (to hide enemy ships)
+        
         if (object.isPartHit(coord)) {
             if (object.isSunk()) {
                 return 'sunk';
             } else {
                 return 'hit';
             }
+        // if its an unhit player ship, return 'S', otherwise return null (to hide enemy ships)
         } else if (props.isPlayer) {
             return 'ship';
         } else {
-            return ''
+            return 'ship' // TODO: CHANGE THIS TO '' TO HIDE OPPONENT SHIPS
         }
     }
 
@@ -49,7 +43,16 @@ const Board = (props) => {
             return 'tile';
         }
     }
-// ${renderShip(value, [row, col])}
+
+    // if player board, add onclick to attack. If PC, handle attack automatically
+    const addClickBasedOnPlayer = () => {
+        if (props.player.getName() === 'Computer') {
+            return ' onClick={() => handleAttack(row, col)}'; 
+        } else {
+            console.log('PC attacks');
+            return ' onClick={() => handleAttack(row, col)}';
+        }
+    }
 
     return (
         <div>
@@ -63,10 +66,9 @@ const Board = (props) => {
                                     <div className={tileClasses(value, row, col)}
                                         id={'row-' + row + '-col-' + col}
                                         key={'row' + row + 'col' + col}
-                                        onClick={() => handleAttack(row, col)}
+                                        onClick={!props.isPlayer ? () => handleAttack(row, col) : null}
                                         >
                                         { (value === 1) ? 'x' : null }
-                                        {/* { (typeof(value) === 'object') ? renderShip(value, [row, col]) : null} */}
                                     </div>
                                 );
                             })}                    
@@ -77,10 +79,7 @@ const Board = (props) => {
             </div>
             
         </div>
-        // if it is not this players turn (therefore is opponents turn), this board should be enabled
-
     )
-
 }
 
 export default Board;
