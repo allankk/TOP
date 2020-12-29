@@ -19,28 +19,30 @@ function createBoard(size) {
     return board;
 };
 
-// creates ship coordinates
-function createShipArray(length, coords, isVertical) {
-    let coordArr = [];
 
-    coordArr.push([coords[0], coords[1]]);
-
-    for(let i = 1; i < length; i++) {
-        if (isVertical) {
-            coordArr.push([coords[0] + i, coords[1]]);
-        } else {
-            coordArr.push([coords[0], coords[1] + i]);
-        }
-    };
-    
-    return coordArr;
-};
 
 
 const Gameboard = () => {
 
     const board = createBoard(BOARD_SIZE);
     const shipsArr = [];
+
+    // creates ship coordinates
+    function createShipArray(length, coords, isVertical) {
+        let coordArr = [];
+
+        coordArr.push([coords[0], coords[1]]);
+
+        for(let i = 1; i < length; i++) {
+            if (isVertical) {
+                coordArr.push([coords[0] + i, coords[1]]);
+            } else {
+                coordArr.push([coords[0], coords[1] + i]);
+            }
+        };
+        
+        return coordArr;
+    };
 
     // place 'x' in the array around the ship to mark where other ships can't be placed
     const placeDisabledSpots = (coords) => {
@@ -54,8 +56,8 @@ const Gameboard = () => {
                 let curCol = col + k;
 
                 // don't check outside the board
-                if (curRow > BOARD_SIZE-1 || curRow < 0) break;
-                if (curCol > BOARD_SIZE-1 || curCol < 0) break;
+                if (curRow > BOARD_SIZE-1 || curRow < 0) continue;
+                if (curCol > BOARD_SIZE-1 || curCol < 0) continue;
 
                 if (board[curRow][curCol] === 0) {
                     board[curRow][curCol] = 'x';
@@ -78,10 +80,14 @@ const Gameboard = () => {
                 placeDisabledSpots(element);
                 board[element[0]][element[1]] = newShip;
             })
+
+            return true;
+        } else {
+            return false;
         }
     };
 
-    // check if position to place ship is valid
+    // check if position to place ship is valid. Input is an array of coordinates (eg [[1, 2][1, 3][1, 4]])
     const checkIfValid = (shipArray) => {
 
         for (let i = 0; i < shipArray.length; i++) {
@@ -131,7 +137,8 @@ const Gameboard = () => {
         getBoard,
         checkIfValid,
         receiveAttack,
-        areAllSunk
+        areAllSunk,
+        createShipArray
     }
 }
 

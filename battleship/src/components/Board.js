@@ -30,7 +30,7 @@ const Board = (props) => {
         } else if (props.isPlayer) {
             return 'ship';
         } else {
-            return 'ship' // TODO: CHANGE THIS TO '' TO HIDE OPPONENT SHIPS
+            return 'ship' // CHANGE THIS TO '' TO HIDE OPPONENT SHIPS
         }
     }
 
@@ -41,16 +41,6 @@ const Board = (props) => {
             return `tile ${renderShip(value, [row, col])}`;
         } else {
             return 'tile';
-        }
-    }
-
-    // if player board, add onclick to attack. If PC, handle attack automatically
-    const addClickBasedOnPlayer = () => {
-        if (props.player.getName() === 'Computer') {
-            return ' onClick={() => handleAttack(row, col)}'; 
-        } else {
-            console.log('PC attacks');
-            return ' onClick={() => handleAttack(row, col)}';
         }
     }
 

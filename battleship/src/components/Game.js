@@ -7,13 +7,14 @@ import Board from './Board';
 import Message from './Message';
 
 // helper to manually place ships
-import PlaceShips from './../helpers/exampleShips';
+import {PlaceShips, randomShips} from '../helpers/shipPlacement';
 
 const player = Player(false);
 const pc = Player(true);
 
 PlaceShips(player);
-PlaceShips(pc);
+// PlaceShips(pc);
+randomShips(pc);
 
 const Game = () => {
     const [playerTurn, setPlayerTurn] = useState(true);
