@@ -1,10 +1,11 @@
-// initiate the players and gameboards?
-
 import React, {useState, useEffect} from 'react';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
 import Player from '../factories/Player';
 import Board from './Board';
 import Message from './Message';
+import ShipContainer from './ShipContainer';
 
 // helper to manually place ships
 import {PlaceShips, randomShips} from '../helpers/shipPlacement';
@@ -12,7 +13,7 @@ import {PlaceShips, randomShips} from '../helpers/shipPlacement';
 const player = Player(false);
 const pc = Player(true);
 
-PlaceShips(player);
+// PlaceShips(player);
 // PlaceShips(pc);
 randomShips(pc);
 
@@ -44,11 +45,14 @@ const Game = () => {
 
     return (
         <div>
+            <DndProvider backend={HTML5Backend}>
             <div className="board-container">
                 <Board player={player} opponent={pc} turn={playerTurn} toggleTurn={() => setPlayerTurn(!playerTurn)} setMessage={(msg) => setMessage(msg)} isPlayer={true} />
                 <Board player={pc} opponent={player} turn={!playerTurn} toggleTurn={() => setPlayerTurn(!playerTurn)} setMessage={(msg) => setMessage(msg)} isPlayer={false} />           
             </div>
             { (message != null) ? <Message message={message} setMessage={(msg) => setMessage(msg)} /> : null}
+            <ShipContainer />
+            </DndProvider>
         </div>
     )
 }

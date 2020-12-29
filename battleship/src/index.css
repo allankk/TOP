@@ -92,3 +92,36 @@ body {
 .board .tile.ship {
   background-color: #548654;
 }
+
+/* SHIP CONTAINER */
+
+.ship-container {
+  margin-top: 100px;
+  background-color: #5585b54d;
+  max-width: 600px;
+  margin-left: 20%;
+  display: flex;
+}
+
+.ship-container .ship {
+  margin: 5px;
+  height: auto;
+  align-self: flex-start;
+}
+
+.ship-container .ship:hover > .tile.ship {
+  background-color: #4cb71bc2;;
+}
+
+.ship-container .tile.ship {
+  background-color: #548654;
+  height: 30px;
+  width: 30px;
+  margin: 0;
+  border: 1px solid #282c34;
+}
+
+.ship-container .tile.ship:hover {
+  cursor: pointer;
+}
+

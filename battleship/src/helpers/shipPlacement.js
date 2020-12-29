@@ -32,7 +32,6 @@
 //     }
 // ]
 
-
 const ships = [
     {
         name: 'carrier',
@@ -56,16 +55,15 @@ const ships = [
     }
 ]
 
-
 // place ships manually without checking
 const PlaceShips = (player) => {
-    player.board.placeShip(ships[0].length, [2, 0], true, ships[0].name);
-    player.board.placeShip(ships[1].length, [0, 6], false, ships[1].name);
-    player.board.placeShip(ships[2].length, [2, 2], false, ships[2].name);
-    player.board.placeShip(ships[3].length, [7, 9], true, ships[3].name);
-    player.board.placeShip(ships[4].length, [9, 3], false, ships[4].name);
+    // player.board.placeShip(ships[0].length, [2, 0], true, ships[0].name);
+    // player.board.placeShip(ships[1].length, [0, 6], false, ships[1].name);
+    // player.board.placeShip(ships[2].length, [2, 2], false, ships[2].name);
+    // player.board.placeShip(ships[3].length, [7, 9], true, ships[3].name);
+    // player.board.placeShip(ships[4].length, [9, 3], false, ships[4].name);
+    return ships;
 }
-
 
 // place ships randomly
 const randomShips = (player) => {
@@ -87,20 +85,6 @@ const randomShips = (player) => {
             if (player.board.placeShip(element.length, [randRow, randCol], randomDirection(), element.name)) {
                 break;
             }
-
-
-        //     let shipArray = player.board.createShipArray(element.length, [randRow, randCol], randomDirection());
-
-        //     if (player.board.checkIfValid(shipArray)) {
-        //         console.log('valid');
-        //         console.log(shipArray);
-        //         console.log('-------------')
-        //         break;
-        //     } else {
-        //         console.log('-------------');
-        //         console.log('not valid');
-        //         console.log(shipArray);
-        //     }
         }
     })
 
