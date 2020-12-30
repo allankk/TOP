@@ -1,14 +1,16 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import uniqid from 'uniqid';
 
 import Player from '../factories/Player';
 import Board from './Board';
 import Message from './Message';
 import ShipContainer from './ShipContainer';
+import ResetBoard from './buttons/ResetBoard';
 
 // helper to manually place ships
-import {PlaceShips, randomShips} from '../helpers/shipPlacement';
+import { randomShips } from '../helpers/shipPlacement';
 
 const player = Player(false);
 const pc = Player(true);
@@ -18,12 +20,16 @@ const pc = Player(true);
 randomShips(pc);
 
 const Game = () => {
-    const [playerTurn, setPlayerTurn] = useState(true);
+    const [gameStarted, setGameStarted] = useState(false);
+    const [playerTurn, setPlayerTurn] = useState(false);
     const [message, setMessage] = useState(null);
+
+    // keep track of ships placed and update board accordingly
+    const [shipsPlaced, setShipsPlaced] = useState([]);
 
     // if it is PC-s turn, carry out a random attack after a set amount of time, then change the turn back.
     useEffect(() => {
-        if (!playerTurn) {
+        if (!playerTurn && gameStarted) {
                 setTimeout(function() {
                     pc.attack(player, [0, 0])
                     if (player.board.areAllSunk()) {
@@ -43,15 +49,21 @@ const Game = () => {
         setTimeout(() => setMessage(null), 3000)
     }, [message])
 
+    const handleReset = () => {
+        player.board.resetBoard();
+        setShipsPlaced([]);
+    }
+
     return (
         <div>
             <DndProvider backend={HTML5Backend}>
-            <div className="board-container">
-                <Board player={player} opponent={pc} turn={playerTurn} toggleTurn={() => setPlayerTurn(!playerTurn)} setMessage={(msg) => setMessage(msg)} isPlayer={true} />
-                <Board player={pc} opponent={player} turn={!playerTurn} toggleTurn={() => setPlayerTurn(!playerTurn)} setMessage={(msg) => setMessage(msg)} isPlayer={false} />           
-            </div>
-            { (message != null) ? <Message message={message} setMessage={(msg) => setMessage(msg)} /> : null}
-            <ShipContainer />
+                <div className="board-container">
+                    <Board player={player} shipsPlaced={shipsPlaced} setShipsPlaced={setShipsPlaced} opponent={pc} turn={playerTurn} toggleTurn={() => setPlayerTurn(!playerTurn)} setMessage={(msg) => setMessage(msg)} isPlayer={true} />
+                    <Board player={pc} opponent={player}  shipsPlaced={shipsPlaced} setShipsPlaced={setShipsPlaced} turn={!playerTurn} toggleTurn={() => setPlayerTurn(!playerTurn)} setMessage={(msg) => setMessage(msg)} isPlayer={false} />           
+                </div>
+                { (!gameStarted) ? <ResetBoard handleReset={handleReset} /> : null}
+                { (message != null) ? <Message message={message} setMessage={(msg) => setMessage(msg)} /> : null}
+                <ShipContainer shipsPlaced={shipsPlaced}/>
             </DndProvider>
         </div>
     )

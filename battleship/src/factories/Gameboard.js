@@ -35,9 +35,9 @@ const Gameboard = () => {
 
         for(let i = 1; i < length; i++) {
             if (isVertical) {
-                coordArr.push([coords[0] + i, coords[1]]);
+                coordArr.push([coords[0] - i, coords[1]]);
             } else {
-                coordArr.push([coords[0], coords[1] + i]);
+                coordArr.push([coords[0], coords[1] - i]);
             }
         };
         
@@ -130,6 +130,14 @@ const Gameboard = () => {
         return true;
     }
 
+    const resetBoard = () => {
+        for (let i = 0; i < board.length; i++) {
+            for (let j = 0; j < board[i].length; j++) {
+                board[i][j] = 0;
+            }
+        }
+    }
+
     function getBoard() { return board };
 
     return {
@@ -138,7 +146,8 @@ const Gameboard = () => {
         checkIfValid,
         receiveAttack,
         areAllSunk,
-        createShipArray
+        createShipArray,
+        resetBoard
     }
 }
 

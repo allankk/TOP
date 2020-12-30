@@ -119,9 +119,18 @@ body {
   width: 30px;
   margin: 0;
   border: 1px solid #282c34;
+  color: #000000ad;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
 }
 
 .ship-container .tile.ship:hover {
   cursor: pointer;
+}
+
+.ship-container .tile.ship.rotate {
+  font-size: 12px;
 }
 

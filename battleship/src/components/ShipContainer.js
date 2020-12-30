@@ -6,14 +6,16 @@ import { PlaceShips } from './../helpers/shipPlacement';
 import Ship from './Ship';
 
 
-const ShipContainer = () => {
+const ShipContainer = (props) => {
 
     let ships = PlaceShips();
 
     return (
         <div className="ship-container">
             {ships.map((ship, index) => {
-                return <Ship key={uniqid()} length={ship.length} name={ship.name} />
+                return (
+                    (!props.shipsPlaced.includes(ship.name) ? <Ship key={uniqid()} length={ship.length} name={ship.name} /> : null)
+                )
             })}                 
         </div>
     )

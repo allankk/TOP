@@ -1,19 +1,9 @@
 import React from 'react';
-import { useDrop } from 'react-dnd';
-import { ItemTypes } from '../utils/items';
 import uniqid from 'uniqid';
 
 import BoardTile from './BoardTile';
 
 const Board = (props) => {
-
-    const[{ isOver }, drop] = useDrop({
-        accept: ItemTypes.SHIP,
-        collect: monitor => ({
-            isOver: !!monitor.isOver(),
-        }),
-    })
-
     const grid = props.player.board.getBoard();
 
     const handleAttack = (row, col) => {
@@ -29,34 +19,42 @@ const Board = (props) => {
         props.toggleTurn();
     }
 
-    // // returns a proper classname for the ship tile.
-    // const renderShip = (object, coord) => {
-        
-    //     if (object.isPartHit(coord)) {
-    //         if (object.isSunk()) {
-    //             return 'sunk';
-    //         } else {
-    //             return 'hit';
-    //         }
-    //     // if its an unhit player ship, return 'S', otherwise return null (to hide enemy ships)
-    //     } else if (props.isPlayer) {
-    //         return 'ship';
+    // render the ships when placing them on the board
+    // const renderHover = (row, col, length, isVertical) => {
+    //     let shipArray = props.player.board.createShipArray(length, [row, col], isVertical);
+    //     if (props.player.board.checkIfValid(shipArray)) {
+    //         shipArray.forEach(element => {
+    //             if (document.getElementById(`row-${element[0]}-col-${element[1]}`) != null) {
+    //                 document.getElementById(`row-${element[0]}-col-${element[1]}`).style.backgroundColor = "green";
+    //             }
+
+    //         })
     //     } else {
-    //         return 'ship' // CHANGE THIS TO '' TO HIDE OPPONENT SHIPS
+    //         shipArray.forEach(element => {
+    //             if (document.getElementById(`row-${element[0]}-col-${element[1]}`) != null) {
+    //                 document.getElementById(`row-${element[0]}-col-${element[1]}`).style.backgroundColor = "orange";
+    //             }
+    //         })
     //     }
+    //     return shipArray;
     // }
 
-    // const tileClasses = (value, row, col) => {
-    //     if (value === 1) {
-    //         return 'tile attacked';
-    //     } else if (typeof(value) === 'object') {
-    //         return `tile ${renderShip(value, [row, col])}`;
-    //     } else {
-    //         return 'tile';
-    //     }
-    // }
+    // used for tile components to check whether placing a ship there is valid
+    const checkValidity = (row, col, length, isVertical) => {
+        let shipArray = props.player.board.createShipArray(length, [row, col], isVertical);
+        return (props.player.board.checkIfValid(shipArray));
+    }
 
-// div ref props.isPlayer ? drop : null
+    // used for tile components to place a ship
+    const placeShip = (length, coords, isVertical, name) => {
+        // place ship on board
+        props.player.board.placeShip(length, coords, isVertical, name);
+        // update placed ships parent state
+        let shipsPlaced = [...props.shipsPlaced];
+        shipsPlaced.push(name);
+        props.setShipsPlaced(shipsPlaced)    
+    }
+
     return (
         <div>
             { (props.isPlayer) ? (<h2>PLAYER</h2>) : (<h2>COMPUTER</h2>)}
@@ -66,15 +64,7 @@ const Board = (props) => {
                         <div key={'row' + row} className={'grid-row row-' + row}>
                             {grid[row].map((value, col) => {
                                 return (
-                                    <BoardTile key={uniqid()} isPlayer={props.isPlayer} row={row} col={col} value={value} handleAttack={() => handleAttack(row, col)} />
-                                    // <div className={tileClasses(value, row, col)}
-                                    //     id={'row-' + row + '-col-' + col}
-                                    //     key={'row' + row + 'col' + col}
-                                    //     onClick={!props.isPlayer ? () => handleAttack(row, col) : null}
-                                    //     ref={drop}
-                                    //     >
-                                    //     { (value === 1) ? 'x' : null }
-                                    // </div>
+                                    <BoardTile key={uniqid()} isPlayer={props.isPlayer} row={row} col={col} value={value} handleAttack={() => handleAttack(row, col)} checkValidity={checkValidity} placeShip={placeShip} />
                                 );
                             })}                    
                         </div>
@@ -82,7 +72,6 @@ const Board = (props) => {
                 })}
 
             </div>
-            
         </div>
     )
 }

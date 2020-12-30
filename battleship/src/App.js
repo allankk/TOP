@@ -1,4 +1,3 @@
-import Button from './components/button/button';
 import Game from './components/Game';
 
 

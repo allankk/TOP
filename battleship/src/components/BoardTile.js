@@ -1,14 +1,29 @@
 import React from 'react';
 import { useDrop } from 'react-dnd';
-import { ItemTypes } from './../utils/items'
+import { ItemTypes } from './../utils/items';
+
+import Overlay from './Overlay';
 
 
 const BoardTile = (props) => {
 
-    const[{ isOver }, drop] = useDrop({
+    const handleDrop = (item) => {
+        props.placeShip(item.length, [props.row, props.col], item.isVertical, item.name)
+
+    }
+
+    const[{ isOver, canDrop }, drop] = useDrop({
         accept: ItemTypes.SHIP,
+        canDrop: (item) => props.checkValidity(props.row, props.col, item.length, item.isVertical),
+        // hover(item) {
+        //     length = item.length;
+        //     let array = props.renderHover(props.row, props.col, item.length, item.isVertical);   
+        //     stopHover(array);         
+        // },
+        drop: (item, monitor) => handleDrop(item),
         collect: monitor => ({
             isOver: !!monitor.isOver(),
+            canDrop: !!monitor.canDrop()
         }),
     })
 
@@ -44,8 +59,10 @@ const BoardTile = (props) => {
             id={'row-' + props.row + '-col-' + props.col}
             key={'row' + props.row + 'col' + props.col}
             onClick={!props.isPlayer ? () => props.handleAttack(props.row, props.col) : null}
-            ref={drop} style={{backgroundColor: isOver ? 'blue' : null}}
+            ref={drop}
             >
+            { isOver && canDrop && <Overlay color="green" />}
+            { isOver && !canDrop && <Overlay color="orange" />}
             { (props.value === 1) ? 'x' : null }
         </div>
     )

@@ -25,7 +25,7 @@ const randomAttack = (opponent) => {
 } 
 
 const Player = (isPC) => {
-    const board = Gameboard();
+    let board = Gameboard();
     // let turn = false;
 
     const getName = () => {
@@ -57,7 +57,7 @@ const Player = (isPC) => {
     return {
         attack,
         board,
-        getName
+        getName,
     }
 }
 
