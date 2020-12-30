@@ -1,5 +1,3 @@
-
-
 const ships = [
     {
         name: 'carrier',
@@ -23,14 +21,13 @@ const ships = [
     }
 ]
 
-// place ships manually without checking
+// place ships manually
 const PlaceShips = (player) => {
     return ships;
 }
 
 // place ships randomly
 const randomShips = (player) => {
-
     // random vertical/horizontal placement
     const randomDirection = () => {
         return Math.random() < 0.5 
@@ -49,6 +46,5 @@ const randomShips = (player) => {
     })
 
 }
-
 
 export {PlaceShips, randomShips};

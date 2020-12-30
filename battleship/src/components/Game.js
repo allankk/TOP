@@ -1,19 +1,20 @@
 import React, {useState, useEffect } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import uniqid from 'uniqid';
 
 import Player from '../factories/Player';
 import Board from './Board';
 import Message from './Message';
 import ShipContainer from './ShipContainer';
 import ResetBoard from './buttons/ResetBoard';
+import StartPrompt from './StartPrompt';
+import EndPrompt from './EndPrompt';
 
 // helper to manually place ships
 import { randomShips } from '../helpers/shipPlacement';
 
-const player = Player(false);
-const pc = Player(true);
+let player = Player(false);
+let pc = Player(true);
 
 // PlaceShips(player);
 // PlaceShips(pc);
@@ -23,6 +24,8 @@ const Game = () => {
     const [gameStarted, setGameStarted] = useState(false);
     const [playerTurn, setPlayerTurn] = useState(false);
     const [message, setMessage] = useState(null);
+    // [is game over, winner]
+    const [gameEnded, setGameEnded] = useState([false, null]);
 
     // keep track of ships placed and update board accordingly
     const [shipsPlaced, setShipsPlaced] = useState([]);
@@ -33,30 +36,44 @@ const Game = () => {
                 setTimeout(function() {
                     pc.attack(player, [0, 0])
                     if (player.board.areAllSunk()) {
+                        setGameEnded([true, 'pc']);
                         alert('You lost!');
                     }
                     setPlayerTurn(!playerTurn);
-            }, 1500 );
+            }, 500 ); // TIME COMPUTER WAITS UNTIL ATTACKING
         } else {
             if (pc.board.areAllSunk()) {
-                alert('YOU WON!');
+                setGameEnded([true, 'player']);
             }
         }
-    }, [playerTurn]);
+    }, [playerTurn, gameStarted]);
 
     // when message of an action is displayed, delete it after a set amount of time
     useEffect(() => {
         setTimeout(() => setMessage(null), 3000)
     }, [message])
 
+    // reset the board
     const handleReset = () => {
         player.board.resetBoard();
         setShipsPlaced([]);
     }
 
+    const handleNewGame = () => {
+        player = Player(false);
+        pc = Player(true);
+        randomShips(pc);
+        setGameStarted(false);
+        setGameEnded([false, null]);
+        setShipsPlaced([]);
+        setPlayerTurn(false);
+    }
+
     return (
         <div>
             <DndProvider backend={HTML5Backend}>
+                {(gameEnded[0]) ? <EndPrompt gameEnded={gameEnded} setGameEnded={setGameEnded} handleNewGame={handleNewGame} gameStarted={gameStarted} setGameStarted={setGameStarted} /> : null}
+                <StartPrompt gameStarted={gameStarted} setGameStarted={setGameStarted} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn} shipsPlaced={shipsPlaced} />
                 <div className="board-container">
                     <Board player={player} shipsPlaced={shipsPlaced} setShipsPlaced={setShipsPlaced} opponent={pc} turn={playerTurn} toggleTurn={() => setPlayerTurn(!playerTurn)} setMessage={(msg) => setMessage(msg)} isPlayer={true} />
                     <Board player={pc} opponent={player}  shipsPlaced={shipsPlaced} setShipsPlaced={setShipsPlaced} turn={!playerTurn} toggleTurn={() => setPlayerTurn(!playerTurn)} setMessage={(msg) => setMessage(msg)} isPlayer={false} />           

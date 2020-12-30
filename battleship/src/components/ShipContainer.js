@@ -1,10 +1,8 @@
 import React from 'react';
 import uniqid from 'uniqid';
 
-
 import { PlaceShips } from './../helpers/shipPlacement';
 import Ship from './Ship';
-
 
 const ShipContainer = (props) => {
 
@@ -20,6 +18,5 @@ const ShipContainer = (props) => {
         </div>
     )
 }
-
 
 export default ShipContainer

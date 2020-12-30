@@ -7,7 +7,6 @@ const Board = (props) => {
     const grid = props.player.board.getBoard();
 
     const handleAttack = (row, col) => {
-
         props.opponent.attack(props.player, [row, col])
 
         // if attack was on a ship that was sunk, create a message outside of the board        
@@ -15,29 +14,8 @@ const Board = (props) => {
             // check if all ships are sunk. If so, display message
             props.setMessage(`${props.player.getName()}'s ${grid[row][col].getName()} has been sunk`);
         }
-
         props.toggleTurn();
     }
-
-    // render the ships when placing them on the board
-    // const renderHover = (row, col, length, isVertical) => {
-    //     let shipArray = props.player.board.createShipArray(length, [row, col], isVertical);
-    //     if (props.player.board.checkIfValid(shipArray)) {
-    //         shipArray.forEach(element => {
-    //             if (document.getElementById(`row-${element[0]}-col-${element[1]}`) != null) {
-    //                 document.getElementById(`row-${element[0]}-col-${element[1]}`).style.backgroundColor = "green";
-    //             }
-
-    //         })
-    //     } else {
-    //         shipArray.forEach(element => {
-    //             if (document.getElementById(`row-${element[0]}-col-${element[1]}`) != null) {
-    //                 document.getElementById(`row-${element[0]}-col-${element[1]}`).style.backgroundColor = "orange";
-    //             }
-    //         })
-    //     }
-    //     return shipArray;
-    // }
 
     // used for tile components to check whether placing a ship there is valid
     const checkValidity = (row, col, length, isVertical) => {
@@ -57,7 +35,7 @@ const Board = (props) => {
 
     return (
         <div>
-            { (props.isPlayer) ? (<h2>PLAYER</h2>) : (<h2>COMPUTER</h2>)}
+            {(props.isPlayer) ? (<h2>PLAYER</h2>) : (<h2>COMPUTER</h2>)}
             <div className={'board' + (props.turn ?  ' disabled' : '')}>
                 {grid.map((innerArr, row) => {
                     return (

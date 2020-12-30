@@ -3,10 +3,8 @@ import uniqid from 'uniqid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowsAlt, faUndo } from "@fortawesome/free-solid-svg-icons";
 
-
 import { useDrag } from 'react-dnd';
 import { ItemTypes } from './../utils/items';
-
 
 const Ship = ( props ) => {
     const [isVertical, setIsVertical] = useState(true);
@@ -44,7 +42,6 @@ const Ship = ( props ) => {
             ship.push(<div className="tile ship" key={uniqid()}></div>)
         }
     }
-
     return <div ref={preview} style={{ ...style, opacity }} className="ship" key={uniqid()}>{ship}</div> //key
 }
 

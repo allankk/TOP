@@ -1,5 +1,6 @@
 import Gameboard from './Gameboard';
 
+// TESTS BREAK IF BOARD SIZE IS LESS THAN 10
 
 test('gameboard is created correctly', () => {
     let board = Gameboard();
@@ -8,7 +9,6 @@ test('gameboard is created correctly', () => {
 })
 
 // placing a ship
-
 test('ship is placed correctly to an empty gameboard', () => {
     let board = Gameboard();
     board.placeShip(3, [1, 1], true);
@@ -17,7 +17,6 @@ test('ship is placed correctly to an empty gameboard', () => {
 })
 
 // check if valid
-
 test('placing a second ship that is not interfering should be valid', () => {
     let board = Gameboard();
     board.placeShip(3, [1, 1], true);

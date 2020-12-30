@@ -1,9 +1,6 @@
 import Game from './components/Game';
 
-
 function App() {
-  console.log('starting app');
-
   return (
     <div className="App">
       <header className="App-header">

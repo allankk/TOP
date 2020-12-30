@@ -9,17 +9,11 @@ const BoardTile = (props) => {
 
     const handleDrop = (item) => {
         props.placeShip(item.length, [props.row, props.col], item.isVertical, item.name)
-
     }
 
     const[{ isOver, canDrop }, drop] = useDrop({
         accept: ItemTypes.SHIP,
         canDrop: (item) => props.checkValidity(props.row, props.col, item.length, item.isVertical),
-        // hover(item) {
-        //     length = item.length;
-        //     let array = props.renderHover(props.row, props.col, item.length, item.isVertical);   
-        //     stopHover(array);         
-        // },
         drop: (item, monitor) => handleDrop(item),
         collect: monitor => ({
             isOver: !!monitor.isOver(),
@@ -29,7 +23,6 @@ const BoardTile = (props) => {
 
     // returns a proper classname for the ship tile.
     const renderShip = (object, coord) => {
-        
         if (object.isPartHit(coord)) {
             if (object.isSunk()) {
                 return 'sunk';
@@ -59,8 +52,7 @@ const BoardTile = (props) => {
             id={'row-' + props.row + '-col-' + props.col}
             key={'row' + props.row + 'col' + props.col}
             onClick={!props.isPlayer ? () => props.handleAttack(props.row, props.col) : null}
-            ref={drop}
-            >
+            ref={drop}>
             { isOver && canDrop && <Overlay color="green" />}
             { isOver && !canDrop && <Overlay color="orange" />}
             { (props.value === 1) ? 'x' : null }

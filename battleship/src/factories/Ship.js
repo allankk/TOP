@@ -4,7 +4,6 @@ function createPositionsArray(length) {
     for (let i = 0; i < length; i ++) {
         posArray.push(0);
     }
-
     return posArray;
 }
 
@@ -20,7 +19,7 @@ function findIndex(array, element) {
 const Ship = ( length, coordArray, name ) => {
     const positionsHit = createPositionsArray(length);
     const coordArr = [...coordArray];
-
+    
     const getName = () => {
         return name;
     }

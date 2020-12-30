@@ -1,5 +1,7 @@
 import React from 'react';
 
+// Overlay meant to change the color of the bordertile when trying to place a ship
+
 const Overlay = ({color}) => {
     return(
         <div style={{

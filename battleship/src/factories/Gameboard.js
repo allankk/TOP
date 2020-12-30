@@ -1,6 +1,6 @@
 import Ship from './Ship';
 
-const BOARD_SIZE = 10;
+const BOARD_SIZE = 10; // CHANGE THE AMOUNT OF ROWS/COLUMNS IN GRID
 
 // creates a new board (grid size x size)
 function createBoard(size) {
@@ -15,15 +15,10 @@ function createBoard(size) {
 
         board.push(row);
     }
-
     return board;
 };
 
-
-
-
 const Gameboard = () => {
-
     const board = createBoard(BOARD_SIZE);
     const shipsArr = [];
 
@@ -40,7 +35,6 @@ const Gameboard = () => {
                 coordArr.push([coords[0], coords[1] - i]);
             }
         };
-        
         return coordArr;
     };
 
@@ -80,7 +74,6 @@ const Gameboard = () => {
                 placeDisabledSpots(element);
                 board[element[0]][element[1]] = newShip;
             })
-
             return true;
         } else {
             return false;
@@ -89,7 +82,6 @@ const Gameboard = () => {
 
     // check if position to place ship is valid. Input is an array of coordinates (eg [[1, 2][1, 3][1, 4]])
     const checkIfValid = (shipArray) => {
-
         for (let i = 0; i < shipArray.length; i++) {
             let row = shipArray[i][0];
             let col = shipArray[i][1];
@@ -103,7 +95,6 @@ const Gameboard = () => {
                 return false;
             };
         }
-
         return true;
     };
 
@@ -126,7 +117,6 @@ const Gameboard = () => {
         for(let i = 0; i < shipsArr.length; i++) {
             if (!shipsArr[i].isSunk()) return false;
         }
-
         return true;
     }
 
