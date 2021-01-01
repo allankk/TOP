@@ -33,7 +33,7 @@ const BoardTile = (props) => {
         } else if (props.isPlayer) {
             return 'ship';
         } else {
-            return 'ship' // CHANGE THIS TO '' TO HIDE OPPONENT SHIPS
+            return '' // CHANGE THIS TO '' TO HIDE OPPONENT SHIPS, 'ship' to display ships
         }
     }
 
@@ -53,8 +53,8 @@ const BoardTile = (props) => {
             key={'row' + props.row + 'col' + props.col}
             onClick={!props.isPlayer ? () => props.handleAttack(props.row, props.col) : null}
             ref={drop}>
-            { isOver && canDrop && <Overlay color="green" />}
-            { isOver && !canDrop && <Overlay color="orange" />}
+            { isOver && canDrop && <Overlay color="#3aad3e" />}
+            { isOver && !canDrop && <Overlay color="#b32828" />}
             { (props.value === 1) ? 'x' : null }
         </div>
     )

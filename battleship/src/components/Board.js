@@ -2,6 +2,8 @@ import React from 'react';
 import uniqid from 'uniqid';
 
 import BoardTile from './BoardTile';
+import ShipArray from './ShipArray';
+
 
 const Board = (props) => {
     const grid = props.player.board.getBoard();
@@ -34,8 +36,9 @@ const Board = (props) => {
     }
 
     return (
-        <div>
+        <div className="board-header" style={{position: "relative"}}>
             {(props.isPlayer) ? (<h2>PLAYER</h2>) : (<h2>COMPUTER</h2>)}
+            <ShipArray isPlayer={props.isPlayer} ships={props.player.board.getShips()}/>
             <div className={'board' + (props.turn ?  ' disabled' : '')}>
                 {grid.map((innerArr, row) => {
                     return (

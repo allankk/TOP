@@ -40,7 +40,7 @@ const Game = () => {
                         alert('You lost!');
                     }
                     setPlayerTurn(!playerTurn);
-            }, 500 ); // TIME COMPUTER WAITS UNTIL ATTACKING
+            }, 1200 ); // TIME COMPUTER WAITS UNTIL ATTACKING
         } else {
             if (pc.board.areAllSunk()) {
                 setGameEnded([true, 'player']);
@@ -70,17 +70,17 @@ const Game = () => {
     }
 
     return (
-        <div>
+        <div className="game">
             <DndProvider backend={HTML5Backend}>
                 {(gameEnded[0]) ? <EndPrompt gameEnded={gameEnded} setGameEnded={setGameEnded} handleNewGame={handleNewGame} gameStarted={gameStarted} setGameStarted={setGameStarted} /> : null}
-                <StartPrompt gameStarted={gameStarted} setGameStarted={setGameStarted} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn} shipsPlaced={shipsPlaced} />
+                <StartPrompt gameEnded={gameEnded} gameStarted={gameStarted} setGameStarted={setGameStarted} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn} shipsPlaced={shipsPlaced} />
                 <div className="board-container">
                     <Board player={player} shipsPlaced={shipsPlaced} setShipsPlaced={setShipsPlaced} opponent={pc} turn={playerTurn} toggleTurn={() => setPlayerTurn(!playerTurn)} setMessage={(msg) => setMessage(msg)} isPlayer={true} />
                     <Board player={pc} opponent={player}  shipsPlaced={shipsPlaced} setShipsPlaced={setShipsPlaced} turn={!playerTurn} toggleTurn={() => setPlayerTurn(!playerTurn)} setMessage={(msg) => setMessage(msg)} isPlayer={false} />           
                 </div>
                 { (!gameStarted) ? <ResetBoard handleReset={handleReset} /> : null}
                 { (message != null) ? <Message message={message} setMessage={(msg) => setMessage(msg)} /> : null}
-                <ShipContainer shipsPlaced={shipsPlaced}/>
+                { (!gameStarted) ? <ShipContainer shipsPlaced={shipsPlaced}/> : null}
             </DndProvider>
         </div>
     )

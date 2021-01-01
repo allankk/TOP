@@ -32,8 +32,78 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #282c34;
+  background-color: #384358;
   text-align: center;
+}
+
+h2 {
+  color: #dcdcdc;
+}
+
+.game {
+  margin-top: 200px;
+  position: relative;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.game .ship-container {
+  position: absolute;
+  bottom: 155px;
+}
+
+/* BEFORE GAME START */
+
+.Prompt {
+  position: absolute;
+  top: -60px;
+}
+
+.startBtn {
+    height: 40px;
+    width: 150px;
+    font-size: 16px;
+    box-shadow: 0 0 8px -3px #171717;
+}
+
+.startBtn:hover {
+  cursor: pointer;
+}
+
+.resetDiv {
+  margin: 20px;
+}
+
+.resetBtn {
+  height: 40px;
+  width: 150px;
+}
+
+/* MESSAGES */
+
+.message {
+  color: #dcdcdc;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.end-message {
+  position: absolute;
+  top: -120px;
+  color: #dcdcdc;
+  font-size: 20px;
+}
+
+.end-message button {
+  height: 40px;
+  width: 150px;
+}
+
+.end-message button:hover {
+  cursor: pointer;
 }
 
 /* BOARD */
@@ -43,9 +113,14 @@ body {
     justify-content: space-evenly;
 }
 
+.board-header {
+  margin: 0 10px;
+}
+
 .board {
   display: block;
   text-align: center;
+  box-shadow: 0 0 8px -3px black;
 } 
 
 .board.disabled .tile {
@@ -65,7 +140,7 @@ body {
 .board .tile {
     width: 30px;
     height: 30px;
-    border: 1px solid #282c34;
+    border: 1px solid #354861;
     background-color: #5585b5;
 }
 
@@ -96,10 +171,9 @@ body {
 /* SHIP CONTAINER */
 
 .ship-container {
-  margin-top: 100px;
   background-color: #5585b54d;
-  max-width: 600px;
-  margin-left: 20%;
+  width: 600px;
+  height: 170px;
   display: flex;
 }
 
@@ -134,3 +208,30 @@ body {
   font-size: 12px;
 }
 
+
+/* ship array to display hits */
+
+.shiparray {
+  display: flex;
+  flex-direction: column;
+  color: #dcdcdc;
+  height: 240px;
+  width: 80px;
+}
+
+.shiparray .ship {
+  display: flex;
+  flex-direction: row;
+}
+
+.shiparray .circle {
+  border: 1px solid #dcdcdc;
+  width: 10px;
+  height: 10px;
+  margin: 10px 2px;
+  border-radius: 10px;
+}
+
+.shiparray .circle.filled {
+  background-color: #dcdcdc;
+}

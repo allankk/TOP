@@ -11,7 +11,7 @@ const EndPrompt = (props) => {
     }
 
     return (
-        <div>
+        <div className="end-message">
             {props.gameEnded[0] ? gameEndMessage() : null}
             <button onClick={props.handleNewGame}>Start New Game</button>
         </div>

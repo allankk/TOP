@@ -20,7 +20,7 @@ function createBoard(size) {
 
 const Gameboard = () => {
     const board = createBoard(BOARD_SIZE);
-    const shipsArr = [];
+    let shipsArr = [];
 
     // creates ship coordinates
     function createShipArray(length, coords, isVertical) {
@@ -126,9 +126,12 @@ const Gameboard = () => {
                 board[i][j] = 0;
             }
         }
+
+        shipsArr = [];
     }
 
     function getBoard() { return board };
+    function getShips() { return shipsArr }
 
     return {
         placeShip,
@@ -137,7 +140,8 @@ const Gameboard = () => {
         receiveAttack,
         areAllSunk,
         createShipArray,
-        resetBoard
+        resetBoard,
+        getShips
     }
 }
 
