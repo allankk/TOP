@@ -7,7 +7,7 @@ import { Watches, Wallets, Other } from './Items';
 function Shop() {
     const [showWatches, setShowWatches] = useState(true);
     const [showWallets, setShowWallets] = useState(true);
-    const [showOther, setShowOther] = useState(false);
+    const [showOther, setShowOther] = useState(true);
     
     function show(showItems, items, title) {
         if (showItems) {

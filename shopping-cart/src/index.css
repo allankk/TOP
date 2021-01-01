@@ -253,7 +253,7 @@ nav .cart-icon span {
 
 @media screen and (min-width: 768px) {
   .card-item {
-    flex-basis: 30%;
+    flex-basis: 25%;
   }
 
 @media screen and (min-width: 1024px) {
@@ -262,8 +262,9 @@ nav .cart-icon span {
   }
   
   .card-item {
-    height: 320px;
-    width: 320px;
+    height: 280px;
+    width: 250px;
+    padding: 5px;
   }
   
   .card-item img {
