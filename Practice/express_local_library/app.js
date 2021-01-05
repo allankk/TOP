@@ -11,12 +11,9 @@ var app = express();
 
 // CREATE MONGODB CONNECTION
 var mongoose = require('mongoose');
-// set up default connection
 var mongoDB = 'mongodb+srv://allan:jalgpall@cluster0.8bt9w.mongodb.net/express_local_library?retryWrites=true&w=majority';
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
-//get the default connection
 var db = mongoose.connection;
-// bind connection to error event (to get notification of connection errors)
 db.on('error', console.error.bind(console, 'MongoDB connection error'));
 
 // view engine setup
