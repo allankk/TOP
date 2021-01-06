@@ -7,6 +7,9 @@
     "devstart": "nodemon ./bin/www",
     "serverstart": "DEBUG=mini-message-board:* npm run devstart"
   },
+  "engines": {
+    "node": "10.x.y"
+  },
   "dependencies": {
     "async": "^3.2.0",
     "cookie-parser": "~1.4.4",

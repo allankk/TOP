@@ -1,0 +1,173 @@
+@import url('nord.css');
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: var(--nord6);
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.top {
+    font-size: 14px;
+    width: 100%;
+    background-color: var(--nord1);
+    color: var(--nord7);
+    height: 50px;
+    box-shadow: 0 0 6px 1px var(--nord7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+}
+
+.description {
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+    color: var(--nord3);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 20px;
+    width: 90%;
+}
+
+.container h2 {
+    font-size: 20px;
+    color: var(--nord1);
+}
+
+.message-container {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: var(--nord7);
+    border-radius: 25px;
+    box-shadow: 0px 0px 4px -2px var(--nord3);
+    transition: margin-left ease 0.15s;
+}
+
+.message-container:hover {
+    margin-left: 5px;
+}
+
+.message-container .author {
+    font-size: 16px;
+}
+
+.message-container .text {
+    margin: 5px 0;
+    word-wrap: break-word;
+}
+
+.message-container .date {
+    text-align: right;
+    margin-right: 20px;
+    color: var(--nord3);
+}
+
+.link-container {
+    margin-top: 50px;
+}
+
+.link-container a {
+    background-color: var(--nord3);
+    color: var(--nord4);
+    padding: 15px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    box-shadow: 0 0 6px -3px var(--nord3);
+}
+
+.link-container a:hover {
+    color: var(--nord7);
+    box-shadow: 0 0 10px -3px var(--nord3);
+}
+
+@media only screen and (min-width: 768px) {
+    .content {
+        margin-left: 30px;
+    }
+}
+
+/* NEW MESSAGE */
+.new-container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.new-container h2 {
+    font-size: 20px;
+    color: var(--nord1);
+    margin-bottom: 20px;
+}
+
+.new-container form {
+    position: relative;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    color: var(--nord1);
+}
+
+.new-container label {
+    width: 400px;
+    max-width: 95%;
+    text-align: left;
+    margin-top: 20px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.new-container input {
+    margin-top: 10px;
+    height: 30px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 95%;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 4px -1px var(--nord3);
+}
+
+.new-container input:focus {
+    box-shadow: 0 0 5px 1px var(--nord7);
+}
+
+.new-container #usermessage {
+    word-break: break-word;
+}
+
+.new-container #submit-button {
+    margin-top: 30px;
+    padding-bottom: 24px;
+    text-align: center;
+}
+
+.new-container #submit-button:hover {
+    box-shadow: 0 0 5px 1px var(--nord7);
+    cursor: pointer;
+}

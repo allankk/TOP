@@ -1,5 +1,28 @@
 extends layout
 
 block content
-  h1= title
-  p welcome to #{title}
+  div(class='top')
+    h1= title
+
+  div(class='description')
+    p Created using 
+      inline(class='stack one') Express.js 
+      | and 
+      inline(class='stack two') Pug
+  
+  div(class='content')
+
+    div(class='container') 
+      h2 messages
+      for item in messages
+        div(class='message-container')
+          h3(class='author')= item.user
+          p(class='text')= item.text
+          p(class='date')= item.added.getDate() + '.' + (item.added.getMonth() + 1) + '.' + item.added.getFullYear()
+      else
+        div(class='message-container')
+          div(class='messages-empty')
+            h2 No messages yet!
+
+    div(class='link-container')
+      a(class='link' href="/new") new message
